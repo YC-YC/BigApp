@@ -1,8 +1,11 @@
 package com.example.bigapps;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import com.example.bigapps.testviewpager.MainViewPager;
 
 public class MainActivity extends Activity {
 
@@ -12,5 +15,16 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 	}
 
+
+	public void doClick(View view)
+	{
+		switch (view.getId()) {
+		case R.id.button1:
+			startActivity(new Intent(this, MainViewPager.class));
+			break;
+		default:
+			break;
+		}
+	}
 
 }
