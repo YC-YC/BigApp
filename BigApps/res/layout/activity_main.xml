@@ -8,12 +8,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/button1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="doClick"
-            android:text="ViewPager切换" />
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="doClick"
+                android:text="ViewPager切换" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="doClick"
+                android:text="自定义ViewPager切换" />
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>

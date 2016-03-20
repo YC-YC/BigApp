@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.bigapps.testviewpager.MainViewPager;
+import com.example.bigapps.testviewpager.MainViewPager2;
 
 public class MainActivity extends Activity {
 
@@ -21,6 +22,9 @@ public class MainActivity extends Activity {
 		switch (view.getId()) {
 		case R.id.button1:
 			startActivity(new Intent(this, MainViewPager.class));
+			break;
+		case R.id.button2:
+			startActivity(new Intent(this, MainViewPager2.class));
 			break;
 		default:
 			break;

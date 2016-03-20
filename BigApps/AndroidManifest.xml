@@ -24,6 +24,7 @@
         </activity>
         
         <activity android:name="com.example.bigapps.testviewpager.MainViewPager"></activity>
+        <activity android:name="com.example.bigapps.testviewpager.MainViewPager2"></activity>
     </application>
 
 </manifest>
