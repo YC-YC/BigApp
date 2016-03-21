@@ -25,6 +25,8 @@
         
         <activity android:name="com.example.bigapps.testviewpager.MainViewPager"></activity>
         <activity android:name="com.example.bigapps.testviewpager.MainViewPager2"></activity>
+ 	   <activity android:name="com.example.bigapps.circlemenu.CircleActivity"></activity>
+  
     </application>
 
 </manifest>
