@@ -33,7 +33,7 @@ public class CircleActivity extends Activity {
 		setContentView(R.layout.main_circlemenu);
 	
 		mCircleMenuLayout = (CircleMenuLayout) findViewById(R.id.id_menulayout);
-		mCircleMenuLayout.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
+		mCircleMenuLayout.setMenuAttr(mItemImgs, mItemTexts, 60, 1000);
 		mCircleMenuLayout.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			
 			@Override

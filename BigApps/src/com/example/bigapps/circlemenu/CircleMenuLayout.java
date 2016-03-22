@@ -33,11 +33,16 @@ public class CircleMenuLayout extends ViewGroup {
 	 *  直径
 	 */
 	private int mRadius;
-
+	
+	/**
+	 * 上、左偏移(需要做补偿)
+	 */
+	private int mTopPadding;
+	private int mLeftPadding;
 	/**
 	 *  根据menu item的个数，计算角度
 	 */
-	private	float mAngleDelay;
+	private	float mPerItemAngle;
 	
 	/**
 	 * 该容器的内边距,无视padding属性，如需边距请用该变量
@@ -55,16 +60,26 @@ public class CircleMenuLayout extends ViewGroup {
 	/**
 	 * 该容器的内边距,无视padding属性，如需边距请用该变量，到外部的距离
 	 */
-	private static final float RADIO_PADDING_LAYOUT = 1 / 12f;
+	private static final float RADIO_PADDING_LAYOUT = 0 / 12f;
 	/**
-	 * 布局时的开始角度
+	 * 用于计算开始角度
 	 */
-	private double mStartAngle = -45;
+	private double mStartAngle = 0;
+	
+	/**
+	 * 设置显示的开始角度
+	 */
+	private double mStartAngleIndex = 0;
 
+	/**
+	 * 总显示角度
+	 */
+	private double mTotalAngle = 0;
+	
 	/**
 	 * 最小的缩放值
 	 */
-	private static final float MIN_SCALE = 0.5f;
+	private static final float MIN_SCALE = 0.6f;
 	/**
 	 * 菜单的个数
 	 */
@@ -91,14 +106,20 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 
 	/**
+	 * 设置菜单属性
 	 * 设置菜单条目的图标和文本
-	 * 
-	 * @param resIds
+	 * @param resIds 图标
+	 * @param texts	文本
+	 * @param startAngle 开始角度（理论值为（-90到90），但越接近90效果越不好）
+	 * @param radio	半径 需要根据startAngle调整
 	 */
-	public void setMenuItemIconsAndTexts(int[] resIds, String[] texts) {
+	public void setMenuAttr(int[] resIds, String[] texts, float startAngle, int radio) {
 		mItemImgs = resIds;
 		mItemTexts = texts;
-
+		mRadius = radio;
+		mStartAngleIndex = startAngle;
+		mStartAngle = mStartAngleIndex;
+		mTotalAngle = 180 - 2*startAngle;
 		// 参数检查
 		if (resIds == null && texts == null) {
 			throw new IllegalArgumentException("菜单项文本和图片至少设置其一");
@@ -111,6 +132,7 @@ public class CircleMenuLayout extends ViewGroup {
 			mMenuItemCount = Math.min(resIds.length, texts.length);
 		}
 
+		mPerItemAngle = (float) (mTotalAngle/(mMenuItemCount-1));
 		addMenuItems();
 
 	}
@@ -192,24 +214,24 @@ public class CircleMenuLayout extends ViewGroup {
 		return Math.min(outMetrics.widthPixels, outMetrics.heightPixels);
 	}
 
-	@Override
+/*	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 		int resWidth = 0;
 		int resHeight = 0;
 		Log.i(tag, "onMeasure");
-		/**
+		*//**
 		 * 根据传入的参数，分别获取测量模式和测量值
-		 */
+		 *//*
 		int width = MeasureSpec.getSize(widthMeasureSpec);
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 
 		int height = MeasureSpec.getSize(heightMeasureSpec);
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-		/**
+		*//**
 		 * 如果宽或者高的测量模式非精确值
-		 */
+		 *//*
 		if (widthMode != MeasureSpec.EXACTLY
 				|| heightMode != MeasureSpec.EXACTLY) {
 			// 主要设置为背景图的高度
@@ -220,9 +242,13 @@ public class CircleMenuLayout extends ViewGroup {
 			resHeight = getSuggestedMinimumHeight();
 			// 如果未设置背景图片，则设置为屏幕宽高的默认值
 			resHeight = resHeight == 0 ? getDefaultWidth() : resHeight;
+			resWidth = (int) (Math.cos(mStartAngleIndex)*2);
+			resHeight = (int) Math.sin(mStartAngleIndex);
 		} else {
 			// 如果都设置为精确值，则直接取小值；
-			resWidth = resHeight = Math.min(width, height);
+//			resWidth = resHeight = Math.min(width, height);
+			resWidth = width;
+			resHeight = height;
 		}
 
 		// 设置view的w,h
@@ -260,9 +286,91 @@ public class CircleMenuLayout extends ViewGroup {
 		}
 
 		mPadding = RADIO_PADDING_LAYOUT * mRadius;
-	}
+	}*/
 
 	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+		int resWidth = 0;
+		int resHeight = 0;
+//		Log.i(tag, "onMeasure");
+		/**
+		 * 根据传入的参数，分别获取测量模式和测量值
+		 */
+		int width = MeasureSpec.getSize(widthMeasureSpec);
+		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+
+		int height = MeasureSpec.getSize(heightMeasureSpec);
+		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+
+//		Log.i(tag, "onMeasure width = " +width +", widthMode = " +widthMode + ",height = " + height + ", heightMode = " + heightMode);
+		/**
+		 * 如果宽或者高的测量模式非精确值
+		 */
+		if (widthMode != MeasureSpec.EXACTLY
+				|| heightMode != MeasureSpec.EXACTLY) 
+		{
+			int childWidth = (int) (mRadius*RADIO_DEFAULT_CHILD_DIMENSION);
+			mLeftPadding = childWidth/2;
+			if (mStartAngleIndex < 0)
+			{
+				resWidth = 2*mRadius;
+			}
+			else
+			{
+				resWidth = (int) (mRadius*Math.cos(mStartAngleIndex*Math.PI/180)*2);
+			}
+			//宽度左右各进行半个childview补偿
+			resWidth += 2*mLeftPadding;
+			//高度进行mPerItemAngle高度和半个childview补偿
+			mTopPadding = Math.abs((int) (mRadius*Math.sin(mPerItemAngle*Math.PI/180))) + childWidth/2;
+			resHeight = (int) (mRadius - mRadius*Math.sin(mStartAngleIndex*Math.PI/180));
+			resHeight += mTopPadding;
+		} else 
+		{
+			resWidth = width;
+			resHeight = height;
+		}
+//		Log.i(tag, "onMeasure resWidth = " +resWidth +", resHeight = " +resHeight);
+
+		// 设置view的w,h
+		setMeasuredDimension(resWidth, resHeight);
+
+		// menu item数量
+		final int count = getChildCount();
+		// menu item尺寸
+		int childSize = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
+		// menu item测量模式
+		int childMode = MeasureSpec.EXACTLY;
+
+		// 迭代测量
+		for (int i = 0; i < count; i++) {
+			final View child = getChildAt(i);
+
+			if (child.getVisibility() == GONE) {
+				continue;
+			}
+
+			// 计算menu item的尺寸；以及和设置好的模式，去对item进行测量
+			int makeMeasureSpec = -1;
+
+			if (child.getId() == R.id.id_circle_menu_item_center) 
+			{
+				makeMeasureSpec = MeasureSpec.makeMeasureSpec(
+						(int) (mRadius * RADIO_DEFAULT_CENTERITEM_DIMENSION),
+						childMode);
+			} else 
+			{
+				makeMeasureSpec = MeasureSpec.makeMeasureSpec(childSize,
+						childMode);
+			}
+			child.measure(makeMeasureSpec, makeMeasureSpec);
+		}
+
+		mPadding = RADIO_PADDING_LAYOUT * mRadius;
+	}
+	
+/*	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
 		int angle = 180;
@@ -322,6 +430,62 @@ public class CircleMenuLayout extends ViewGroup {
 			mStartAngle += mAngleDelay;
 		}
 
+	}*/
+	
+	@Override
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
+
+		// Laying out the child views
+		final int childCount = getChildCount();
+
+		int left, top;
+		// menu item 的尺寸
+		int cWidth = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
+		// 根据menu item的个数，计算角度
+		
+		// 遍历去设置menuitem的位置
+		for (int i = 0; i < childCount; i++) {
+			final View child = getChildAt(i);
+
+			if (child.getId() == R.id.id_circle_menu_item_center)
+				continue;
+
+			if (child.getVisibility() == GONE) {
+				continue;
+			}
+
+			if (mStartAngle >= mTotalAngle + mStartAngleIndex + mPerItemAngle)
+			{
+				mStartAngle = mStartAngleIndex+mStartAngle%(mTotalAngle + mStartAngleIndex + mPerItemAngle);
+			}
+//			Log.i(tag, "onLayout mStartAngle = " + mStartAngle);
+
+			// 计算，中心点到menu item中心的距离
+			float tmp = mRadius - cWidth / 2 - mPadding;
+
+			// tmp cosa 即menu item中心点的横坐标
+			left = mLeftPadding*2 + (int) (mRadius*Math.cos(mStartAngleIndex*Math.PI/180)
+					+ (int) Math.round(tmp
+							* Math.cos(Math.toRadians(mStartAngle)) - 1 / 2f
+							* cWidth));
+			// tmp sina 即menu item的纵坐标
+			top = mTopPadding + (int) (-mRadius*Math.sin(mStartAngleIndex*Math.PI/180)
+					+(int) Math.round(tmp
+							* Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f
+							* cWidth));
+
+//			Log.i(tag, "onLayout left = " + left + ", top = " + top + ", cWidth = " + cWidth);
+			float level = getLevel(mStartAngle);
+//			Log.i(tag, "getLevel = " + level);
+			child.layout(left, top, left + cWidth, top + cWidth);
+			child.setScaleX(level);
+			child.setScaleY(level);
+			child.setAlpha(level);
+			// 叠加尺寸
+			mStartAngle += mPerItemAngle;
+		}
+
 	}
 
 	
@@ -332,20 +496,21 @@ public class CircleMenuLayout extends ViewGroup {
 	 */
 	private float getLevel(double startAngle) {
 		float result = 0.0f;
-		if (startAngle < 0)
+		if (startAngle < mStartAngleIndex)//[-, mStartAngleIndex]
 		{
-			result = MIN_SCALE;
+//			result = MIN_SCALE;
+			result = 0;	//0为不可见
 		}
-		else if (startAngle < 90)
+		else if (startAngle <= mStartAngleIndex + mTotalAngle/2)//[mStartAngleIndex, mStartAngleIndex + mTotalAngle/2]
 		{
-			result =  MIN_SCALE + (float)startAngle/90f*(1-MIN_SCALE);
-		}else if (startAngle < 180)
+			result =  (float) (MIN_SCALE + (startAngle-mStartAngleIndex)/(mTotalAngle/2)*(1-MIN_SCALE));
+		}else if (startAngle <= mStartAngleIndex + mTotalAngle)//[mStartAngleIndex + mTotalAngle/2, mStartAngleIndex + mTotalAngle]
 		{
-			result =  1.0f - (float)((startAngle-90)/90)*(1-MIN_SCALE);
+			result =  1.0f - (float)((startAngle-(mStartAngleIndex + mTotalAngle/2))/(mTotalAngle/2))*(1-MIN_SCALE);
 		}
 		else
 		{
-			result = MIN_SCALE;
+			result = 0;
 		}
 		return result;
 	}
@@ -371,10 +536,17 @@ public class CircleMenuLayout extends ViewGroup {
 	 * 自动滚动的Runnable
 	 */
 	private AutoFlingRunnable mFlingRunnable;
+	
+	/**
+	 * 后退处理，防止停止时滚动太快
+	 */
+	private boolean isMoveBack;
+	private MoveBackRunnable mMoveBackRunnable;
+	
 	/**
 	 * 当每秒移动角度达到该值时，认为是快速移动
 	 */
-	private static final int FLINGABLE_VALUE = 300;
+	private static final int FLINGABLE_VALUE = 100;
 	/**
 	 * 当每秒移动角度达到该值时，认为是快速移动
 	 */
@@ -417,19 +589,23 @@ public class CircleMenuLayout extends ViewGroup {
 		}
 
 	}
-	
+
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 
 		float x = ev.getX();
 		float y = ev.getY();
-		
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN://按下
 			mLastX = x;
 			mLastY = y;
 			mDownTime = SystemClock.elapsedRealtime();
 			mTmpAngle = 0;
+			if (isMoveBack)// 如果当前已经在回退  
+			{
+				removeCallbacks(mMoveBackRunnable);
+				isMoveBack = false;
+			}
 			if (isFling) // 如果当前已经在滚动  
 			{
 				removeCallbacks(mFlingRunnable);
@@ -438,7 +614,7 @@ public class CircleMenuLayout extends ViewGroup {
 			}
 			break;
 		case MotionEvent.ACTION_MOVE:
-			float start = getAngle(mLastX, mLastY);//开始时角度
+			/*float start = getAngle(mLastX, mLastY);//开始时角度
 			float end = getAngle(x, y);	//当前角度
 	         Log.e(tag, "start = " + start + " , end =" + end);  
             // 如果是一、四象限，则直接end-start，角度值都是正值  
@@ -451,7 +627,11 @@ public class CircleMenuLayout extends ViewGroup {
             {  
                 mStartAngle += start - end;  
                 mTmpAngle += start - end;  
-            }  
+            }  */
+			float angle = (float) ((mLastX - x)/(2*mRadius*Math.cos(mStartAngleIndex*Math.PI/180))*180);
+			mStartAngle += angle;  
+            mTmpAngle += angle; 
+//            Log.i(tag, "move angle = " + angle);
             // 重新布局  
             requestLayout();  
   
@@ -461,6 +641,7 @@ public class CircleMenuLayout extends ViewGroup {
 		case MotionEvent.ACTION_UP:
 			 // 计算，每秒移动的角度  
             float anglePerSecond = mTmpAngle * 1000/(SystemClock.elapsedRealtime() - mDownTime);  
+//            Log.i(tag, "11111anglePerSecond up" + anglePerSecond);
             // 如果达到该值认为是快速移动  
             if (Math.abs(anglePerSecond) > mFlingableValue && !isFling)  
             {  
@@ -471,8 +652,12 @@ public class CircleMenuLayout extends ViewGroup {
             }  
             else
             {
-            	mStartAngle = getStopAngle(mStartAngle);
-				requestLayout();
+    			double stopAngle = getStopAngle(mStartAngle);
+//				Log.i(tag, "222222getStopAngle = " + stopAngle + ", mStartAngle = " + mStartAngle);
+    			isMoveBack = true;
+    			post(mMoveBackRunnable = new MoveBackRunnable(stopAngle - mStartAngle, stopAngle));
+
+//				requestLayout();
             }
   
             // 如果当前旋转角度超过NOCLICK_VALUE屏蔽点击  
@@ -484,24 +669,25 @@ public class CircleMenuLayout extends ViewGroup {
 		default:
 			break;
 		}
-		
-		return super.dispatchTouchEvent(ev);
+		super.dispatchTouchEvent(ev);//执行一下，不然子View获取不到点击事件
+		return true;
 	}
 	
 	/**
+	 * 通过停止时开始的角度算出应该停止的位置
 	 * @param mStartAngle
 	 * @return
 	 */
 	private double getStopAngle(double startAngle) {
 		
-		int position = (int) (startAngle/mAngleDelay);
-		int tmp = (int) (startAngle%mAngleDelay);
-		if (tmp > mAngleDelay/2)
+		int position = (int) ((startAngle - mStartAngleIndex)/mPerItemAngle);
+		int tmp = (int) ((startAngle - mStartAngleIndex)%mPerItemAngle);
+		if (tmp > mPerItemAngle/2)
 		{
 			position++;
 		}
 		
-		return position*mAngleDelay;
+		return position*mPerItemAngle + mStartAngleIndex;
 	}
 	
 	/**
@@ -519,12 +705,17 @@ public class CircleMenuLayout extends ViewGroup {
 
 		public void run()
 		{
-			// 如果小于20,则停止
+			// 如果小于20,则回退
+//			Log.i(tag, "11111anglePerSecond run" + angelPerSecond);
 			if ((int) Math.abs(angelPerSecond) < 20)
 			{
 				isFling = false;
-				mStartAngle = getStopAngle(mStartAngle);
-				requestLayout();
+//            	mStartAngle = getStopAngle(mStartAngle);
+//            	requestLayout();
+				double stopAngle = getStopAngle(mStartAngle);
+//				Log.i(tag, "222222getStopAngle = " + stopAngle + ", mStartAngle = " + mStartAngle);
+				isMoveBack = true;
+				post(mMoveBackRunnable = new MoveBackRunnable(stopAngle - mStartAngle, stopAngle));
 				return;
 			}
 			isFling = true;
@@ -536,8 +727,46 @@ public class CircleMenuLayout extends ViewGroup {
 			// 重新布局
 			requestLayout();
 		}
-
-		
+	}
+	
+	/**
+	 * 回退任务
+	 * @author YC
+	 * @time 2016-3-22 下午6:01:36
+	 */
+	private class MoveBackRunnable implements Runnable {
+		private static final int BACKUP_ANGLE = 1;
+		private double mOffsetAngle;
+		private double mEndAngle;
+		public MoveBackRunnable(double offsetAngle, double endAngle){
+			mOffsetAngle = offsetAngle;
+			mEndAngle = endAngle;
+		}
+		public void run() {
+//			Log.i(tag, "222222 run mStartAngle = " + mStartAngle + ", mEndAngle = " + mEndAngle + ", mOffsetAngle = " + mOffsetAngle);
+			if (Math.abs(mStartAngle - mEndAngle) < BACKUP_ANGLE)
+			{
+				mStartAngle = mEndAngle;
+				requestLayout();
+				isMoveBack = false;
+				return;
+			}
+			
+			if (mOffsetAngle > 0)//顺时针
+			{
+				mStartAngle += BACKUP_ANGLE;
+				mOffsetAngle -= BACKUP_ANGLE;
+			}
+			else
+			{
+				mStartAngle -= BACKUP_ANGLE;
+				mOffsetAngle += BACKUP_ANGLE;
+			}
+			postDelayed(this, 50);
+			// 重新布局
+			requestLayout();
+			
+		}
 	}
 
 

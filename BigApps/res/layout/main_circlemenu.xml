@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     <com.example.bigapps.circlemenu.CircleMenuLayout
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
         android:id="@+id/id_menulayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:padding="100dp"
         android:background="@drawable/circle_bg3" >
 
