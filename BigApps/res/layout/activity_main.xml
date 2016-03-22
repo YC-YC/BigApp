@@ -41,6 +41,12 @@
                 android:layout_height="wrap_content"
                 android:onClick="doClick"
                 android:text="圆形菜单" />
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="doClick"
+                android:text="列表滑动删除" />
         </LinearLayout>
     </ScrollView>
 

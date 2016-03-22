@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.bigapps.circlemenu.CircleActivity;
+import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
 
@@ -29,6 +30,9 @@ public class MainActivity extends Activity {
 			break;
 		case R.id.button3:
 			startActivity(new Intent(this, CircleActivity.class));
+			break;
+		case R.id.button4:
+			startActivity(new Intent(this, SlideDelActivity.class));
 			break;
 		default:
 			break;
