@@ -6,6 +6,7 @@ package com.example.bigapps.utils;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.WindowManager;
 
 /**
@@ -52,5 +53,18 @@ public class SizeUtils {
 	public static int dx2dip(Context context, int pxValue)
 	{
 		return (int) (pxValue/getScreenMatrics(context).density);
+	}
+	
+	/**
+	 * 转成标准尺寸
+	 * @param context
+	 * @param unit {@code TypedValue.COMPLEX_UNIT_PX...}COMPLEX_UNIT_SP是单位，20是数值，也就是20sp。
+	 * @param value
+	 * @return
+	 */
+	public static int getStandarSize(Context context, int unit, int value)
+	{
+		return (int) TypedValue.applyDimension(unit, value,
+				context.getResources().getDisplayMetrics());
 	}
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.example.bigapps"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <com.example.bigapps.customview.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:src="@drawable/head"
+        custom:type="circle" >
+    </com.example.bigapps.customview.CustomImageView>
+
+    <com.example.bigapps.customview.CustomImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:boredRadius="20dp"
+        custom:src="@drawable/head"
+        custom:type="round" >
+    </com.example.bigapps.customview.CustomImageView>
+
+</LinearLayout>

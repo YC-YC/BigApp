@@ -36,6 +36,8 @@
         </activity>
          <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity3" >
         </activity>
+         <activity android:name="com.example.bigapps.customview.CustomImageViewActivity" >
+        </activity>
     </application>
 
 </manifest>

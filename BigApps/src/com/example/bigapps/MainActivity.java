@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.bigapps.circlemenu.CircleActivity;
+import com.example.bigapps.customview.CustomImageViewActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity2;
 import com.example.bigapps.horizonlist.HorizonListActivity3;
@@ -45,7 +46,10 @@ public class MainActivity extends Activity {
 			break;	
 		case R.id.button7:
 			startActivity(new Intent(this, HorizonListActivity3.class));
-			break;	
+			break;
+		case R.id.button8:
+			startActivity(new Intent(this, CustomImageViewActivity.class));
+			break;
 		default:
 			break;
 		}
