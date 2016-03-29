@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.bigapps.circlemenu.CircleActivity;
+import com.example.bigapps.horizonlist.HorizonListActivity;
+import com.example.bigapps.horizonlist.HorizonListActivity2;
+import com.example.bigapps.horizonlist.HorizonListActivity3;
 import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
@@ -34,6 +37,15 @@ public class MainActivity extends Activity {
 		case R.id.button4:
 			startActivity(new Intent(this, SlideDelActivity.class));
 			break;
+		case R.id.button5:
+			startActivity(new Intent(this, HorizonListActivity.class));
+			break;	
+		case R.id.button6:
+			startActivity(new Intent(this, HorizonListActivity2.class));
+			break;	
+		case R.id.button7:
+			startActivity(new Intent(this, HorizonListActivity3.class));
+			break;	
 		default:
 			break;
 		}

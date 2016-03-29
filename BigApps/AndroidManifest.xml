@@ -22,12 +22,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name="com.example.bigapps.testviewpager.MainViewPager"></activity>
-        <activity android:name="com.example.bigapps.testviewpager.MainViewPager2"></activity>
- 	   <activity android:name="com.example.bigapps.circlemenu.CircleActivity"></activity>
- 	   <activity android:name="com.example.bigapps.slidedel.SlideDelActivity"></activity>
-  
+        <activity android:name="com.example.bigapps.testviewpager.MainViewPager" >
+        </activity>
+        <activity android:name="com.example.bigapps.testviewpager.MainViewPager2" >
+        </activity>
+        <activity android:name="com.example.bigapps.circlemenu.CircleActivity" >
+        </activity>
+        <activity android:name="com.example.bigapps.slidedel.SlideDelActivity" >
+        </activity>
+        <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity" >
+        </activity>
+        <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity2" >
+        </activity>
+         <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity3" >
+        </activity>
     </application>
 
 </manifest>
