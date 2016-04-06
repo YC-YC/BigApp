@@ -7,17 +7,19 @@
     android:orientation="vertical" >
 
     <com.example.bigapps.customview.CustomImageView
+        android:id="@+id/customimage1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        custom:src="@drawable/head"
+        custom:src="@drawable/ic_launcher"
         custom:type="circle" >
     </com.example.bigapps.customview.CustomImageView>
 
     <com.example.bigapps.customview.CustomImageView
+        android:id="@+id/customimage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         custom:boredRadius="20dp"
-        custom:src="@drawable/head"
+        custom:src="@drawable/ic_launcher"
         custom:type="round" >
     </com.example.bigapps.customview.CustomImageView>
 

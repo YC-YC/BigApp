@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ import com.example.bigapps.R;
  */
 public class HorizonListActivity extends Activity {
 
+	private static final String TAG = "HorizonListActivity";
+	
 	private List<CityItem> cityList;
 	private RelativeLayout itmel;
 	private GridView gridView;
@@ -102,6 +105,7 @@ public class HorizonListActivity extends Activity {
 
 			tvCity.setText(city.getCityName());
 			tvCode.setText(city.getCityCode());
+			Log.i(TAG, "getView position = " + position);
 			return convertView;
 		}
 	}

@@ -187,6 +187,7 @@ public class ImgUtils {
     {  
         final Paint paint = new Paint();  
         paint.setAntiAlias(true);  
+        paint.setFilterBitmap(true);
         Bitmap target = Bitmap.createBitmap(min, min, Config.ARGB_8888);  
         /** 产生一个同样大小的画布  */  
         Canvas canvas = new Canvas(target);  
@@ -198,6 +199,34 @@ public class ImgUtils {
         canvas.drawBitmap(source, 0, 0, paint);  
         return target;  
     } 
+	
+	
+	/**
+	 * 绘制圆图
+	 * @param source
+	 * @return
+	 */
+	public static Bitmap createCircleImage(Bitmap source)  
+    {  
+		if (source == null){
+			return null;
+		}
+		int min =  Math.min(source.getWidth(), source.getHeight());
+        final Paint paint = new Paint();  
+        paint.setAntiAlias(true);  
+        paint.setFilterBitmap(true);
+        Bitmap target = Bitmap.createBitmap(min, min, Config.ARGB_8888);  
+        /** 产生一个同样大小的画布  */  
+        Canvas canvas = new Canvas(target);  
+        /** 首先绘制圆形 */  
+        canvas.drawCircle(min / 2, min / 2, min / 2, paint);  
+        /**  使用SRC_IN，参考上面的说明 */  
+        paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));  
+        /**  绘制图片  */  
+        canvas.drawBitmap(source, 0, 0, paint);  
+        return target;  
+    } 
+	
 	
 	/**
 	 * 高斯模糊

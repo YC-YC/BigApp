@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="18"
         android:targetSdkVersion="18" />
 
     <application
@@ -37,6 +37,8 @@
          <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity3" >
         </activity>
          <activity android:name="com.example.bigapps.customview.CustomImageViewActivity" >
+        </activity>
+        <activity android:name="com.example.bigapps.horizonlist.TestActivity" >
         </activity>
     </application>
 

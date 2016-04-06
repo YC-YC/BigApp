@@ -10,6 +10,7 @@ import com.example.bigapps.customview.CustomImageViewActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity2;
 import com.example.bigapps.horizonlist.HorizonListActivity3;
+import com.example.bigapps.horizonlist.TestActivity;
 import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
@@ -49,6 +50,9 @@ public class MainActivity extends Activity {
 			break;
 		case R.id.button8:
 			startActivity(new Intent(this, CustomImageViewActivity.class));
+			break;
+		case R.id.button9:
+			startActivity(new Intent(this, TestActivity.class));
 			break;
 		default:
 			break;

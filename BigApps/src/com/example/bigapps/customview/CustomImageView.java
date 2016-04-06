@@ -13,6 +13,9 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -78,6 +81,7 @@ public class CustomImageView extends ImageView {
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 //		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		
 		 int mode = MeasureSpec.getMode(widthMeasureSpec);  
 	     int size = MeasureSpec.getSize(widthMeasureSpec);  
 		
@@ -91,7 +95,7 @@ public class CustomImageView extends ImageView {
 	    	 int desireByImg = getPaddingLeft() + getPaddingRight() + mSrc.getWidth();
 	    	 if (mode == MeasureSpec.AT_MOST)
 		     {
-		    	 mWidth = Math.min(size, desireByImg);
+	    		 mWidth = Math.min(size, desireByImg);
 		     }
 		     else
 		     {
@@ -118,17 +122,26 @@ public class CustomImageView extends ImageView {
 		    	 mHeight = desireByImg;
 		     }
 	     }
+//	     Log.i(TAG, "onMeasure width = " + width + ", height = " + mHeight);
 	     setMeasuredDimension(mWidth, mHeight);
 	}
 	
 	@SuppressLint("DrawAllocation")
 	@Override
 	protected void onDraw(Canvas canvas) {
+		
+//		canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
 		switch (mType) {
 		case TYPE_CIRCLE:
 			int min = Math.min(mWidth, mHeight);
+//			Log.i(TAG, "onDraw w = " + mWidth + ", h = " + mHeight);
 			mSrc = Bitmap.createScaledBitmap(mSrc, min, min, false);
 			canvas.drawBitmap(ImgUtils.createCircleImage(mSrc, min), 0, 0, null);
+//			Bitmap image = ImgUtils.createCircleImage(mSrc);
+//			canvas.drawBitmap(image, 
+//					new Rect(0, 0, image.getWidth(), image.getHeight()), 
+//					new Rect(0, 0, 150, 150), null);
+//			canvas.drawBitmap(ImgUtils.getRoundedCornerBitmap(mSrc), 0, 0, null);
 			break;
 		case TYPE_ROUND:
 			canvas.drawBitmap(ImgUtils.getRoundedCornerBitmap(mSrc, mRadius), 0, 0, null);
@@ -139,5 +152,24 @@ public class CustomImageView extends ImageView {
 		}
 	     Log.i(TAG, "onDraw");
 	}
+	
+	@Override
+	public void setImageBitmap(Bitmap bm) {
+		// TODO Auto-generated method stub
+		super.setImageBitmap(bm);
+		mSrc = bm;
+		requestLayout();
+		Log.i(TAG, "setImageBitmap");
+	}
+	
+	@Override
+	public void setImageResource(int resId) {
+		// TODO Auto-generated method stub
+		super.setImageResource(resId);
+		mSrc = BitmapFactory.decodeResource(getResources(), resId);
+		requestLayout();
+		Log.i(TAG, "setImageResource");
+	}
+	
 	
 }

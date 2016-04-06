@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,7 +30,7 @@ implements OnClickListener {
     private OnItemClickListener mOnClickListener;
     private CurrentImageChangeListener mListener;
     /**HorizontalListView中的LinearLayout*/
-    private LinearLayout mContainer;
+    private MyLinearLayout mContainer;
     
     /**屏幕宽度*/
     private int mScreenWidth;
@@ -51,6 +52,7 @@ implements OnClickListener {
     
     /**保存item项与View的表*/
     private Map<View, Integer> mPosMap = new HashMap<View, Integer>();
+	private String TAG = getClass().getSimpleName();
 	
     public interface OnItemClickListener  
     {  
@@ -75,16 +77,22 @@ implements OnClickListener {
 		mScreenWidth = SizeUtils.getScreenMatrics(context).widthPixels;
 	}
 	
-	@Override
+/*	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		// TODO Auto-generated method stub
+		
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		mContainer = (LinearLayout) getChildAt(0);
-	}
+		
+	}*/
 	
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		mContainer = (MyLinearLayout) getChildAt(0);
+	}
 	public void setAdapter(HorizontalScrollViewAdapter adapter){
 		mAdapter = adapter;
-		mContainer = (LinearLayout) getChildAt(0);
+		mContainer = (MyLinearLayout) getChildAt(0);
 		
 		//添加第一个View
 		final View view  = adapter.getView(0, null, mContainer);
@@ -99,7 +107,7 @@ implements OnClickListener {
 			
 			mChildWidth = view.getMeasuredWidth();
 			mChildHeight = view.getMeasuredHeight();
-			
+			Log.i(TAG , "setAdapter getChileWidth = " + mChildWidth + ", mChildHeight = "  + mChildHeight);
 			//加载多加两个
 			mCountOneScreen = mScreenWidth/mChildWidth + 2;
 		}
@@ -112,7 +120,7 @@ implements OnClickListener {
 	 * @param mCountOneScreen2
 	 */
 	private void initFirstScreenChildern(int countOneScreen) {
-		mContainer = (LinearLayout) getChildAt(0);  
+		mContainer = (MyLinearLayout) getChildAt(0);  
         mContainer.removeAllViews();  
         
         mPosMap.clear();
@@ -120,14 +128,6 @@ implements OnClickListener {
         for (int i = 0; i < countOneScreen; i++)
         {
         	View view = mAdapter.getView(i, null, mContainer);
-        	
-        /*	if ( i == countOneScreen/2)
-        	{
-        		int width = view.getWidth();
-        		int height = view.getHeight();
-        		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams((int)(width*1.5f), (int)(height*1.5f));
-        		view.setLayoutParams(params);
-        	}*/
         	
         	view.setOnClickListener(this);
         	mContainer.addView(view);
@@ -141,6 +141,7 @@ implements OnClickListener {
             notifyCurrentImgChanged();  
         }  
         
+        requestLayout();
 	}
 	
 	
