@@ -10,13 +10,6 @@
         android:id="@+id/id_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-       <!--  <include layout="@layout/list_item"/>
-        <include layout="@layout/list_item2"/>
-        <include layout="@layout/list_item3"/>
-        <include layout="@layout/list_item4"/>
-        <include layout="@layout/list_item5"/>
-        <include layout="@layout/list_item"/>
-        <include layout="@layout/list_item2"/> -->
     </com.example.bigapps.horizonlist.HorizontalList>
 
 </LinearLayout>

@@ -202,7 +202,7 @@ public class ImgUtils {
 	
 	
 	/**
-	 * ªÊ÷∆‘≤Õº
+	 * ‘≠ÕºªÊ÷∆‘≤Õº
 	 * @param source
 	 * @return
 	 */

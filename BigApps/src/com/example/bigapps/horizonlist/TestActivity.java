@@ -40,7 +40,8 @@ public class TestActivity extends Activity {
 		mAdapter = new HorizontalListAdapter(this, cityList);
 		manager = new HorizontalListItemManager(this, cityList);
 		mList.setAdapter(mAdapter);
-		mList.setPlayPauseState(new int[]{2, 3}, new boolean[]{false, true});
+//		mList.setPlayPauseState(new int[]{2}, new boolean[]{true});
+		mList.setPlayPauseState(null, null);
 		mList.setItemOnClickListener(new ItemOnClickListener() {
 			
 			@Override
@@ -75,7 +76,7 @@ public class TestActivity extends Activity {
 			@Override
 			public void onItemChange(int oldItem, int curItem) {
 				Log.i(TAG, "Ç°Item = " + oldItem + ", µ±Ç°Item = " + curItem);
-				mList.setPlayPauseState(new int[]{curItem}, new boolean[]{false});
+//				mList.setPlayPauseState(new int[]{curItem}, new boolean[]{false});
 			}
 		});
 	}

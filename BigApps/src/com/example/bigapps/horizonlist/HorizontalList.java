@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.bigapps.R;
+import com.zh.uitls.Utils;
 
 import android.content.Context;
 import android.os.SystemClock;
@@ -108,22 +109,25 @@ public class HorizontalList extends ViewGroup {
 		{
 			boolean bSet = false;
 			ImageView playpause = (ImageView) getChildAt(i).findViewById(R.id.ItemPlayPause);
-			for (int j = 0; j < items.length; j++)
+			if (items != null && states != null)
 			{
-				if (i == items[j])
+				for (int j = 0; j < items.length; j++)
 				{
-					playpause.setVisibility(View.VISIBLE);
-//					playpause.setSelected(states[j]);
-					if (states[j])
+					if (i == items[j])
 					{
-						playpause.setImageResource(R.drawable.item_play_selector);
+						playpause.setVisibility(View.VISIBLE);
+	//					playpause.setSelected(states[j]);
+						if (states[j])
+						{
+							playpause.setImageResource(R.drawable.item_play_selector);
+						}
+						else
+						{
+							playpause.setImageResource(R.drawable.item_pause_selector);	
+						}
+						bSet = true;
+						break;
 					}
-					else
-					{
-						playpause.setImageResource(R.drawable.item_pause_selector);	
-					}
-					bSet = true;
-					break;
 				}
 			}
 			
@@ -190,7 +194,7 @@ public class HorizontalList extends ViewGroup {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		//TODO onMeasure
 		Log.i(TAG, "onMeasure");
-		
+		Utils.getInstance().startTime("onMeasure");
 		measureChild();
 		getItemWH();
 		
@@ -324,7 +328,7 @@ public class HorizontalList extends ViewGroup {
 		showView();
 		
 		setItemEvent();
-		
+		Utils.getInstance().endUseTime("onMeasure");
 	}
 	
 	/**ÉèÖÃItemÊÂ¼þ*/
@@ -425,7 +429,7 @@ public class HorizontalList extends ViewGroup {
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		//TODO dispatchTouchEvent
-//		Log.i(TAG, "onTouchEvent action = " + event.getAction() + ", x = " + event.getX());
+		Log.i(TAG, "dispatchTouchEvent action = " + event.getAction() + ", x = " + event.getX());
 		switch (event.getAction()) {
 		
 		case MotionEvent.ACTION_DOWN:
@@ -451,7 +455,9 @@ public class HorizontalList extends ViewGroup {
 			checkBorder();
 			mLastX = x;
 //			Log.i(TAG, "move mOffset = " + mOffset);
+			Utils.getInstance().startTime("dispatchTouchEvent startRequest");
 			requestLayout();
+			Utils.getInstance().endUseTime("dispatchTouchEvent startRequest");
 			break;
 		case MotionEvent.ACTION_UP:
 			float speed = (event.getX() - mDownX)*1000/(SystemClock.elapsedRealtime() - mDownTime);
