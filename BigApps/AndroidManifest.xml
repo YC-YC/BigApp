@@ -42,6 +42,8 @@
         </activity>
         <activity android:name="com.example.bigapps.horizonlist.TestActivity" >
         </activity>
+        <activity android:name="com.example.bigapps.customview.SwipeActivity" >
+        </activity>
     </application>
 
 </manifest>
