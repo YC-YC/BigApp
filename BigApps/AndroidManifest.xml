@@ -45,6 +45,8 @@
         <activity android:name="com.example.bigapps.customview.SwipeActivity" >
         </activity>
         <activity android:name="com.example.bigapps.wheel.WheelActivity"/>
+   		<activity android:name="com.example.bigapps.picasso.PicassoActivity"/>
+    
     </application>
 
 </manifest>
