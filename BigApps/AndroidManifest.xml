@@ -41,6 +41,7 @@
         <activity android:name="com.example.bigapps.customview.CustomImageViewActivity" />
         <activity android:name="com.example.bigapps.horizonlist.TestActivity" />
         <activity android:name="com.example.download.DownloadActivity" />
+        <activity android:name="com.example.bigapps.floding.MainFlodingActivity" />
         
         <service android:name="com.example.download.services.DownloadService"/>
     </application>

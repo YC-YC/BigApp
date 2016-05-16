@@ -6,6 +6,7 @@ package com.example.bigapps.mvp;
 import com.example.bigapps.R;
 import com.example.bigapps.circlemenu.CircleActivity;
 import com.example.bigapps.customview.CustomImageViewActivity;
+import com.example.bigapps.floding.MainFlodingActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity2;
 import com.example.bigapps.horizonlist.HorizonListActivity3;
@@ -82,6 +83,9 @@ public class Modle implements IModle{
 			break;
 		case R.id.button10:
 			mContext.startActivity(new Intent(mContext, DownloadActivity.class));
+			break;
+		case R.id.button11:
+			mContext.startActivity(new Intent(mContext, MainFlodingActivity.class));
 			break;
 		default:
 			break;
