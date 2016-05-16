@@ -3,14 +3,20 @@
  */
 package com.example.bigapps.mvp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+
 import com.example.bigapps.R;
 import com.example.bigapps.circlemenu.CircleActivity;
 import com.example.bigapps.customview.CustomImageViewActivity;
 import com.example.bigapps.floding.MainFlodingActivity;
+import com.example.bigapps.customview.SwipeActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity;
 import com.example.bigapps.horizonlist.HorizonListActivity2;
 import com.example.bigapps.horizonlist.HorizonListActivity3;
 import com.example.bigapps.horizonlist.TestActivity;
+import com.example.bigapps.picasso.PicassoActivity;
 import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
@@ -19,6 +25,7 @@ import com.example.download.DownloadActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import com.example.bigapps.wheel.WheelActivity;
 
 /**
  * @author YC
@@ -86,6 +93,14 @@ public class Modle implements IModle{
 			break;
 		case R.id.button11:
 			mContext.startActivity(new Intent(mContext, MainFlodingActivity.class));
+		case R.id.btnswipe:
+			mContext.startActivity(new Intent(mContext, SwipeActivity.class));
+			break;
+		case R.id.btnwheel:
+			mContext.startActivity(new Intent(mContext, WheelActivity.class));
+			break;
+		case R.id.btnpicasso:
+			mContext.startActivity(new Intent(mContext, PicassoActivity.class));
 			break;
 		default:
 			break;

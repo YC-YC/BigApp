@@ -28,14 +28,14 @@ public class LaunchActivity extends Activity {
 				startActivity(new Intent(LaunchActivity.this, MainActivity.class));
 				LaunchActivity.this.finish();
 			}
-		}, 3000);*/
+		}, 1000);*/
 		
 		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(3000);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
