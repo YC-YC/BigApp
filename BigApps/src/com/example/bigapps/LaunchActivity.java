@@ -10,8 +10,8 @@ import android.os.Handler;
 
 /**
  * @author YC
- * @time 2016-5-3 ÉÏÎç9:23:23
- * Æô¶¯Ò³
+ * @time 2016-5-3 ä¸Šåˆ9:23:23
+ * å¯åŠ¨é¡µ
  */
 public class LaunchActivity extends Activity {
 
@@ -19,8 +19,9 @@ public class LaunchActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_launch);
-		/**¶¨Ê±·½Ê½*/
+		/**å®šæ—¶æ–¹å¼*/
 		/*new Handler().postDelayed(new Runnable() {
+			
 			
 			@Override
 			public void run() {
@@ -38,7 +39,7 @@ public class LaunchActivity extends Activity {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				runOnUiThread(new Runnable() {//·µ»ØÖ÷Ïß³Ì£¨UIÏß³Ì£©,ºÍHandleµÄpostÒ»ÑùÔ­Àí
+				runOnUiThread(new Runnable() {//è¿”å›ä¸»çº¿ç¨‹ï¼ˆUIçº¿ç¨‹ï¼‰,å’ŒHandleçš„postä¸€æ ·åŸç†
 					@Override
 					public void run() {
 						startActivity(new Intent(LaunchActivity.this, MainActivity.class));

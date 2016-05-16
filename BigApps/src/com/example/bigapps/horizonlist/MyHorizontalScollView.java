@@ -21,7 +21,7 @@ import com.example.bigapps.utils.SizeUtils;
 
 /**
  * @author YC
- * @time 2016-3-29 ÉÏÎç11:23:52
+ * @time 2016-3-29 ä¸Šåˆ11:23:52
  */
 public class MyHorizontalScollView extends HorizontalScrollView 
 implements OnClickListener {
@@ -29,28 +29,27 @@ implements OnClickListener {
 	private HorizontalScrollViewAdapter mAdapter;
     private OnItemClickListener mOnClickListener;
     private CurrentImageChangeListener mListener;
-    /**HorizontalListViewÖĞµÄLinearLayout*/
+    /**HorizontalListViewä¸­çš„LinearLayout*/
     private MyLinearLayout mContainer;
     
-    /**ÆÁÄ»¿í¶È*/
+    /**å±å¹•å®½åº¦*/
     private int mScreenWidth;
-    
-    /**itemµÄ¿í¶È*/
+    /**itemçš„å®½åº¦*/
     private int mChildWidth;
-    /**itemµÄ¸ß¶È*/
+    /**itemçš„é«˜åº¦*/
     private int mChildHeight;
     
-    /**Ã¿ÆÁitem¸öÊı*/
+    /**æ¯å±itemä¸ªæ•°*/
     private int mCountOneScreen;
     
-    /**µÚÒ»ÕÅÏÔÊ¾itemµÄÏÂ±ê*/
+    /**ç¬¬ä¸€å¼ æ˜¾ç¤ºitemçš„ä¸‹æ ‡*/
     private int mFirstItemIndex;
     
-    /**×îºóÒ»ÕÅ¼ÓÔØµÄitemµÄÏÂ±ê*/
+    /**æœ€åä¸€å¼ åŠ è½½çš„itemçš„ä¸‹æ ‡*/
     private int mLastItemIndex;
   
     
-    /**±£´æitemÏîÓëViewµÄ±í*/
+    /**ä¿å­˜itemé¡¹ä¸Viewçš„è¡¨*/
     private Map<View, Integer> mPosMap = new HashMap<View, Integer>();
 	private String TAG = getClass().getSimpleName();
 	
@@ -59,7 +58,7 @@ implements OnClickListener {
     	void onClick(View view, int pos);  
     }  
     
-    /** Í¼Æ¬¹ö¶¯Ê±µÄ»Øµ÷½Ó¿Ú */  
+    /** å›¾ç‰‡æ»šåŠ¨æ—¶çš„å›è°ƒæ¥å£ */  
     public interface CurrentImageChangeListener  
     {  
         void onCurrentImgChanged(int position, View viewIndicator);  
@@ -94,7 +93,7 @@ implements OnClickListener {
 		mAdapter = adapter;
 		mContainer = (MyLinearLayout) getChildAt(0);
 		
-		//Ìí¼ÓµÚÒ»¸öView
+		//æ·»åŠ ç¬¬ä¸€ä¸ªView
 		final View view  = adapter.getView(0, null, mContainer);
 		mContainer.addView(view);
 		
@@ -108,7 +107,7 @@ implements OnClickListener {
 			mChildWidth = view.getMeasuredWidth();
 			mChildHeight = view.getMeasuredHeight();
 			Log.i(TAG , "setAdapter getChileWidth = " + mChildWidth + ", mChildHeight = "  + mChildHeight);
-			//¼ÓÔØ¶à¼ÓÁ½¸ö
+			//åŠ è½½å¤šåŠ ä¸¤ä¸ª
 			mCountOneScreen = mScreenWidth/mChildWidth + 2;
 		}
 		
@@ -116,7 +115,7 @@ implements OnClickListener {
 	}
 	
 	/**
-	 * ³õÊ¼»¯µÚÒ»ÆÁÄ»µÄÔªËØ
+	 * åˆå§‹åŒ–ç¬¬ä¸€å±å¹•çš„å…ƒç´ 
 	 * @param mCountOneScreen2
 	 */
 	private void initFirstScreenChildern(int countOneScreen) {
@@ -135,7 +134,7 @@ implements OnClickListener {
         	mLastItemIndex = i;
         }
         
-        //»Øµ÷  
+        //å›è°ƒ  
         if (mListener != null)  
         {  
             notifyCurrentImgChanged();  
@@ -155,7 +154,7 @@ implements OnClickListener {
             {  
                 loadNextImg();  
             }  
-            // Èç¹ûµ±Ç°scrollX = 0£¬ ÍùÇ°ÉèÖÃÒ»ÕÅ£¬ÒÆ³ı×îºóÒ»ÕÅ  
+            // å¦‚æœå½“å‰scrollX = 0ï¼Œ å¾€å‰è®¾ç½®ä¸€å¼ ï¼Œç§»é™¤æœ€åä¸€å¼   
             if (scrollX == 0)  
             {  
                 loadPreImg();  
@@ -170,7 +169,7 @@ implements OnClickListener {
 	
 	
 	/**
-	 * ¼ÓÔØÏÂÒ»ÕÅÍ¼Æ¬ 
+	 * åŠ è½½ä¸‹ä¸€å¼ å›¾ç‰‡ 
 	 */
 	private void loadNextImg() {
 		if (mLastItemIndex == mAdapter.getCount() - 1)
@@ -178,29 +177,29 @@ implements OnClickListener {
 			return;
 		}
 		
-		//ÒÆ³ıµÚÒ»ÕÅÍ¼Æ¬£¬ÇÒ½«Ë®Æ½¹ö¶¯Î»ÖÃÖÃ0  
+		//ç§»é™¤ç¬¬ä¸€å¼ å›¾ç‰‡ï¼Œä¸”å°†æ°´å¹³æ»šåŠ¨ä½ç½®ç½®0  
 		
 		scrollTo(0, 0);
 		mPosMap.remove(mContainer.getChildAt(0));
 		mContainer.removeViewAt(0);
 		
-		//»ñÈ¡ÏÂÒ»ÕÅÍ¼Æ¬£¬²¢ÇÒÉèÖÃonclickÊÂ¼ş£¬ÇÒ¼ÓÈëÈİÆ÷ÖĞ  
+		//è·å–ä¸‹ä¸€å¼ å›¾ç‰‡ï¼Œå¹¶ä¸”è®¾ç½®onclickäº‹ä»¶ï¼Œä¸”åŠ å…¥å®¹å™¨ä¸­  
         View view = mAdapter.getView(++mLastItemIndex, null, mContainer);  
         view.setOnClickListener(this);  
         mContainer.addView(view);  
         mPosMap.put(view, mLastItemIndex);
         
-      //µ±Ç°µÚÒ»ÕÅÍ¼Æ¬Ğ¡±ê  
+      //å½“å‰ç¬¬ä¸€å¼ å›¾ç‰‡å°æ ‡  
         mFirstItemIndex++; 
         
-      //Èç¹ûÉèÖÃÁË¹ö¶¯¼àÌıÔò´¥·¢  
+      //å¦‚æœè®¾ç½®äº†æ»šåŠ¨ç›‘å¬åˆ™è§¦å‘  
         if (mListener != null)  
         {  
             notifyCurrentImgChanged();  
         } 
 	}
 	/**
-	 * ¼ÓÔØÇ°Ò»ÕÅÍ¼Æ¬
+	 * åŠ è½½å‰ä¸€å¼ å›¾ç‰‡
 	 */
 	private void loadPreImg() {
 		if (mFirstItemIndex == 0)
@@ -208,27 +207,27 @@ implements OnClickListener {
 			return;
 		}
 		
-		//»ñµÃµ±Ç°Ó¦¸ÃÏÔÊ¾µÄµÚÒ»ÕÅÍ¼Æ¬µÄÏÂ±ê
+		//è·å¾—å½“å‰åº”è¯¥æ˜¾ç¤ºçš„ç¬¬ä¸€å¼ å›¾ç‰‡çš„ä¸‹æ ‡
 		int index = mLastItemIndex - mCountOneScreen;
 		if (index >= 0)
 		{
-			// ÒÆ³ı×îºóÒ»ÕÅ
+			// ç§»é™¤æœ€åä¸€å¼ 
 			int oldPos = mContainer.getChildCount() - 1;
 			mPosMap.remove(mContainer.getChildAt(oldPos));
 			mContainer.removeViewAt(oldPos);
 
-			// ½«´ËView·ÅÈëµÚÒ»¸öÎ»ÖÃ
+			// å°†æ­¤Viewæ”¾å…¥ç¬¬ä¸€ä¸ªä½ç½®
 			View view = mAdapter.getView(index, null, mContainer);
 			mPosMap.put(view, index);
 			mContainer.addView(view, 0);
 			view.setOnClickListener(this);
-			// Ë®Æ½¹ö¶¯Î»ÖÃÏò×óÒÆ¶¯viewµÄ¿í¶È¸öÏñËØ
+			// æ°´å¹³æ»šåŠ¨ä½ç½®å‘å·¦ç§»åŠ¨viewçš„å®½åº¦ä¸ªåƒç´ 
 			scrollTo(mChildWidth, 0);
-			// µ±Ç°Î»ÖÃ--£¬µ±Ç°µÚÒ»¸öÏÔÊ¾µÄÏÂ±ê--
+			// å½“å‰ä½ç½®--ï¼Œå½“å‰ç¬¬ä¸€ä¸ªæ˜¾ç¤ºçš„ä¸‹æ ‡--
 			mLastItemIndex--;
 			mFirstItemIndex--;
 			
-			 //»Øµ÷  
+			 //å›è°ƒ  
             if (mListener != null)  
             {  
                 notifyCurrentImgChanged();  
@@ -238,12 +237,12 @@ implements OnClickListener {
 	}
 	
 	/** 
-     * »¬¶¯Ê±µÄ»Øµ÷ 
+     * æ»‘åŠ¨æ—¶çš„å›è°ƒ 
      */  
     @SuppressLint("NewApi")
 	public void notifyCurrentImgChanged()  
     {  
-        //ÏÈÇå³ıËùÓĞµÄ±³¾°É«£¬µã»÷Ê±»áÉèÖÃÎªÀ¶É«  
+        //å…ˆæ¸…é™¤æ‰€æœ‰çš„èƒŒæ™¯è‰²ï¼Œç‚¹å‡»æ—¶ä¼šè®¾ç½®ä¸ºè“è‰²  
         for (int i = 0; i < mContainer.getChildCount(); i++)  
         {  
             mContainer.getChildAt(i).setBackgroundColor(Color.BLACK);

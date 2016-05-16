@@ -21,7 +21,7 @@ import com.example.bigapps.horizonlist.HorizontalList.ItemPlayPauseOnClickListen
 
 /**
  * @author YC
- * @time 2016-3-30 ÏÂÎç2:08:09
+ * @time 2016-3-30 ä¸‹åˆ2:08:09
  */
 public class TestActivity extends Activity {
 
@@ -32,7 +32,6 @@ public class TestActivity extends Activity {
 	protected String TAG = getClass().getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_test);
 		mList = (HorizontalList) findViewById(R.id.id_gallery);
@@ -46,7 +45,7 @@ public class TestActivity extends Activity {
 			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position) {
-				Toast.makeText(TestActivity.this, "µã»÷ÁË" + cityList.get(position).getCityName(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(TestActivity.this, "ç‚¹å‡»äº†" + cityList.get(position).getCityName(), Toast.LENGTH_SHORT).show();
 			}
 		});
 		mList.setItemPlayPauseOnClickListener(new ItemPlayPauseOnClickListener() {
@@ -54,18 +53,18 @@ public class TestActivity extends Activity {
 			@Override
 			public void onItemPlayPause(View view, int position) {
 				
-				Toast.makeText(TestActivity.this, "µã»÷ÁË²¥·ÅÔİÍ£" + position, Toast.LENGTH_SHORT).show();
+				Toast.makeText(TestActivity.this, "ç‚¹å‡»äº†æ’­æ”¾æš‚åœ" + position, Toast.LENGTH_SHORT).show();
 				
 				ImageView playPause = (ImageView) view.findViewById(R.id.ItemPlayPause);
 				/*if (playPause.isSelected())
 				{
 
-					Log.i(TAG , "ÉèÖÃÎª·ÇÑ¡Ôñ×´Ì¬");
+					Log.i(TAG , "è®¾ç½®ä¸ºéé€‰æ‹©çŠ¶æ€");
 					playPause.setSelected(false);
 				}
 				else
 				{
-					Log.i(TAG , "ÉèÖÃÎªÑ¡Ôñ×´Ì¬");
+					Log.i(TAG , "è®¾ç½®ä¸ºé€‰æ‹©çŠ¶æ€");
 					playPause.setSelected(true);
 				}*/
 			}
@@ -75,7 +74,7 @@ public class TestActivity extends Activity {
 			
 			@Override
 			public void onItemChange(int oldItem, int curItem) {
-				Log.i(TAG, "Ç°Item = " + oldItem + ", µ±Ç°Item = " + curItem);
+				Log.i(TAG, "å‰Item = " + oldItem + ", å½“å‰Item = " + curItem);
 //				mList.setPlayPauseState(new int[]{curItem}, new boolean[]{false});
 			}
 		});
@@ -83,17 +82,17 @@ public class TestActivity extends Activity {
 	
 	private void getData() {
 		cityList = new ArrayList<CityItem>();
-		CityItem item = new CityItem("ÉîÛÚ", "0755", R.drawable.head3);
+		CityItem item = new CityItem("æ·±åœ³", "0755", R.drawable.head3);
 		cityList.add(item);
-		item = new CityItem("ÉÏº£", "021", R.drawable.head);
+		item = new CityItem("ä¸Šæµ·", "021", R.drawable.head);
 		cityList.add(item);
-		item = new CityItem("¹ãÖİ", "020", R.drawable.head1);
+		item = new CityItem("å¹¿å·", "020", R.drawable.head1);
 		cityList.add(item);
-		item = new CityItem("±±¾©", "010", R.drawable.head2);
+		item = new CityItem("åŒ—äº¬", "010", R.drawable.head2);
 		cityList.add(item);
-		item = new CityItem("Îäºº", "027", R.drawable.head3);
+		item = new CityItem("æ­¦æ±‰", "027", R.drawable.head3);
 		cityList.add(item);
-		item = new CityItem("Ğ¢¸Ğ", "0712", R.drawable.head4);
+		item = new CityItem("å­æ„Ÿ", "0712", R.drawable.head4);
 		cityList.add(item);
 		cityList.addAll(cityList);
 	}

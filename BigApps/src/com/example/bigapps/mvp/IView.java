@@ -7,10 +7,9 @@ import android.view.View;
 
 /**
  * @author YC
- * @time 2016-5-3 下午8:55:43
- * MVP中的V,主要作用是定义View要实现的接口,一般为P经过M处理后回调的作用
+ * @time 2016-5-3 涓嬪崍8:55:43
+ * MVP涓殑V,涓昏浣滅敤鏄畾涔塚iew瑕佸疄鐜扮殑鎺ュ彛,涓�鑸负P缁忚繃M澶勭悊鍚庡洖璋冪殑浣滅敤
  */
 public interface IView {
-	
 	public void setText(String text);
 }

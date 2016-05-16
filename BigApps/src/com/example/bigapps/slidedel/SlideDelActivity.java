@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 /**
  *@Author Administrator
- *@Time 2016-3-22 œ¬ŒÁ10:51:09
+ *@Time 2016-3-22 ‰∏ãÂçà10:51:09
  */
 public class SlideDelActivity extends Activity{
 
@@ -25,7 +25,6 @@ public class SlideDelActivity extends Activity{
 	
 	private ArrayAdapter<String> mAdapter;  
     private List<String> mDatas; 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

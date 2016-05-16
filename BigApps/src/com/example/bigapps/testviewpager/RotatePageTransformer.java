@@ -7,35 +7,34 @@ import android.view.View;
 
 /**
  *@Author Administrator
- *@Time 2016-3-19 ÏÂÎç11:46:16
+ *@Time 2016-3-19 ä¸‹åˆ11:46:16
  */
 @SuppressLint("NewApi")
 public class RotatePageTransformer implements ViewPager.PageTransformer{
 
 	private static final String tag = "RotatePageTransformer"; 
-	private static final float MAX_ROTATE = 20f;	//×î´óĞı×ª½Ç¶È
-	
-	private float mRotate;//µ±Ç°Ğı×ª½Ç¶È
+	private static final float MAX_ROTATE = 20f;	//æœ€å¤§æ—‹è½¬è§’åº¦
+	private float mRotate;//å½“å‰æ—‹è½¬è§’åº¦
 	
 	@Override
 	public void transformPage(View view, float position) {
 		Log.i(tag, "position = " + position);
-		//positionÖ¸Î»ÖÃ£¬´Ó[-1,1]
+		//positionæŒ‡ä½ç½®ï¼Œä»[-1,1]
 		
 		 if (position < -1) { // [-Infinity,-1)
 	            // This page is way off-screen to the left.
 			 view.setRotation(0);
 
-	        } else if (position <= 0) { // [-1,0]¶ÔÓ¦[-20,0]
+	        } else if (position <= 0) { // [-1,0]å¯¹åº”[-20,0]
 	            // Use the default slide transition when moving to the left page
 
-	        	view.setPivotX(view.getWidth()/2);//ÉèÖÃËõ·ÅµãÎªµ×²¿ÖĞĞÄ
+	        	view.setPivotX(view.getWidth()/2);//è®¾ç½®ç¼©æ”¾ç‚¹ä¸ºåº•éƒ¨ä¸­å¿ƒ
 	        	view.setPivotY(view.getHeight());
 	        	mRotate = position * MAX_ROTATE;
 	        	view.setRotation(mRotate);
-	        } else if (position <= 1) { // (0,1]¶ÔÓ¦[0,20]
+	        } else if (position <= 1) { // (0,1]å¯¹åº”[0,20]
 	            // Fade the page out.
-	        	view.setPivotX(view.getWidth()/2);//ÉèÖÃËõ·ÅµãÎªµ×²¿ÖĞĞÄ
+	        	view.setPivotX(view.getWidth()/2);//è®¾ç½®ç¼©æ”¾ç‚¹ä¸ºåº•éƒ¨ä¸­å¿ƒ
 	        	view.setPivotY(view.getHeight());
 	        	mRotate = position * MAX_ROTATE;
 	        	view.setRotation(mRotate);

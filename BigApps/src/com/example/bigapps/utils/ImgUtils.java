@@ -23,14 +23,13 @@ import android.renderscript.ScriptIntrinsicBlur;
 
 /**
  * @author YC
- * @time 2016-3-10 ÏÂÎç5:15:19
+ * @time 2016-3-10 ä¸‹åˆ5:15:19
  */
 public class ImgUtils {
 
 	/**
-	 * ´ÓSD¿¨Â·¾¶ÉÏ»ñÈ¡Í¼Ïñ
+	 * ä»SDå¡è·¯å¾„ä¸Šè·å–å›¾åƒ
 	 * @param path
-	 * @return
 	 */
 	public static Bitmap getBitmapFromSDCard(String path)
 	{
@@ -38,7 +37,7 @@ public class ImgUtils {
 	}
 	
 	/**
-	 * Ëõ·ÅÍ¼Æ¬
+	 * ç¼©æ”¾å›¾ç‰‡
 	 * @param bitmap
 	 * @param width
 	 * @param height
@@ -54,7 +53,7 @@ public class ImgUtils {
 	}
 	
 	/**
-	 * drawable×ª³ÉBitmap
+	 * drawableè½¬æˆBitmap
 	 * @param drawable
 	 * @return
 	 */
@@ -66,7 +65,7 @@ public class ImgUtils {
 		Bitmap bitmap = Bitmap.createBitmap(width, height, 
 				drawable.getOpacity() != PixelFormat.OPAQUE ?
 						Bitmap.Config.ARGB_8888:
-							Bitmap.Config.RGB_565);//Í¸Ã÷¶È
+							Bitmap.Config.RGB_565);//é€æ˜åº¦
 		Canvas canvas = new Canvas(bitmap);
 		drawable.setBounds(0, 0 , width, height);
 		drawable.draw(canvas);
@@ -77,44 +76,44 @@ public class ImgUtils {
 	
    
    /**
-    * »ñµÃ´øµ¹Ó°µÄÍ¼Æ¬
+    * è·å¾—å¸¦å€’å½±çš„å›¾ç‰‡
     * @param bitmap
     * @return
     */
    public static Bitmap getReflectBitmapWithOrigin(Bitmap bitmap)  {
 	   
-	   final int reflectionGap = 10;	//ÖĞ¼ä¼ä¸ôÏß
+	   final int reflectionGap = 10;	//ä¸­é—´é—´éš”çº¿
 	   int width = bitmap.getWidth();
 	   int height = bitmap.getHeight();
 	   
 	   Matrix matrix = new Matrix();
-	// µÚÒ»¸ö²ÎÊıÎª1±íÊ¾x·½ÏòÉÏÒÔÔ­±ÈÀıÎª×¼±£³Ö²»±ä£¬ÕıÊı±íÊ¾·½Ïò²»±ä¡£     
-       // µÚ¶ş¸ö²ÎÊıÎª-1±íÊ¾y·½ÏòÉÏÒÔÔ­±ÈÀıÎª×¼±£³Ö²»±ä£¬¸ºÊı±íÊ¾·½ÏòÈ¡·´¡£
+	// ç¬¬ä¸€ä¸ªå‚æ•°ä¸º1è¡¨ç¤ºxæ–¹å‘ä¸Šä»¥åŸæ¯”ä¾‹ä¸ºå‡†ä¿æŒä¸å˜ï¼Œæ­£æ•°è¡¨ç¤ºæ–¹å‘ä¸å˜ã€‚     
+       // ç¬¬äºŒä¸ªå‚æ•°ä¸º-1è¡¨ç¤ºyæ–¹å‘ä¸Šä»¥åŸæ¯”ä¾‹ä¸ºå‡†ä¿æŒä¸å˜ï¼Œè´Ÿæ•°è¡¨ç¤ºæ–¹å‘å–åã€‚
 	   matrix.setScale(1, -1);
 	   
 	   Bitmap reflectImg = Bitmap.createBitmap(bitmap, 0, height*3/4, width, height/4, matrix, false);
 	   
 	   Bitmap bitmapWithReflection = Bitmap.createBitmap(width, height+height/4, Bitmap.Config.ARGB_8888);
 	   
-	   //´´½¨»­²¼
+	   //åˆ›å»ºç”»å¸ƒ
 	   Canvas canvas = new Canvas(bitmapWithReflection);
 	
-	   //»­Ô­Í¼
+	   //ç”»åŸå›¾
 	   canvas.drawBitmap(bitmap, 0, 0, null);
 //	   
 	   Paint defalutpaint = new Paint();
-//	   //»­ÖĞ¼ä¼ä¸ôÏß
+//	   //ç”»ä¸­é—´é—´éš”çº¿
 	   canvas.drawRect(0, height, width, height+reflectionGap, defalutpaint);
 //	   
-//	   //ºÏ³ÉÒ»¸öÍ¼Æ¬
+//	   //åˆæˆä¸€ä¸ªå›¾ç‰‡
 	   canvas.drawBitmap(reflectImg, 0, height+reflectionGap, null);
 	   
 	   LinearGradient shader = new LinearGradient(
-			   0, bitmap.getHeight(), //½¥±äÆğÊ¼µã
-			   0, bitmapWithReflection.getHeight()+reflectionGap,	//½¥±äÖÕµã
-			   0x70ffffff,  //ÆğÊ¼ÑÕÉ«
-               0x00ffffff, 	//ÖÕµãÑÕÉ«
-               TileMode.CLAMP) ;//Æ½ÆÌ·½Ê½
+			   0, bitmap.getHeight(), //æ¸å˜èµ·å§‹ç‚¹
+			   0, bitmapWithReflection.getHeight()+reflectionGap,	//æ¸å˜ç»ˆç‚¹
+			   0x70ffffff,  //èµ·å§‹é¢œè‰²
+               0x00ffffff, 	//ç»ˆç‚¹é¢œè‰²
+               TileMode.CLAMP) ;//å¹³é“ºæ–¹å¼
 	   
 	   Paint paint = new Paint();
 	   paint.setShader(shader);
@@ -126,7 +125,7 @@ public class ImgUtils {
    }
    
    /**  
-    * »ñµÃÔ²½ÇÍ¼Æ¬  
+    * è·å¾—åœ†è§’å›¾ç‰‡  
     * @param bitmap  
     * @param roundPx  
     * @return  
@@ -146,7 +145,7 @@ public class ImgUtils {
   }  
    
    /**
-	 * Éú³ÉÔ²ĞÎÍ¼Æ¬
+	 * ç”Ÿæˆåœ†å½¢å›¾ç‰‡
 	 * @param bitmap
 	 * @return
 	 */
@@ -178,7 +177,7 @@ public class ImgUtils {
 	}
 	
 	/**
-	 * »æÖÆÔ²Í¼
+	 * ç»˜åˆ¶åœ†å›¾
 	 * @param source
 	 * @param min
 	 * @return
@@ -189,20 +188,20 @@ public class ImgUtils {
         paint.setAntiAlias(true);  
         paint.setFilterBitmap(true);
         Bitmap target = Bitmap.createBitmap(min, min, Config.ARGB_8888);  
-        /** ²úÉúÒ»¸öÍ¬Ñù´óĞ¡µÄ»­²¼  */  
+        /** äº§ç”Ÿä¸€ä¸ªåŒæ ·å¤§å°çš„ç”»å¸ƒ  */  
         Canvas canvas = new Canvas(target);  
-        /** Ê×ÏÈ»æÖÆÔ²ĞÎ */  
+        /** é¦–å…ˆç»˜åˆ¶åœ†å½¢ */  
         canvas.drawCircle(min / 2, min / 2, min / 2, paint);  
-        /**  Ê¹ÓÃSRC_IN£¬²Î¿¼ÉÏÃæµÄËµÃ÷ */  
+        /**  ä½¿ç”¨SRC_INï¼Œå‚è€ƒä¸Šé¢çš„è¯´æ˜ */  
         paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));  
-        /**  »æÖÆÍ¼Æ¬  */  
+        /**  ç»˜åˆ¶å›¾ç‰‡  */  
         canvas.drawBitmap(source, 0, 0, paint);  
         return target;  
     } 
 	
 	
 	/**
-	 * Ô­Í¼»æÖÆÔ²Í¼
+	 * åŸå›¾ç»˜åˆ¶åœ†å›¾
 	 * @param source
 	 * @return
 	 */
@@ -216,20 +215,20 @@ public class ImgUtils {
         paint.setAntiAlias(true);  
         paint.setFilterBitmap(true);
         Bitmap target = Bitmap.createBitmap(min, min, Config.ARGB_8888);  
-        /** ²úÉúÒ»¸öÍ¬Ñù´óĞ¡µÄ»­²¼  */  
+        /** äº§ç”Ÿä¸€ä¸ªåŒæ ·å¤§å°çš„ç”»å¸ƒ  */  
         Canvas canvas = new Canvas(target);  
-        /** Ê×ÏÈ»æÖÆÔ²ĞÎ */  
+        /** é¦–å…ˆç»˜åˆ¶åœ†å½¢ */  
         canvas.drawCircle(min / 2, min / 2, min / 2, paint);  
-        /**  Ê¹ÓÃSRC_IN£¬²Î¿¼ÉÏÃæµÄËµÃ÷ */  
+        /**  ä½¿ç”¨SRC_INï¼Œå‚è€ƒä¸Šé¢çš„è¯´æ˜ */  
         paint.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));  
-        /**  »æÖÆÍ¼Æ¬  */  
+        /**  ç»˜åˆ¶å›¾ç‰‡  */  
         canvas.drawBitmap(source, 0, 0, paint);  
         return target;  
     } 
 	
 	
 	/**
-	 * ¸ßË¹Ä£ºı
+	 * é«˜æ–¯æ¨¡ç³Š
 	 * @param bitmap
 	 * @return
 	 */

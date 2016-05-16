@@ -24,14 +24,14 @@ import com.example.bigapps.R;
 
 /**
  * @author YC
- * @time 2016-3-29 上午9:22:35
+ * @time 2016-3-29 涓婂崍9:22:35
  */
 public class HorizonListActivity2 extends Activity {
 
 	private List<CityItem> cityList;
 	private LinearLayout mGallery;
 	private LayoutInflater mInflater;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,7 +41,6 @@ public class HorizonListActivity2 extends Activity {
 		setData();
 		initViews();
 	}
-	
 
 	private void initViews() {
 		mGallery = (LinearLayout) findViewById(R.id.id_gallery);
@@ -67,17 +66,17 @@ public class HorizonListActivity2 extends Activity {
 	
 	private void setData() {
 		cityList = new ArrayList<CityItem>();
-		CityItem item = new CityItem("深圳", "0755", R.drawable.china);
+		CityItem item = new CityItem("娣卞湷", "0755", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("上海", "021", R.drawable.china);
+		item = new CityItem("涓婃捣", "021", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("广州", "020", R.drawable.china);
+		item = new CityItem("骞垮窞", "020", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("北京", "010", R.drawable.china);
+		item = new CityItem("鍖椾含", "010", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("武汉", "027", R.drawable.china);
+		item = new CityItem("姝︽眽", "027", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("孝感", "0712", R.drawable.china);
+		item = new CityItem("瀛濇劅", "0712", R.drawable.china);
 		cityList.add(item);
 		cityList.addAll(cityList);
 	}

@@ -7,12 +7,11 @@ import android.view.View;
 
 /**
  * @author YC
- * @time 2016-5-3 ÏÂÎç8:57:59
- * MVPÖĞµÄP,Ö÷Òª×÷ÓÃÊÇÊµÏÖViewÓëModelÖ®Ç°µÄ½»»¥
+ * @time 2016-5-3 ä¸‹åˆ8:57:59
+ * MVPä¸­çš„P,ä¸»è¦ä½œç”¨æ˜¯å®ç°Viewä¸Modelä¹‹å‰çš„äº¤äº’
  */
 public interface IPresent {
 	
 	public void onCreate();
-	
 	public void performClick(View view);
 }

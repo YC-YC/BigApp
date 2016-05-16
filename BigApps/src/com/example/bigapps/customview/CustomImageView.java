@@ -23,16 +23,15 @@ import android.widget.ImageView;
 
 /**
  * @author YC
- * @time 2016-3-29 ÏÂÎç7:29:57
+ * @time 2016-3-29 ä¸‹åˆ7:29:57
  */
 public class CustomImageView extends ImageView {
 
 	private static final String TAG = "CustomImageView";
-	
 	private static final int TYPE_CIRCLE = 0;
 	private static final int TYPE_ROUND = 1;
 	
-	/**ÀàĞÍ*/
+	/**ç±»å‹*/
 	private int mType;
 	
 	private int mWidth;
@@ -91,7 +90,7 @@ public class CustomImageView extends ImageView {
 	     }
 	     else
 	     {
-	    	// ÓÉÍ¼Æ¬¾ö¶¨µÄ¿í 
+	    	// ç”±å›¾ç‰‡å†³å®šçš„å®½ 
 	    	 int desireByImg = getPaddingLeft() + getPaddingRight() + mSrc.getWidth();
 	    	 if (mode == MeasureSpec.AT_MOST)
 		     {
@@ -111,7 +110,7 @@ public class CustomImageView extends ImageView {
 	     }
 	     else
 	     {
-	    	// ÓÉÍ¼Æ¬¾ö¶¨µÄ¿í 
+	    	// ç”±å›¾ç‰‡å†³å®šçš„å®½ 
 	    	 int desireByImg = getPaddingTop() + getPaddingBottom() + mSrc.getHeight();
 	    	 if (mode == MeasureSpec.AT_MOST)
 		     {

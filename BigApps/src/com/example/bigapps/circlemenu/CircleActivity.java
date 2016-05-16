@@ -13,14 +13,13 @@ import android.widget.Toast;
 
 /**
  * @author YC
- * @time 2016-3-21 ÉÏÎç11:08:07
+ * @time 2016-3-21 ä¸Šåˆ11:08:07
  */
 public class CircleActivity extends Activity {
-
 	private CircleMenuLayout mCircleMenuLayout;
 	
-	private String[] mItemTexts = new String[] { "ÒôÀÖ ", "µç»°", "USB",
-			"ÉèÖÃ", "ÊÕÒô»ú"/*, "ĞÅÓÃ¿¨"*/ };
+	private String[] mItemTexts = new String[] { "éŸ³ä¹ ", "ç”µè¯", "USB",
+			"è®¾ç½®", "æ”¶éŸ³æœº"/*, "ä¿¡ç”¨å¡"*/ };
 	private int[] mItemImgs = new int[] { R.drawable.music_selector,
 			R.drawable.bt_selector, R.drawable.usb_selector,
 			R.drawable.setup_selector, R.drawable.radio_selector/*,

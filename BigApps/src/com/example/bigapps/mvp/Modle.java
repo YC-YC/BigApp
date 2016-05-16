@@ -13,6 +13,7 @@ import com.example.bigapps.horizonlist.TestActivity;
 import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
+import com.example.download.DownloadActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,14 +21,13 @@ import android.view.View;
 
 /**
  * @author YC
- * @time 2016-5-3 ÏÂÎç9:15:12
- * MVPÖĞµÄM,×÷Êı¾İµÄ´¦Àí£¬Ò»°ãÊÇºÄÊ±µÄ²Ù×÷
+ * @time 2016-5-3 ä¸‹åˆ9:15:12
+ * MVPä¸­çš„M,ä½œæ•°æ®çš„å¤„ç†ï¼Œä¸€èˆ¬æ˜¯è€—æ—¶çš„æ“ä½œ
  */
 
 public class Modle implements IModle{
 
 	private Context mContext;
-	
 	public Modle(Context mContext) {
 		super();
 		this.mContext = mContext;
@@ -40,7 +40,7 @@ public class Modle implements IModle{
 			@Override
 			public void run() {
 				try {
-					//ÔÚÕâÀïÑÓÊ±Ä£ÄâºÄÊ±²Ù×÷
+					//åœ¨è¿™é‡Œå»¶æ—¶æ¨¡æ‹Ÿè€—æ—¶æ“ä½œ
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -79,6 +79,9 @@ public class Modle implements IModle{
 			break;
 		case R.id.button9:
 			mContext.startActivity(new Intent(mContext, TestActivity.class));
+			break;
+		case R.id.button10:
+			mContext.startActivity(new Intent(mContext, DownloadActivity.class));
 			break;
 		default:
 			break;

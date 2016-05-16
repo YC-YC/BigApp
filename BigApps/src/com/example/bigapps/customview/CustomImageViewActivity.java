@@ -13,12 +13,11 @@ import android.os.Bundle;
 
 /**
  * @author YC
- * @time 2016-3-29 ÏÂÎç8:21:21
+ * @time 2016-3-29 ä¸‹åˆ8:21:21
  */
 public class CustomImageViewActivity extends Activity {
 
 	private CustomImageView mImg1, mImg2;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

@@ -6,7 +6,6 @@ package com.zh.uitls;
 import android.util.Log;
 
 /**
- * @author zhonghong.chenli date:2015-6-12上午9:36:29 <br/>
  */
 public class L {
 	static boolean d = true;

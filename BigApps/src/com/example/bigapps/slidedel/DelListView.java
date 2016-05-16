@@ -19,7 +19,7 @@ import android.widget.PopupWindow;
 
 /**
  * @Author Administrator
- * @Time 2016-3-22 ÏÂÎç10:55:51
+ * @Time 2016-3-22 ä¸‹åˆ10:55:51
  */
 public class DelListView extends ListView {
 
@@ -30,21 +30,20 @@ public class DelListView extends ListView {
 
 	private int mPopupWinWidth;
 	private int mPopupHeight;
-	
 	/**
-	 * °´ÏÂÊ±µÄx,y
+	 * æŒ‰ä¸‹æ—¶çš„x,y
 	 */
 	private int mLastX;
 	private int mLastY;
 	
 	/**
-	 * µ±Ç°ÊÖÖ¸°´ÏÂµÄÎ»ÖÃ
+	 * å½“å‰æ‰‹æŒ‡æŒ‰ä¸‹çš„ä½ç½®
 	 */
 	private int mCurPos;
 	private View mCurView;
 	
 	/**
-	 * »¬¶¯×îĞ¡¾àÀë
+	 * æ»‘åŠ¨æœ€å°è·ç¦»
 	 */
 	private int mTouchSlop;
 	
@@ -74,7 +73,7 @@ public class DelListView extends ListView {
 				LinearLayout.LayoutParams.WRAP_CONTENT,
 				LinearLayout.LayoutParams.WRAP_CONTENT);
 
-		// ÏÈµ÷ÓÃÏÂmeasure,·ñÔòÄÃ²»µ½¿íºÍ¸ß
+		// å…ˆè°ƒç”¨ä¸‹measure,å¦åˆ™æ‹¿ä¸åˆ°å®½å’Œé«˜
 		mPopupWindow.getContentView().measure(0, 0);
 		mPopupWinWidth = mPopupWindow.getContentView().getMeasuredWidth();
 		mPopupHeight = mPopupWindow.getContentView().getMeasuredHeight();
@@ -93,7 +92,7 @@ public class DelListView extends ListView {
 			mLastX = x;
 			mLastY = y;
 			/** 
-             * Èç¹ûµ±Ç°popupWindowÏÔÊ¾£¬ÔòÖ±½ÓÒş²Ø£¬È»ºóÆÁ±ÎListViewµÄtouchÊÂ¼şµÄÏÂ´« 
+             * å¦‚æœå½“å‰popupWindowæ˜¾ç¤ºï¼Œåˆ™ç›´æ¥éšè—ï¼Œç„¶åå±è”½ListViewçš„touchäº‹ä»¶çš„ä¸‹ä¼  
              */
 			if (mPopupWindow.isShowing())
 			{
@@ -111,7 +110,7 @@ public class DelListView extends ListView {
 			int dx = x - mLastX;
 			int dy = y - mLastY;
 			/** 
-             * ÅĞ¶ÏÊÇ·ñÊÇ´ÓÓÒµ½×óµÄ»¬¶¯ 
+             * åˆ¤æ–­æ˜¯å¦æ˜¯ä»å³åˆ°å·¦çš„æ»‘åŠ¨ 
              */
 			if ( x < mLastX && Math.abs(dx) > mTouchSlop && Math.abs(dy) < mTouchSlop)
 			{
@@ -137,10 +136,10 @@ public class DelListView extends ListView {
 			switch (action) {
 			case MotionEvent.ACTION_MOVE:
 				int[] location = new int[2];
-				// »ñµÃµ±Ç°itemµÄÎ»ÖÃxÓëy 
+				// è·å¾—å½“å‰itemçš„ä½ç½®xä¸y 
 				mCurView.getLocationOnScreen(location);
 				
-				// ÉèÖÃpopupWindowµÄ¶¯»­  
+				// è®¾ç½®popupWindowçš„åŠ¨ç”»  
 				mPopupWindow.setAnimationStyle(R.style.popwindow_delete_btn_anim_style);
 				mPopupWindow.update();
 				Log.i("tag", "loc[0] = " + location[0] + ", loc[1] = " + location[1]);

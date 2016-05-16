@@ -22,75 +22,74 @@ import com.example.bigapps.R;
 
 /**
  * @author YC
- * @time 2016-3-21 ÉÏÎç11:19:11
+ * @time 2016-3-21 ä¸Šåˆ11:19:11
  */
 @SuppressLint("NewApi")
 public class CircleMenuLayout extends ViewGroup {
 
 	private static final String tag = "CircleMenuLayout";
-	
 	/**
-	 *  Ö±¾¶
+	 *  ç›´å¾„
 	 */
 	private int mRadius;
 	
 	/**
-	 * ÉÏ¡¢×óÆ«ÒÆ(ĞèÒª×ö²¹³¥)
+	 * ä¸Šã€å·¦åç§»(éœ€è¦åšè¡¥å¿)
 	 */
 	private int mTopPadding;
 	private int mLeftPadding;
 	/**
-	 *  ¸ù¾İmenu itemµÄ¸öÊı£¬¼ÆËã½Ç¶È
+	 *  æ ¹æ®menu itemçš„ä¸ªæ•°ï¼Œè®¡ç®—è§’åº¦
 	 */
 	private	float mPerItemAngle;
 	
 	/**
-	 * ¸ÃÈİÆ÷µÄÄÚ±ß¾à,ÎŞÊÓpaddingÊôĞÔ£¬ÈçĞè±ß¾àÇëÓÃ¸Ã±äÁ¿
+	 * è¯¥å®¹å™¨çš„å†…è¾¹è·,æ— è§†paddingå±æ€§ï¼Œå¦‚éœ€è¾¹è·è¯·ç”¨è¯¥å˜é‡
 	 */
 	private float mPadding;
 
 	/**
-	 * ¸ÃÈİÆ÷ÄÚchild itemµÄÄ¬ÈÏ³ß´ç
+	 * è¯¥å®¹å™¨å†…child itemçš„é»˜è®¤å°ºå¯¸
 	 */
 	private static final float RADIO_DEFAULT_CHILD_DIMENSION = 1 / 4f;
 	/**
-	 * ²Ëµ¥µÄÖĞĞÄchildµÄÄ¬ÈÏ³ß´ç
+	 * èœå•çš„ä¸­å¿ƒchildçš„é»˜è®¤å°ºå¯¸
 	 */
 	private float RADIO_DEFAULT_CENTERITEM_DIMENSION = 1 / 3f;
 	/**
-	 * ¸ÃÈİÆ÷µÄÄÚ±ß¾à,ÎŞÊÓpaddingÊôĞÔ£¬ÈçĞè±ß¾àÇëÓÃ¸Ã±äÁ¿£¬µ½Íâ²¿µÄ¾àÀë
+	 * è¯¥å®¹å™¨çš„å†…è¾¹è·,æ— è§†paddingå±æ€§ï¼Œå¦‚éœ€è¾¹è·è¯·ç”¨è¯¥å˜é‡ï¼Œåˆ°å¤–éƒ¨çš„è·ç¦»
 	 */
 	private static final float RADIO_PADDING_LAYOUT = 0 / 12f;
 	/**
-	 * ÓÃÓÚ¼ÆËã¿ªÊ¼½Ç¶È
+	 * ç”¨äºè®¡ç®—å¼€å§‹è§’åº¦
 	 */
 	private double mStartAngle = 0;
 	
 	/**
-	 * ÉèÖÃÏÔÊ¾µÄ¿ªÊ¼½Ç¶È
+	 * è®¾ç½®æ˜¾ç¤ºçš„å¼€å§‹è§’åº¦
 	 */
 	private double mStartAngleIndex = 0;
 
 	/**
-	 * ×ÜÏÔÊ¾½Ç¶È
+	 * æ€»æ˜¾ç¤ºè§’åº¦
 	 */
 	private double mTotalAngle = 0;
 	
 	/**
-	 * ×îĞ¡µÄËõ·ÅÖµ
+	 * æœ€å°çš„ç¼©æ”¾å€¼
 	 */
 	private static final float MIN_SCALE = 0.6f;
 	/**
-	 * ²Ëµ¥µÄ¸öÊı
+	 * èœå•çš„ä¸ªæ•°
 	 */
 	private int mMenuItemCount;
 
 	/**
-	 * ²Ëµ¥ÏîµÄÎÄ±¾
+	 * èœå•é¡¹çš„æ–‡æœ¬
 	 */
 	private String[] mItemTexts;
 	/**
-	 * ²Ëµ¥ÏîµÄÍ¼±ê
+	 * èœå•é¡¹çš„å›¾æ ‡
 	 */
 	private int[] mItemImgs;
 
@@ -101,17 +100,17 @@ public class CircleMenuLayout extends ViewGroup {
 	 */
 	public CircleMenuLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		//ÎŞÊÓxmlÖĞµÄpaddingµÄ²¼¾Ö
+		//æ— è§†xmlä¸­çš„paddingçš„å¸ƒå±€
 		setPadding(0, 0, 0, 0);
 	}
 
 	/**
-	 * ÉèÖÃ²Ëµ¥ÊôĞÔ
-	 * ÉèÖÃ²Ëµ¥ÌõÄ¿µÄÍ¼±êºÍÎÄ±¾
-	 * @param resIds Í¼±ê
-	 * @param texts	ÎÄ±¾
-	 * @param startAngle ¿ªÊ¼½Ç¶È£¨ÀíÂÛÖµÎª£¨-90µ½90£©£¬µ«Ô½½Ó½ü90Ğ§¹ûÔ½²»ºÃ£©
-	 * @param radio	°ë¾¶ ĞèÒª¸ù¾İstartAngleµ÷Õû
+	 * è®¾ç½®èœå•å±æ€§
+	 * è®¾ç½®èœå•æ¡ç›®çš„å›¾æ ‡å’Œæ–‡æœ¬
+	 * @param resIds å›¾æ ‡
+	 * @param texts	æ–‡æœ¬
+	 * @param startAngle å¼€å§‹è§’åº¦ï¼ˆç†è®ºå€¼ä¸ºï¼ˆ-90åˆ°90ï¼‰ï¼Œä½†è¶Šæ¥è¿‘90æ•ˆæœè¶Šä¸å¥½ï¼‰
+	 * @param radio	åŠå¾„ éœ€è¦æ ¹æ®startAngleè°ƒæ•´
 	 */
 	public void setMenuAttr(int[] resIds, String[] texts, float startAngle, int radio) {
 		mItemImgs = resIds;
@@ -120,12 +119,12 @@ public class CircleMenuLayout extends ViewGroup {
 		mStartAngleIndex = startAngle;
 		mStartAngle = mStartAngleIndex;
 		mTotalAngle = 180 - 2*startAngle;
-		// ²ÎÊı¼ì²é
+		// å‚æ•°æ£€æŸ¥
 		if (resIds == null && texts == null) {
-			throw new IllegalArgumentException("²Ëµ¥ÏîÎÄ±¾ºÍÍ¼Æ¬ÖÁÉÙÉèÖÃÆäÒ»");
+			throw new IllegalArgumentException("èœå•é¡¹æ–‡æœ¬å’Œå›¾ç‰‡è‡³å°‘è®¾ç½®å…¶ä¸€");
 		}
 
-		// ³õÊ¼»¯mMenuCount
+		// åˆå§‹åŒ–mMenuCount
 		mMenuItemCount = resIds == null ? texts.length : resIds.length;
 
 		if (resIds != null && texts != null) {
@@ -138,13 +137,13 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 
 	/**
-	 * Ìí¼Ó²Ëµ¥Ïî
+	 * æ·»åŠ èœå•é¡¹
 	 */
 	private void addMenuItems() {
 		LayoutInflater mInflater = LayoutInflater.from(getContext());
 
 		/**
-		 * ¸ù¾İÓÃ»§ÉèÖÃµÄ²ÎÊı£¬³õÊ¼»¯view
+		 * æ ¹æ®ç”¨æˆ·è®¾ç½®çš„å‚æ•°ï¼Œåˆå§‹åŒ–view
 		 */
 		for (int i = 0; i < mMenuItemCount; i++) {
 			final int j = i;
@@ -173,13 +172,13 @@ public class CircleMenuLayout extends ViewGroup {
 				tv.setText(mItemTexts[i]);
 			}
 
-			// Ìí¼Óviewµ½ÈİÆ÷ÖĞ
+			// æ·»åŠ viewåˆ°å®¹å™¨ä¸­
 			addView(view);
 		}
 	}
 
 	/**
-	 * MenuItemµÄµã»÷ÊÂ¼ş½Ó¿Ú
+	 * MenuItemçš„ç‚¹å‡»äº‹ä»¶æ¥å£
 	 * 
 	 */
 	public interface OnMenuItemClickListener {
@@ -187,12 +186,12 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 
 	/**
-	 * MenuItemµÄµã»÷ÊÂ¼ş½Ó¿Ú
+	 * MenuItemçš„ç‚¹å‡»äº‹ä»¶æ¥å£
 	 */
 	private OnMenuItemClickListener mOnMenuItemClickListener;
 
 	/**
-	 * ÉèÖÃMenuItemµÄµã»÷ÊÂ¼ş½Ó¿Ú
+	 * è®¾ç½®MenuItemçš„ç‚¹å‡»äº‹ä»¶æ¥å£
 	 * 
 	 * @param mOnMenuItemClickListener
 	 */
@@ -202,7 +201,7 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 
 	/**
-	 * »ñµÃÄ¬ÈÏ¸ÃlayoutµÄ³ß´ç
+	 * è·å¾—é»˜è®¤è¯¥layoutçš„å°ºå¯¸
 	 * 
 	 * @return
 	 */
@@ -221,7 +220,7 @@ public class CircleMenuLayout extends ViewGroup {
 		int resHeight = 0;
 		Log.i(tag, "onMeasure");
 		*//**
-		 * ¸ù¾İ´«ÈëµÄ²ÎÊı£¬·Ö±ğ»ñÈ¡²âÁ¿Ä£Ê½ºÍ²âÁ¿Öµ
+		 * æ ¹æ®ä¼ å…¥çš„å‚æ•°ï¼Œåˆ†åˆ«è·å–æµ‹é‡æ¨¡å¼å’Œæµ‹é‡å€¼
 		 *//*
 		int width = MeasureSpec.getSize(widthMeasureSpec);
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
@@ -230,40 +229,40 @@ public class CircleMenuLayout extends ViewGroup {
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
 		*//**
-		 * Èç¹û¿í»òÕß¸ßµÄ²âÁ¿Ä£Ê½·Ç¾«È·Öµ
+		 * å¦‚æœå®½æˆ–è€…é«˜çš„æµ‹é‡æ¨¡å¼éç²¾ç¡®å€¼
 		 *//*
 		if (widthMode != MeasureSpec.EXACTLY
 				|| heightMode != MeasureSpec.EXACTLY) {
-			// Ö÷ÒªÉèÖÃÎª±³¾°Í¼µÄ¸ß¶È
+			// ä¸»è¦è®¾ç½®ä¸ºèƒŒæ™¯å›¾çš„é«˜åº¦
 			resWidth = getSuggestedMinimumWidth();
-			// Èç¹ûÎ´ÉèÖÃ±³¾°Í¼Æ¬£¬ÔòÉèÖÃÎªÆÁÄ»¿í¸ßµÄÄ¬ÈÏÖµ
+			// å¦‚æœæœªè®¾ç½®èƒŒæ™¯å›¾ç‰‡ï¼Œåˆ™è®¾ç½®ä¸ºå±å¹•å®½é«˜çš„é»˜è®¤å€¼
 			resWidth = resWidth == 0 ? getDefaultWidth() : resWidth;
 
 			resHeight = getSuggestedMinimumHeight();
-			// Èç¹ûÎ´ÉèÖÃ±³¾°Í¼Æ¬£¬ÔòÉèÖÃÎªÆÁÄ»¿í¸ßµÄÄ¬ÈÏÖµ
+			// å¦‚æœæœªè®¾ç½®èƒŒæ™¯å›¾ç‰‡ï¼Œåˆ™è®¾ç½®ä¸ºå±å¹•å®½é«˜çš„é»˜è®¤å€¼
 			resHeight = resHeight == 0 ? getDefaultWidth() : resHeight;
 			resWidth = (int) (Math.cos(mStartAngleIndex)*2);
 			resHeight = (int) Math.sin(mStartAngleIndex);
 		} else {
-			// Èç¹û¶¼ÉèÖÃÎª¾«È·Öµ£¬ÔòÖ±½ÓÈ¡Ğ¡Öµ£»
+			// å¦‚æœéƒ½è®¾ç½®ä¸ºç²¾ç¡®å€¼ï¼Œåˆ™ç›´æ¥å–å°å€¼ï¼›
 //			resWidth = resHeight = Math.min(width, height);
 			resWidth = width;
 			resHeight = height;
 		}
 
-		// ÉèÖÃviewµÄw,h
+		// è®¾ç½®viewçš„w,h
 		setMeasuredDimension(resWidth, resHeight);
 
-		// »ñµÃ°ë¾¶
+		// è·å¾—åŠå¾„
 		mRadius = Math.max(getMeasuredWidth(), getMeasuredHeight());
-		// menu itemÊıÁ¿
+		// menu itemæ•°é‡
 		final int count = getChildCount();
-		// menu item³ß´ç
+		// menu itemå°ºå¯¸
 		int childSize = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
-		// menu item²âÁ¿Ä£Ê½
+		// menu itemæµ‹é‡æ¨¡å¼
 		int childMode = MeasureSpec.EXACTLY;
 
-		// µü´ú²âÁ¿
+		// è¿­ä»£æµ‹é‡
 		for (int i = 0; i < count; i++) {
 			final View child = getChildAt(i);
 
@@ -271,7 +270,7 @@ public class CircleMenuLayout extends ViewGroup {
 				continue;
 			}
 
-			// ¼ÆËãmenu itemµÄ³ß´ç£»ÒÔ¼°ºÍÉèÖÃºÃµÄÄ£Ê½£¬È¥¶Ôitem½øĞĞ²âÁ¿
+			// è®¡ç®—menu itemçš„å°ºå¯¸ï¼›ä»¥åŠå’Œè®¾ç½®å¥½çš„æ¨¡å¼ï¼Œå»å¯¹itemè¿›è¡Œæµ‹é‡
 			int makeMeasureSpec = -1;
 
 			if (child.getId() == R.id.id_circle_menu_item_center) {
@@ -295,7 +294,7 @@ public class CircleMenuLayout extends ViewGroup {
 		int resHeight = 0;
 //		Log.i(tag, "onMeasure");
 		/**
-		 * ¸ù¾İ´«ÈëµÄ²ÎÊı£¬·Ö±ğ»ñÈ¡²âÁ¿Ä£Ê½ºÍ²âÁ¿Öµ
+		 * æ ¹æ®ä¼ å…¥çš„å‚æ•°ï¼Œåˆ†åˆ«è·å–æµ‹é‡æ¨¡å¼å’Œæµ‹é‡å€¼
 		 */
 		int width = MeasureSpec.getSize(widthMeasureSpec);
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
@@ -305,7 +304,7 @@ public class CircleMenuLayout extends ViewGroup {
 
 //		Log.i(tag, "onMeasure width = " +width +", widthMode = " +widthMode + ",height = " + height + ", heightMode = " + heightMode);
 		/**
-		 * Èç¹û¿í»òÕß¸ßµÄ²âÁ¿Ä£Ê½·Ç¾«È·Öµ
+		 * å¦‚æœå®½æˆ–è€…é«˜çš„æµ‹é‡æ¨¡å¼éç²¾ç¡®å€¼
 		 */
 		if (widthMode != MeasureSpec.EXACTLY
 				|| heightMode != MeasureSpec.EXACTLY) 
@@ -320,9 +319,9 @@ public class CircleMenuLayout extends ViewGroup {
 			{
 				resWidth = (int) (mRadius*Math.cos(mStartAngleIndex*Math.PI/180)*2);
 			}
-			//¿í¶È×óÓÒ¸÷½øĞĞ°ë¸öchildview²¹³¥
+			//å®½åº¦å·¦å³å„è¿›è¡ŒåŠä¸ªchildviewè¡¥å¿
 			resWidth += 2*mLeftPadding;
-			//¸ß¶È½øĞĞmPerItemAngle¸ß¶ÈºÍ°ë¸öchildview²¹³¥
+			//é«˜åº¦è¿›è¡ŒmPerItemAngleé«˜åº¦å’ŒåŠä¸ªchildviewè¡¥å¿
 			mTopPadding = Math.abs((int) (mRadius*Math.sin(mPerItemAngle*Math.PI/180))) + childWidth/2;
 			resHeight = (int) (mRadius - mRadius*Math.sin(mStartAngleIndex*Math.PI/180));
 			resHeight += mTopPadding;
@@ -333,17 +332,17 @@ public class CircleMenuLayout extends ViewGroup {
 		}
 //		Log.i(tag, "onMeasure resWidth = " +resWidth +", resHeight = " +resHeight);
 
-		// ÉèÖÃviewµÄw,h
+		// è®¾ç½®viewçš„w,h
 		setMeasuredDimension(resWidth, resHeight);
 
-		// menu itemÊıÁ¿
+		// menu itemæ•°é‡
 		final int count = getChildCount();
-		// menu item³ß´ç
+		// menu itemå°ºå¯¸
 		int childSize = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
-		// menu item²âÁ¿Ä£Ê½
+		// menu itemæµ‹é‡æ¨¡å¼
 		int childMode = MeasureSpec.EXACTLY;
 
-		// µü´ú²âÁ¿
+		// è¿­ä»£æµ‹é‡
 		for (int i = 0; i < count; i++) {
 			final View child = getChildAt(i);
 
@@ -351,7 +350,7 @@ public class CircleMenuLayout extends ViewGroup {
 				continue;
 			}
 
-			// ¼ÆËãmenu itemµÄ³ß´ç£»ÒÔ¼°ºÍÉèÖÃºÃµÄÄ£Ê½£¬È¥¶Ôitem½øĞĞ²âÁ¿
+			// è®¡ç®—menu itemçš„å°ºå¯¸ï¼›ä»¥åŠå’Œè®¾ç½®å¥½çš„æ¨¡å¼ï¼Œå»å¯¹itemè¿›è¡Œæµ‹é‡
 			int makeMeasureSpec = -1;
 
 			if (child.getId() == R.id.id_circle_menu_item_center) 
@@ -381,13 +380,13 @@ public class CircleMenuLayout extends ViewGroup {
 		final int childCount = getChildCount();
 
 		int left, top;
-		// menu item µÄ³ß´ç
+		// menu item çš„å°ºå¯¸
 		int cWidth = (int) (layoutRadius * RADIO_DEFAULT_CHILD_DIMENSION);
-		// ¸ù¾İmenu itemµÄ¸öÊı£¬¼ÆËã½Ç¶È
+		// æ ¹æ®menu itemçš„ä¸ªæ•°ï¼Œè®¡ç®—è§’åº¦
 		mAngleDelay = angle / (getChildCount()-1);
 		
 		Log.i(tag, "getCount = " + childCount + ", per angle = " + mAngleDelay);
-		// ±éÀúÈ¥ÉèÖÃmenuitemµÄÎ»ÖÃ
+		// éå†å»è®¾ç½®menuitemçš„ä½ç½®
 		for (int i = 0; i < childCount; i++) {
 			final View child = getChildAt(i);
 
@@ -406,15 +405,15 @@ public class CircleMenuLayout extends ViewGroup {
 			mStartAngle %= angle+mAngleDelay;
 			Log.i(tag, "mStartAngle = " + mStartAngle);
 
-			// ¼ÆËã£¬ÖĞĞÄµãµ½menu itemÖĞĞÄµÄ¾àÀë
+			// è®¡ç®—ï¼Œä¸­å¿ƒç‚¹åˆ°menu itemä¸­å¿ƒçš„è·ç¦»
 			float tmp = layoutRadius / 2f - cWidth / 2 - mPadding;
 
-			// tmp cosa ¼´menu itemÖĞĞÄµãµÄºá×ø±ê
+			// tmp cosa å³menu itemä¸­å¿ƒç‚¹çš„æ¨ªåæ ‡
 			left = layoutRadius/ 2
 					+ (int) Math.round(tmp
 							* Math.cos(Math.toRadians(mStartAngle)) - 1 / 2f
 							* cWidth);
-			// tmp sina ¼´menu itemµÄ×İ×ø±ê
+			// tmp sina å³menu itemçš„çºµåæ ‡
 			top = layoutRadius/ 2
 					+ (int) Math.round(tmp
 							* Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f
@@ -426,7 +425,7 @@ public class CircleMenuLayout extends ViewGroup {
 			child.setScaleX(level);
 			child.setScaleY(level);
 			child.setAlpha(level);
-			// µş¼Ó³ß´ç
+			// å åŠ å°ºå¯¸
 			mStartAngle += mAngleDelay;
 		}
 
@@ -440,11 +439,11 @@ public class CircleMenuLayout extends ViewGroup {
 		final int childCount = getChildCount();
 
 		int left, top;
-		// menu item µÄ³ß´ç
+		// menu item çš„å°ºå¯¸
 		int cWidth = (int) (mRadius * RADIO_DEFAULT_CHILD_DIMENSION);
-		// ¸ù¾İmenu itemµÄ¸öÊı£¬¼ÆËã½Ç¶È
+		// æ ¹æ®menu itemçš„ä¸ªæ•°ï¼Œè®¡ç®—è§’åº¦
 		
-		// ±éÀúÈ¥ÉèÖÃmenuitemµÄÎ»ÖÃ
+		// éå†å»è®¾ç½®menuitemçš„ä½ç½®
 		for (int i = 0; i < childCount; i++) {
 			final View child = getChildAt(i);
 
@@ -461,15 +460,15 @@ public class CircleMenuLayout extends ViewGroup {
 			}
 //			Log.i(tag, "onLayout mStartAngle = " + mStartAngle);
 
-			// ¼ÆËã£¬ÖĞĞÄµãµ½menu itemÖĞĞÄµÄ¾àÀë
+			// è®¡ç®—ï¼Œä¸­å¿ƒç‚¹åˆ°menu itemä¸­å¿ƒçš„è·ç¦»
 			float tmp = mRadius - cWidth / 2 - mPadding;
 
-			// tmp cosa ¼´menu itemÖĞĞÄµãµÄºá×ø±ê
+			// tmp cosa å³menu itemä¸­å¿ƒç‚¹çš„æ¨ªåæ ‡
 			left = mLeftPadding*2 + (int) (mRadius*Math.cos(mStartAngleIndex*Math.PI/180)
 					+ (int) Math.round(tmp
 							* Math.cos(Math.toRadians(mStartAngle)) - 1 / 2f
 							* cWidth));
-			// tmp sina ¼´menu itemµÄ×İ×ø±ê
+			// tmp sina å³menu itemçš„çºµåæ ‡
 			top = mTopPadding + (int) (-mRadius*Math.sin(mStartAngleIndex*Math.PI/180)
 					+(int) Math.round(tmp
 							* Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f
@@ -482,7 +481,7 @@ public class CircleMenuLayout extends ViewGroup {
 			child.setScaleX(level);
 			child.setScaleY(level);
 			child.setAlpha(level);
-			// µş¼Ó³ß´ç
+			// å åŠ å°ºå¯¸
 			mStartAngle += mPerItemAngle;
 		}
 
@@ -490,7 +489,7 @@ public class CircleMenuLayout extends ViewGroup {
 
 	
 	/**
-	 * Í¨¹ı½Ç¶ÈÀ´»ñÈ¡Ëõ·Å»òAlpha±ÈÀı
+	 * é€šè¿‡è§’åº¦æ¥è·å–ç¼©æ”¾æˆ–Alphaæ¯”ä¾‹
 	 * @param startAngle
 	 * @return
 	 */
@@ -499,7 +498,7 @@ public class CircleMenuLayout extends ViewGroup {
 		if (startAngle < mStartAngleIndex)//[-, mStartAngleIndex]
 		{
 //			result = MIN_SCALE;
-			result = 0;	//0Îª²»¿É¼û
+			result = 0;	//0ä¸ºä¸å¯è§
 		}
 		else if (startAngle <= mStartAngleIndex + mTotalAngle/2)//[mStartAngleIndex, mStartAngleIndex + mTotalAngle/2]
 		{
@@ -516,47 +515,47 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 
 	/**
-	 * ¼ì²â°´ÏÂµ½Ì§ÆğÊ±Ğı×ªµÄ½Ç¶È
+	 * æ£€æµ‹æŒ‰ä¸‹åˆ°æŠ¬èµ·æ—¶æ—‹è½¬çš„è§’åº¦
 	 */
 	private float mTmpAngle;
 	/**
-	 * ¼ì²â°´ÏÂµ½Ì§ÆğÊ±Ê¹ÓÃµÄÊ±¼ä
+	 * æ£€æµ‹æŒ‰ä¸‹åˆ°æŠ¬èµ·æ—¶ä½¿ç”¨çš„æ—¶é—´
 	 */
 	private long mDownTime;
 	/**
-	 * ¼ÇÂ¼ÉÏÒ»´ÎµÄx£¬y×ø±ê
+	 * è®°å½•ä¸Šä¸€æ¬¡çš„xï¼Œyåæ ‡
 	 */
 	private float mLastX;
 	private float mLastY;
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÕıÔÚ×Ô¶¯¹ö¶¯
+	 * åˆ¤æ–­æ˜¯å¦æ­£åœ¨è‡ªåŠ¨æ»šåŠ¨
 	 */
 	private boolean isFling;
 	/**
-	 * ×Ô¶¯¹ö¶¯µÄRunnable
+	 * è‡ªåŠ¨æ»šåŠ¨çš„Runnable
 	 */
 	private AutoFlingRunnable mFlingRunnable;
 	
 	/**
-	 * ºóÍË´¦Àí£¬·ÀÖ¹Í£Ö¹Ê±¹ö¶¯Ì«¿ì
+	 * åé€€å¤„ç†ï¼Œé˜²æ­¢åœæ­¢æ—¶æ»šåŠ¨å¤ªå¿«
 	 */
 	private boolean isMoveBack;
 	private MoveBackRunnable mMoveBackRunnable;
 	
 	/**
-	 * µ±Ã¿ÃëÒÆ¶¯½Ç¶È´ïµ½¸ÃÖµÊ±£¬ÈÏÎªÊÇ¿ìËÙÒÆ¶¯
+	 * å½“æ¯ç§’ç§»åŠ¨è§’åº¦è¾¾åˆ°è¯¥å€¼æ—¶ï¼Œè®¤ä¸ºæ˜¯å¿«é€Ÿç§»åŠ¨
 	 */
 	private static final int FLINGABLE_VALUE = 100;
 	/**
-	 * µ±Ã¿ÃëÒÆ¶¯½Ç¶È´ïµ½¸ÃÖµÊ±£¬ÈÏÎªÊÇ¿ìËÙÒÆ¶¯
+	 * å½“æ¯ç§’ç§»åŠ¨è§’åº¦è¾¾åˆ°è¯¥å€¼æ—¶ï¼Œè®¤ä¸ºæ˜¯å¿«é€Ÿç§»åŠ¨
 	 */
 	private int mFlingableValue = FLINGABLE_VALUE;
 	/**
-	 * Èç¹ûÒÆ¶¯½Ç¶È´ïµ½¸ÃÖµ£¬ÔòÆÁ±Îµã»÷
+	 * å¦‚æœç§»åŠ¨è§’åº¦è¾¾åˆ°è¯¥å€¼ï¼Œåˆ™å±è”½ç‚¹å‡»
 	 */
 	private static final int NOCLICK_VALUE = 3;
 	/**
-	 * ¸ù¾İ´¥ÃşµÄÎ»ÖÃ£¬¼ÆËã½Ç¶È
+	 * æ ¹æ®è§¦æ‘¸çš„ä½ç½®ï¼Œè®¡ç®—è§’åº¦
 	 * 
 	 * @param xTouch
 	 * @param yTouch
@@ -570,7 +569,7 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 	
 	/**
-	 * ¸ù¾İµ±Ç°Î»ÖÃ¼ÆËãÏóÏŞ
+	 * æ ¹æ®å½“å‰ä½ç½®è®¡ç®—è±¡é™
 	 * 
 	 * @param x
 	 * @param y
@@ -596,17 +595,17 @@ public class CircleMenuLayout extends ViewGroup {
 		float x = ev.getX();
 		float y = ev.getY();
 		switch (ev.getAction()) {
-		case MotionEvent.ACTION_DOWN://°´ÏÂ
+		case MotionEvent.ACTION_DOWN://æŒ‰ä¸‹
 			mLastX = x;
 			mLastY = y;
 			mDownTime = SystemClock.elapsedRealtime();
 			mTmpAngle = 0;
-			if (isMoveBack)// Èç¹ûµ±Ç°ÒÑ¾­ÔÚ»ØÍË  
+			if (isMoveBack)// å¦‚æœå½“å‰å·²ç»åœ¨å›é€€  
 			{
 				removeCallbacks(mMoveBackRunnable);
 				isMoveBack = false;
 			}
-			if (isFling) // Èç¹ûµ±Ç°ÒÑ¾­ÔÚ¹ö¶¯  
+			if (isFling) // å¦‚æœå½“å‰å·²ç»åœ¨æ»šåŠ¨  
 			{
 				removeCallbacks(mFlingRunnable);
 				isFling = false;
@@ -614,16 +613,16 @@ public class CircleMenuLayout extends ViewGroup {
 			}
 			break;
 		case MotionEvent.ACTION_MOVE:
-			/*float start = getAngle(mLastX, mLastY);//¿ªÊ¼Ê±½Ç¶È
-			float end = getAngle(x, y);	//µ±Ç°½Ç¶È
+			/*float start = getAngle(mLastX, mLastY);//å¼€å§‹æ—¶è§’åº¦
+			float end = getAngle(x, y);	//å½“å‰è§’åº¦
 	         Log.e(tag, "start = " + start + " , end =" + end);  
-            // Èç¹ûÊÇÒ»¡¢ËÄÏóÏŞ£¬ÔòÖ±½Óend-start£¬½Ç¶ÈÖµ¶¼ÊÇÕıÖµ  
+            // å¦‚æœæ˜¯ä¸€ã€å››è±¡é™ï¼Œåˆ™ç›´æ¥end-startï¼Œè§’åº¦å€¼éƒ½æ˜¯æ­£å€¼  
             if (getQuadrant(x, y) == 1 || getQuadrant(x, y) == 4)  
             {  
                 mStartAngle += end - start;  
                 mTmpAngle += end - start;  
             } else  
-            // ¶ş¡¢ÈıÏóÏŞ£¬É«½Ç¶ÈÖµÊÇ¸¶Öµ  
+            // äºŒã€ä¸‰è±¡é™ï¼Œè‰²è§’åº¦å€¼æ˜¯ä»˜å€¼  
             {  
                 mStartAngle += start - end;  
                 mTmpAngle += start - end;  
@@ -632,20 +631,20 @@ public class CircleMenuLayout extends ViewGroup {
 			mStartAngle += angle;  
             mTmpAngle += angle; 
 //            Log.i(tag, "move angle = " + angle);
-            // ÖØĞÂ²¼¾Ö  
+            // é‡æ–°å¸ƒå±€  
             requestLayout();  
   
             mLastX = x;  
             mLastY = y;
 			break;
 		case MotionEvent.ACTION_UP:
-			 // ¼ÆËã£¬Ã¿ÃëÒÆ¶¯µÄ½Ç¶È  
+			 // è®¡ç®—ï¼Œæ¯ç§’ç§»åŠ¨çš„è§’åº¦  
             float anglePerSecond = mTmpAngle * 1000/(SystemClock.elapsedRealtime() - mDownTime);  
 //            Log.i(tag, "11111anglePerSecond up" + anglePerSecond);
-            // Èç¹û´ïµ½¸ÃÖµÈÏÎªÊÇ¿ìËÙÒÆ¶¯  
+            // å¦‚æœè¾¾åˆ°è¯¥å€¼è®¤ä¸ºæ˜¯å¿«é€Ÿç§»åŠ¨  
             if (Math.abs(anglePerSecond) > mFlingableValue && !isFling)  
             {  
-                // postÒ»¸öÈÎÎñ£¬È¥×Ô¶¯¹ö¶¯  
+                // postä¸€ä¸ªä»»åŠ¡ï¼Œå»è‡ªåŠ¨æ»šåŠ¨  
                 post(mFlingRunnable = new AutoFlingRunnable(anglePerSecond));  
   
                 return true;  
@@ -660,7 +659,7 @@ public class CircleMenuLayout extends ViewGroup {
 //				requestLayout();
             }
   
-            // Èç¹ûµ±Ç°Ğı×ª½Ç¶È³¬¹ıNOCLICK_VALUEÆÁ±Îµã»÷  
+            // å¦‚æœå½“å‰æ—‹è½¬è§’åº¦è¶…è¿‡NOCLICK_VALUEå±è”½ç‚¹å‡»  
             if (Math.abs(mTmpAngle) > NOCLICK_VALUE)  
             {  
                 return true;  
@@ -669,12 +668,12 @@ public class CircleMenuLayout extends ViewGroup {
 		default:
 			break;
 		}
-		super.dispatchTouchEvent(ev);//Ö´ĞĞÒ»ÏÂ£¬²»È»×ÓView»ñÈ¡²»µ½µã»÷ÊÂ¼ş
+		super.dispatchTouchEvent(ev);//æ‰§è¡Œä¸€ä¸‹ï¼Œä¸ç„¶å­Viewè·å–ä¸åˆ°ç‚¹å‡»äº‹ä»¶
 		return true;
 	}
 	
 	/**
-	 * Í¨¹ıÍ£Ö¹Ê±¿ªÊ¼µÄ½Ç¶ÈËã³öÓ¦¸ÃÍ£Ö¹µÄÎ»ÖÃ
+	 * é€šè¿‡åœæ­¢æ—¶å¼€å§‹çš„è§’åº¦ç®—å‡ºåº”è¯¥åœæ­¢çš„ä½ç½®
 	 * @param mStartAngle
 	 * @return
 	 */
@@ -691,7 +690,7 @@ public class CircleMenuLayout extends ViewGroup {
 	}
 	
 	/**
-	 * ×Ô¶¯¹ö¶¯µÄÈÎÎñ
+	 * è‡ªåŠ¨æ»šåŠ¨çš„ä»»åŠ¡
 	 */
 	private class AutoFlingRunnable implements Runnable
 	{
@@ -705,7 +704,7 @@ public class CircleMenuLayout extends ViewGroup {
 
 		public void run()
 		{
-			// Èç¹ûĞ¡ÓÚ20,Ôò»ØÍË
+			// å¦‚æœå°äº20,åˆ™å›é€€
 //			Log.i(tag, "11111anglePerSecond run" + angelPerSecond);
 			if ((int) Math.abs(angelPerSecond) < 20)
 			{
@@ -719,20 +718,20 @@ public class CircleMenuLayout extends ViewGroup {
 				return;
 			}
 			isFling = true;
-			// ²»¶Ï¸Ä±ämStartAngle£¬ÈÃÆä¹ö¶¯£¬/30ÎªÁË±ÜÃâ¹ö¶¯Ì«¿ì
+			// ä¸æ–­æ”¹å˜mStartAngleï¼Œè®©å…¶æ»šåŠ¨ï¼Œ/30ä¸ºäº†é¿å…æ»šåŠ¨å¤ªå¿«
 			mStartAngle += (angelPerSecond / 30);
-			// Öğ½¥¼õĞ¡Õâ¸öÖµ
+			// é€æ¸å‡å°è¿™ä¸ªå€¼
 			angelPerSecond /= 1.0666F;
 			postDelayed(this, 30);
-			// ÖØĞÂ²¼¾Ö
+			// é‡æ–°å¸ƒå±€
 			requestLayout();
 		}
 	}
 	
 	/**
-	 * »ØÍËÈÎÎñ
+	 * å›é€€ä»»åŠ¡
 	 * @author YC
-	 * @time 2016-3-22 ÏÂÎç6:01:36
+	 * @time 2016-3-22 ä¸‹åˆ6:01:36
 	 */
 	private class MoveBackRunnable implements Runnable {
 		private static final int BACKUP_ANGLE = 1;
@@ -752,7 +751,7 @@ public class CircleMenuLayout extends ViewGroup {
 				return;
 			}
 			
-			if (mOffsetAngle > 0)//Ë³Ê±Õë
+			if (mOffsetAngle > 0)//é¡ºæ—¶é’ˆ
 			{
 				mStartAngle += BACKUP_ANGLE;
 				mOffsetAngle -= BACKUP_ANGLE;
@@ -763,7 +762,7 @@ public class CircleMenuLayout extends ViewGroup {
 				mOffsetAngle += BACKUP_ANGLE;
 			}
 			postDelayed(this, 50);
-			// ÖØĞÂ²¼¾Ö
+			// é‡æ–°å¸ƒå±€
 			requestLayout();
 			
 		}

@@ -24,7 +24,7 @@ import com.example.bigapps.R;
 
 /**
  * @author YC
- * @time 2016-3-29 上午9:22:35
+ * @time 2016-3-29 涓婂崍9:22:35
  */
 public class HorizonListActivity extends Activity {
 
@@ -33,7 +33,6 @@ public class HorizonListActivity extends Activity {
 	private List<CityItem> cityList;
 	private RelativeLayout itmel;
 	private GridView gridView;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,11 +58,11 @@ public class HorizonListActivity extends Activity {
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 				gridviewWidth, LinearLayout.LayoutParams.MATCH_PARENT);
 		
-		gridView.setLayoutParams(params); // 重点
-		gridView.setColumnWidth(itemWidth); // 重点
-		gridView.setHorizontalSpacing(5); // 间距
+		gridView.setLayoutParams(params); // 閲嶇偣
+		gridView.setColumnWidth(itemWidth); // 閲嶇偣
+		gridView.setHorizontalSpacing(5); // 闂磋窛
 		gridView.setStretchMode(GridView.NO_STRETCH);
-		gridView.setNumColumns(size); // 重点
+		gridView.setNumColumns(size); // 閲嶇偣
 		
 		GridViewAdapter adapter = new GridViewAdapter(getApplicationContext(),
 				cityList);
@@ -113,27 +112,27 @@ public class HorizonListActivity extends Activity {
 	private void setData() {
 		cityList = new ArrayList<CityItem>();
 		CityItem item = new CityItem();
-		item.setCityName("深圳");
+		item.setCityName("娣卞湷");
 		item.setCityCode("0755");
 		cityList.add(item);
 		item = new CityItem();
-		item.setCityName("上海");
+		item.setCityName("涓婃捣");
 		item.setCityCode("021");
 		cityList.add(item);
 		item = new CityItem();
-		item.setCityName("广州");
+		item.setCityName("骞垮窞");
 		item.setCityCode("020");
 		cityList.add(item);
 		item = new CityItem();
-		item.setCityName("北京");
+		item.setCityName("鍖椾含");
 		item.setCityCode("010");
 		cityList.add(item);
 		item = new CityItem();
-		item.setCityName("武汉");
+		item.setCityName("姝︽眽");
 		item.setCityCode("027");
 		cityList.add(item);
 		item = new CityItem();
-		item.setCityName("孝感");
+		item.setCityName("瀛濇劅");
 		item.setCityCode("0712");
 		cityList.add(item);
 		cityList.addAll(cityList);

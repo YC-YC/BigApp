@@ -12,10 +12,9 @@ import android.view.View;
 
 /**
  *@Author Administrator
- *@Time 2016-3-20 ÉÏÎç11:22:48
+ *@Time 2016-3-20 ä¸Šåˆ11:22:48
  *
- *1¡¢»ñÈ¡×óÓÒÁ½¸öView
- *
+ *1ã€è·å–å·¦å³ä¸¤ä¸ªView
  */
 @SuppressLint("NewApi")
 public class CustomViewPager extends ViewPager {
@@ -37,7 +36,7 @@ public class CustomViewPager extends ViewPager {
 	}
 
 	/**
-	 * Ìá¹©·½·¨¸øÍâ²¿Ìí¼Ó
+	 * æä¾›æ–¹æ³•ç»™å¤–éƒ¨æ·»åŠ 
 	 * @param view
 	 * @param position
 	 */
@@ -51,7 +50,7 @@ public class CustomViewPager extends ViewPager {
 		mChildren.remove(position);
 	}
 
-	//¼àÌı»¬¶¯ÊÂ¼ş
+	//ç›‘å¬æ»‘åŠ¨äº‹ä»¶
 	@Override
 	protected void onPageScrolled(int position, float offset, int offsetPixels) {
 		// TODO Auto-generated method stub
@@ -60,13 +59,13 @@ public class CustomViewPager extends ViewPager {
 		 * 0~1: position = 0; offset = 0~1
 		 * 1~0: position = 0; offset = 1~0
 		 * 
-		 * offsetPixelsÎªoffset¶ÔÓ¦µÄÆÁÄ»¾àÀë
+		 * offsetPixelsä¸ºoffsetå¯¹åº”çš„å±å¹•è·ç¦»
 		 * position = 0~pagesize-1
 		 * 
 		 * position -->left
 		 * position+1 -->right
-		 * getCurrnetItem»ògetChildÎŞ·¨»ñÈ¡¶ÔÓ¦µÄView
-		 * Í¨¹ıÒ»¸öMapÀ´´æ´¢
+		 * getCurrnetItemæˆ–getChildæ— æ³•è·å–å¯¹åº”çš„View
+		 * é€šè¿‡ä¸€ä¸ªMapæ¥å­˜å‚¨
 		 */
 		
 		mLeft = mChildren.get(position);
@@ -85,11 +84,11 @@ public class CustomViewPager extends ViewPager {
 			//offset:0~1  -> mScale:MIN_SCALE~1
 //			mScale = offset*MIN_SCALE + MIN_SCALE;
 			mScale = offset*(1-MIN_SCALE) + MIN_SCALE;
-			mTrans = -getWidth() - getPageMargin() + offsetPixels;//Æ«ÒÆ
+			mTrans = -getWidth() - getPageMargin() + offsetPixels;//åç§»
 			
 			mAlpha = offset;
 			
-//			right.setPivotX(right.getWidth()/2);//ÉèÖÃËõ·ÅµãÎªÆÁÄ»ÖĞĞÄ
+//			right.setPivotX(right.getWidth()/2);//è®¾ç½®ç¼©æ”¾ç‚¹ä¸ºå±å¹•ä¸­å¿ƒ
 //			right.setPivotY(right.getHeight()/2);
 			
 			right.setScaleX(mScale);
@@ -102,7 +101,7 @@ public class CustomViewPager extends ViewPager {
 			
 		}
 		
-		if (left != null)//×ó±ßÒÆ¶¯Ç°Ãæ
+		if (left != null)//å·¦è¾¹ç§»åŠ¨å‰é¢
 		{
 			left.bringToFront();
 		}

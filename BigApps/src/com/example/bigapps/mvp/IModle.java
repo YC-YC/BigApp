@@ -7,16 +7,15 @@ import android.view.View;
 
 /**
  * @author YC
- * @time 2016-5-3 ÏÂÎç9:17:16
+ * @time 2016-5-3 ä¸‹åˆ9:17:16
  */
 public interface IModle {
-	/** modleÒ»°ãÊÇ±È½ÏºÄÊ±µÄ²Ù×÷£¬Òò´ËÍ¨¹ıcallback»Øµ÷·½·¨Í¨¹ıP */
+	/** modleä¸€èˆ¬æ˜¯æ¯”è¾ƒè€—æ—¶çš„æ“ä½œï¼Œå› æ­¤é€šè¿‡callbackå›è°ƒæ–¹æ³•é€šè¿‡P */
 	public void setData(ICallback callback);
 
 	public interface ICallback {
 		public void onResult(String string);
 	}
-	
-	/**×öÒ»Ğ©²Ù×÷*/
+	/**åšä¸€äº›æ“ä½œ*/
 	public void performClick(View view);
 }

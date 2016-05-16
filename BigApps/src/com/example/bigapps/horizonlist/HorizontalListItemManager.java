@@ -19,7 +19,7 @@ import com.example.bigapps.horizonlist.TestActivity.CityItem;
 
 /**
  * @author YC
- * @time 2016-4-1 œ¬ŒÁ2:46:57
+ * @time 2016-4-1 ‰∏ãÂçà2:46:57
  */
 public class HorizontalListItemManager {
 	private List<CityItem> cityList;
@@ -38,6 +38,7 @@ public class HorizontalListItemManager {
 		mInflater = LayoutInflater.from(mContext);
 	}
 
+	
 	public int getCount() {
 		return cityList.size();
 	}

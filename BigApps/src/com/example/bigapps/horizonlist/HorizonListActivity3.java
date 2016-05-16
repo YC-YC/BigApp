@@ -20,7 +20,7 @@ import com.example.bigapps.horizonlist.MyHorizontalScollView.OnItemClickListener
 
 /**
  * @author YC
- * @time 2016-3-29 …œŒÁ9:22:35
+ * @time 2016-3-29 ‰∏äÂçà9:22:35
  */
 public class HorizonListActivity3 extends Activity {
 
@@ -41,7 +41,6 @@ public class HorizonListActivity3 extends Activity {
 		initViews();
 	}
 	
-
 	private void initViews() {
 		mHorizontalScollView = (MyHorizontalScollView) findViewById(R.id.id_horizontalscollview);
 		mAdapter = new HorizontalScrollViewAdapter(this, cityList);
@@ -50,7 +49,7 @@ public class HorizonListActivity3 extends Activity {
 			
 			@Override
 			public void onClick(View view, int pos) {
-				Toast.makeText(getApplicationContext(), "µ„ª˜¡Àµ⁄" + pos +"œÓ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "ÁÇπÂáª‰∫ÜÁ¨¨" + pos +"È°π", Toast.LENGTH_SHORT).show();
 			}
 		});
 		
@@ -59,7 +58,7 @@ public class HorizonListActivity3 extends Activity {
 			@SuppressLint("NewApi")
 			@Override
 			public void onCurrentImgChanged(int position, View viewIndicator) {
-				Log.i(TAG, "µ⁄“ª∏ˆœ‘ æœÓ «" + position);
+				Log.i(TAG, "Á¨¨‰∏Ä‰∏™ÊòæÁ§∫È°πÊòØ" + position);
 //				viewIndicator.setScaleX(2.5f);
 //				viewIndicator.setScaleY(2.5f);
 				viewIndicator.setBackgroundResource(R.drawable.ic_launcher);
@@ -70,17 +69,17 @@ public class HorizonListActivity3 extends Activity {
 	
 	private void setData() {
 		cityList = new ArrayList<CityItem>();
-		CityItem item = new CityItem("…Ó€⁄", "0755", R.drawable.china);
+		CityItem item = new CityItem("Ê∑±Âú≥", "0755", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("…œ∫£", "021", R.drawable.china);
+		item = new CityItem("‰∏äÊµ∑", "021", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("π„÷›", "020", R.drawable.china);
+		item = new CityItem("ÂπøÂ∑û", "020", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("±±æ©", "010", R.drawable.china);
+		item = new CityItem("Âåó‰∫¨", "010", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("Œ‰∫∫", "027", R.drawable.china);
+		item = new CityItem("Ê≠¶Ê±â", "027", R.drawable.china);
 		cityList.add(item);
-		item = new CityItem("–¢∏–", "0712", R.drawable.china);
+		item = new CityItem("Â≠ùÊÑü", "0712", R.drawable.china);
 		cityList.add(item);
 		cityList.addAll(cityList);
 	}

@@ -31,8 +31,7 @@ import com.example.bigapps.testviewpager.MainViewPager2;
 public class MainActivity extends Activity implements IView{
 
 	private TextView mTvContent;
-	
-	/**MVP¿ò¼Ü*/
+	/**MVPæ¡†æ¶*/
 	private IPresent mPresent;
 	
 	@Override
@@ -48,7 +47,7 @@ public class MainActivity extends Activity implements IView{
 	@Override
 	public void onBackPressed() {
 		if (!bQuit){
-			Toast.makeText(this, "ÔÙ°´Ò»´Î·µ»ØÍË³ö", 500).show();
+			Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡è¿”å›é€€å‡º", 500).show();
 			new Timer().schedule(new TimerTask() {
 				
 				@Override
@@ -66,7 +65,7 @@ public class MainActivity extends Activity implements IView{
 	
 	public void doClick(View view)
 	{
-		//TODO Ò»°ã×öÒ»Ğ©´¦Àí´¦ÀíµÄ²Ù×÷£¬ÔÚÕâ¸öÀı×ÓÀïÖ»ÊÇ´ò¿ªÒ»¸öActivityÓĞµãĞ¡Ìâ´ó×÷ÁË£¨Ö»×÷ÑİÊ¾ÓÃ£©
+		//TODO ä¸€èˆ¬åšä¸€äº›å¤„ç†å¤„ç†çš„æ“ä½œï¼Œåœ¨è¿™ä¸ªä¾‹å­é‡Œåªæ˜¯æ‰“å¼€ä¸€ä¸ªActivityæœ‰ç‚¹å°é¢˜å¤§ä½œäº†ï¼ˆåªä½œæ¼”ç¤ºç”¨ï¼‰
 		mPresent.performClick(view);
 	}
 

@@ -22,32 +22,31 @@ import android.widget.ImageView;
 
 /**
  * @author YC
- * @time 2016-4-1 ÉÏÎç9:36:07
+ * @time 2016-4-1 ä¸Šåˆ9:36:07
  */
 public class HorizontalList extends ViewGroup {
 
 	private String TAG = getClass().getSimpleName();
 
-	/**ItemÖ®¼äµÄ¼ä¾à*/
+	/**Itemä¹‹é—´çš„é—´è·*/
 	private int mItemPadding = 5;
-	/**ÏÔÊ¾µÄItem¸öÊı*/
+	/**æ˜¾ç¤ºçš„Itemä¸ªæ•°*/
 	private int mShowItemNum = 5;
-	/**ÖĞ¼äÒ»¸ö·Å´óµÄÎ»Êı*/
+	/**ä¸­é—´ä¸€ä¸ªæ”¾å¤§çš„ä½æ•°*/
 	private final float mMidScale = 1.5f;
-	/**ÊÊÅäÆ÷*/
+	/**é€‚é…å™¨*/
 	private BaseAdapter mAdapter;
 	
-	/**ItemµÄ¿í¸ß*/
+	/**Itemçš„å®½é«˜*/
 	private int mItemWidth, mItemHeight;
 	
-	/**Õû¸öViewµÄ¿í¸ß*/
+	/**æ•´ä¸ªViewçš„å®½é«˜*/
 	private int mWidth, mHeight;
 	
-	/**ÖĞ¼ä·Å´óItemµÄË÷Òı¼°ÆäÓë²¼¾ÖÖĞ¼äµÄÆ«ÒÆ*/
+	/**ä¸­é—´æ”¾å¤§Itemçš„ç´¢å¼•åŠå…¶ä¸å¸ƒå±€ä¸­é—´çš„åç§»*/
 	private int mMidSelItemIndex = 0, mMidItemOffset = 0;
 	
-	
-	/**±£´æitemÏîÓëViewµÄ±í*/
+	/**ä¿å­˜itemé¡¹ä¸Viewçš„è¡¨*/
     private Map<View, Integer> mPosMap = new HashMap<View, Integer>();
 	
 	
@@ -59,7 +58,7 @@ public class HorizontalList extends ViewGroup {
 	}
 	public HorizontalList(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		//ÎŞÊÓxmlÖĞµÄpaddingµÄ²¼¾Ö
+		//æ— è§†xmlä¸­çš„paddingçš„å¸ƒå±€
 		setPadding(0, 0, 0, 0);
 	}
 	
@@ -67,7 +66,7 @@ public class HorizontalList extends ViewGroup {
 		  void onItemClick(AdapterView<?> parent, View view, int position);
 	}
 	private ItemOnClickListener mOnItemClickListener;
-	/** ÉèÖÃItemµÄµã»÷ÊÂ¼ş½Ó¿Ú */
+	/** è®¾ç½®Itemçš„ç‚¹å‡»äº‹ä»¶æ¥å£ */
 	public void setItemOnClickListener(ItemOnClickListener onItemClickListener) {
 		mOnItemClickListener = onItemClickListener;
 	}
@@ -76,7 +75,7 @@ public class HorizontalList extends ViewGroup {
 		  void onItemPlayPause(View view, int position);
 	}
 	private ItemPlayPauseOnClickListener mItemPlayPauseOnClickListener;
-	/** ÉèÖÃItemµÄµã»÷ÊÂ¼ş½Ó¿Ú */
+	/** è®¾ç½®Itemçš„ç‚¹å‡»äº‹ä»¶æ¥å£ */
 	public void setItemPlayPauseOnClickListener(ItemPlayPauseOnClickListener itemPlayPauseOnClickListener) {
 		mItemPlayPauseOnClickListener = itemPlayPauseOnClickListener;
 	}
@@ -102,7 +101,7 @@ public class HorizontalList extends ViewGroup {
 		requestLayout();
 	}
 	
-	/** ÉèÖÃ²¥·ÅÔİÍ£×´Ì¬°´¼üµÄ×´Ì¬ */
+	/** è®¾ç½®æ’­æ”¾æš‚åœçŠ¶æ€æŒ‰é”®çš„çŠ¶æ€ */
 	public void setPlayPauseState(int[] items, boolean[] states)
 	{
 		for (int i = 0; i < getChildCount(); i++)
@@ -139,16 +138,16 @@ public class HorizontalList extends ViewGroup {
 		Log.i(TAG, "setPlayPauseState");
 	}
 	
-	/** »ñÈ¡Ä¬ÈÏµÄÖĞ¼äÏÔÊ¾ItemµÄIndex*/
+	/** è·å–é»˜è®¤çš„ä¸­é—´æ˜¾ç¤ºItemçš„Index*/
 	private int getInitMideSelItemIndex() {
 		return mAdapter.getCount() < mShowItemNum/2 ? 0 : mShowItemNum/2;
 	}
 	
-	/** »ñÈ¡ItemµÄ¿í¸ß */
+	/** è·å–Itemçš„å®½é«˜ */
 	private void getItemWH() {
 		if (mItemWidth == 0 || mItemHeight == 0)
 		{
-			/**ÒòÎªItemÎªÒ»Ñù´óĞ¡£¬ËùÒÔÖ»²âÁ¿Ò»¸ö*/
+			/**å› ä¸ºItemä¸ºä¸€æ ·å¤§å°ï¼Œæ‰€ä»¥åªæµ‹é‡ä¸€ä¸ª*/
 			Log.i(TAG , "getChildCount = " + getChildCount());
 			if (getChildCount() > 0)
 			{
@@ -159,7 +158,7 @@ public class HorizontalList extends ViewGroup {
 			}
 		}
 	}
-	/** Ìí¼ÓItem */
+	/** æ·»åŠ Item */
 	private void addItems() {
 		removeAllViews();
 		for (int i = 0; i < mAdapter.getCount(); i++)
@@ -207,7 +206,7 @@ public class HorizontalList extends ViewGroup {
 		setMeasuredDimension(mWidth, mHeight);
 	}
 	
-	/**±ØĞè²âÁ¿×ÓView£¬·ñÔò»ñÈ¡²»µ½wh*/
+	/**å¿…éœ€æµ‹é‡å­Viewï¼Œå¦åˆ™è·å–ä¸åˆ°wh*/
 	private void measureChild() {
 		for (int i = 0 ; i < getChildCount() ; i++){
 			View childView = getChildAt(i);
@@ -221,13 +220,13 @@ public class HorizontalList extends ViewGroup {
 //		Log.i(TAG, "onLayout mMidItemOffset = " + mMidItemOffset);
 		
 		final float midItemScale = getScaleByOffset(mMidItemOffset);
-		/**×ó»òÓÒÔªËØ·Å´ó±¶Êı*/
+		/**å·¦æˆ–å³å…ƒç´ æ”¾å¤§å€æ•°*/
 		final float leftRightScale = 1.0f + mMidScale - midItemScale;	
 //		Log.i(TAG, "onLayout midItemScale = " + midItemScale + ", leftRightScale = " + leftRightScale);
 		
 		int left = 0;
 		final int top = mHeight/2 - mItemHeight/2;
-		/**²¼¾ÖÑ¡ÖĞÏî*/
+		/**å¸ƒå±€é€‰ä¸­é¡¹*/
 		left = mWidth/2 + mMidItemOffset;
 		left -= mItemWidth/2;
 		
@@ -240,12 +239,12 @@ public class HorizontalList extends ViewGroup {
 		view.setScaleX(midItemScale);
 		view.setScaleY(midItemScale);
 		
-		/**²¼¾Ö×ó±ßÏî*/
+		/**å¸ƒå±€å·¦è¾¹é¡¹*/
 		int index = mMidSelItemIndex-1;
 		left = (int) (left - mItemWidth*(midItemScale - 1)/2);
 		if (mMidItemOffset <= 0)
 		{
-			/**²¼¾Ö×ó±ßÈ«²¿Õı³£ÏÔÊ¾µÄItem*/
+			/**å¸ƒå±€å·¦è¾¹å…¨éƒ¨æ­£å¸¸æ˜¾ç¤ºçš„Item*/
 			for (int i = 0; i < mShowItemNum/2  && index >= 0; i++,index--)
 			{
 				left -= (mItemWidth + mItemPadding);
@@ -261,7 +260,7 @@ public class HorizontalList extends ViewGroup {
 			
 			if (index >= 0)
 			{
-				/**²¼¾Ö×ó±ßµÚÒ»¸ö·Å´óµÄItem*/
+				/**å¸ƒå±€å·¦è¾¹ç¬¬ä¸€ä¸ªæ”¾å¤§çš„Item*/
 				left -= (mItemPadding + mItemWidth*leftRightScale - mItemWidth*(leftRightScale - 1.0f)/2);
 				view = getChildAt(index);
 				view.layout(left, top, left+mItemWidth, top+mItemHeight);
@@ -270,7 +269,7 @@ public class HorizontalList extends ViewGroup {
 //				Log.i(TAG, "onLayout LeftScale 1 left = " + left);
 				index--;
 				left -= (mItemWidth*(leftRightScale - 1.0f)/2);
-				/**²¼¾Ö×ó±ßµÚ¶ş¸ö¿ªÊ¼µÄItem*/
+				/**å¸ƒå±€å·¦è¾¹ç¬¬äºŒä¸ªå¼€å§‹çš„Item*/
 				for (int i = 0; i < mShowItemNum/2 && index >= 0; i++,index--)
 				{
 					left -= (mItemWidth + mItemPadding);
@@ -283,13 +282,13 @@ public class HorizontalList extends ViewGroup {
 			}
 		}
 		
-		/**²¼¾ÖÓÒ±ßÏî*/
+		/**å¸ƒå±€å³è¾¹é¡¹*/
 		index = mMidSelItemIndex + 1;
 		left = mWidth/2 + mMidItemOffset;
 		left += (mItemWidth*midItemScale)/2;
 		if (mMidItemOffset >= 0)
 		{
-			/**²¼¾ÖÓÒ±ßÈ«²¿Õı³£ÏÔÊ¾µÄItem*/
+			/**å¸ƒå±€å³è¾¹å…¨éƒ¨æ­£å¸¸æ˜¾ç¤ºçš„Item*/
 			for (int i = 0; i < mShowItemNum/2  && index < getChildCount(); i++,index++)
 			{
 				left += mItemPadding;
@@ -304,7 +303,7 @@ public class HorizontalList extends ViewGroup {
 		{
 			if (index < getChildCount())
 			{
-				/**²¼¾ÖÓÒ±ßµÚÒ»¸ö·Å´óµÄItem*/
+				/**å¸ƒå±€å³è¾¹ç¬¬ä¸€ä¸ªæ”¾å¤§çš„Item*/
 				left += mItemPadding + mItemWidth*(leftRightScale-1.0f)/2;
 				view = getChildAt(index);
 				view.layout(left, top, left+mItemWidth, top+mItemHeight);
@@ -312,7 +311,7 @@ public class HorizontalList extends ViewGroup {
 				view.setScaleY(leftRightScale);
 				index++;
 				left += mItemWidth + mItemWidth*(leftRightScale - 1.0f)/2;
-				/**²¼¾ÖÓÒ±ßµÚ¶ş¸ö¿ªÊ¼µÄItem*/
+				/**å¸ƒå±€å³è¾¹ç¬¬äºŒä¸ªå¼€å§‹çš„Item*/
 				for (int i = 0; i < mShowItemNum/2  && index < getChildCount(); i++,index++)
 				{
 					left += mItemPadding;
@@ -331,7 +330,7 @@ public class HorizontalList extends ViewGroup {
 		Utils.getInstance().endUseTime("onMeasure");
 	}
 	
-	/**ÉèÖÃItemÊÂ¼ş*/
+	/**è®¾ç½®Itemäº‹ä»¶*/
 	private void setItemEvent() {
 		for (int i = 0; i < getChildCount(); i++)
 		{
@@ -348,7 +347,7 @@ public class HorizontalList extends ViewGroup {
 			}
 		}
 	}
-	/** ÏÔÊ¾ºÍÒş²ØItemÏî */
+	/** æ˜¾ç¤ºå’Œéšè—Itemé¡¹ */
 	private void showView() {
 		int startShowIndex = 0;
 		int endShowIndex = 0;
@@ -394,7 +393,7 @@ public class HorizontalList extends ViewGroup {
 			}
 		}
 	}
-	/**¸ù¾İÆ«ÒÆÁ¿¼ÆËã·Å´óÖµ*/
+	/**æ ¹æ®åç§»é‡è®¡ç®—æ”¾å¤§å€¼*/
 	private float getScaleByOffset(int offset) {
 		float scale = 1.0f;
 		int totalOffset = (int) (mItemWidth + (mMidScale - 1.0f)*mItemWidth + mItemPadding);
@@ -412,17 +411,17 @@ public class HorizontalList extends ViewGroup {
 	}
 	
 	private int mLastX = 0;
-	/**	¼ì²â°´ÏÂµ½Ì§ÆğÊ±Ê¹ÓÃµÄÊ±¼ä*/
+	/**	æ£€æµ‹æŒ‰ä¸‹åˆ°æŠ¬èµ·æ—¶ä½¿ç”¨çš„æ—¶é—´*/
 	private long mDownTime = 0;
 	private int mDownX = 0;
-	/**µ±Ã¿ÃëÒÆ¶¯½Ç¶È´ïµ½¸ÃÖµÊ±£¬ÈÏÎªÊÇ¿ìËÙÒÆ¶¯ */
+	/**å½“æ¯ç§’ç§»åŠ¨è§’åº¦è¾¾åˆ°è¯¥å€¼æ—¶ï¼Œè®¤ä¸ºæ˜¯å¿«é€Ÿç§»åŠ¨ */
 	private final int FLINGABLE_VALUE = 100;
-	/**ÊÇ·ñÔÚ¹ö¶¯*/
+	/**æ˜¯å¦åœ¨æ»šåŠ¨*/
 	private boolean mIsFling;
-	/**×Ô¶¯¹ö¶¯µÄRunnable*/
+	/**è‡ªåŠ¨æ»šåŠ¨çš„Runnable*/
 	private AutoFlingRunnable mFlingRunnable;
 	
-	/** ºóÍË´¦Àí£¬·ÀÖ¹Í£Ö¹Ê±¹ö¶¯Ì«¿ì */
+	/** åé€€å¤„ç†ï¼Œé˜²æ­¢åœæ­¢æ—¶æ»šåŠ¨å¤ªå¿« */
 	private boolean isMoveBack;
 	private MoveBackRunnable mMoveBackRunnable;
 	
@@ -436,7 +435,7 @@ public class HorizontalList extends ViewGroup {
 			mLastX = (int) event.getX();
 			mDownX = (int) event.getX();
 			mDownTime = SystemClock.elapsedRealtime();
-			if (isMoveBack)// Èç¹ûµ±Ç°ÒÑ¾­ÔÚ»ØÍË  
+			if (isMoveBack)// å¦‚æœå½“å‰å·²ç»åœ¨å›é€€  
 			{
 				removeCallbacks(mMoveBackRunnable);
 				isMoveBack = false;
@@ -481,9 +480,9 @@ public class HorizontalList extends ViewGroup {
 		return true;
 	}
 	
-	/**Ğ£ÑéÆ«ÒÆÖµ,Ã¿´ÎĞŞ¸ÄmMidItemOffsetÊ±ĞèÒªµ÷ÓÃ*/
+	/**æ ¡éªŒåç§»å€¼,æ¯æ¬¡ä¿®æ”¹mMidItemOffsetæ—¶éœ€è¦è°ƒç”¨*/
 	private void checkOffset() {
-		/**Õı¸º±êÊ¶*/
+		/**æ­£è´Ÿæ ‡è¯†*/
 		final int flag = mMidItemOffset > 0 ? 1: -1;
 		final int itemOffset = (int) (mItemWidth + (mMidScale - 1.0f)*mItemWidth/2 + mItemPadding);
 //		Log.i(TAG, "checkOffset ++++++++++ mMidItemOffset = " + mMidItemOffset);
@@ -518,7 +517,7 @@ public class HorizontalList extends ViewGroup {
 	}
 	
 	/**
-	 * ¼ì²â±ß½ç£¬´¦ÀíµÚÒ»¸öºÍ×îºóÒ»¸ö
+	 * æ£€æµ‹è¾¹ç•Œï¼Œå¤„ç†ç¬¬ä¸€ä¸ªå’Œæœ€åä¸€ä¸ª
 	 */
 	private boolean checkBorder()
 	{
@@ -558,9 +557,9 @@ public class HorizontalList extends ViewGroup {
 				return;
 			}
 			mIsFling = true;
-			// ²»¶Ï¸Ä±ämMidItemOffset£¬ÈÃÆä¹ö¶¯£¬/30ÎªÁË±ÜÃâ¹ö¶¯Ì«¿ì
+			// ä¸æ–­æ”¹å˜mMidItemOffsetï¼Œè®©å…¶æ»šåŠ¨ï¼Œ/30ä¸ºäº†é¿å…æ»šåŠ¨å¤ªå¿«
 			mMidItemOffset += (mSpeed / 30);
-			// Öğ½¥¼õĞ¡Õâ¸öÖµ
+			// é€æ¸å‡å°è¿™ä¸ªå€¼
 			mSpeed /= 1.0666F;
 			checkOffset();
 			if (checkBorder())
@@ -571,12 +570,12 @@ public class HorizontalList extends ViewGroup {
 			{
 				postDelayed(this, 30);
 			}
-			// ÖØĞÂ²¼¾Ö
+			// é‡æ–°å¸ƒå±€
 			requestLayout();
 		}
 	}
 	
-	/** »ñÈ¡Í£Ö¹Ê±ĞèÒªµ÷ÕûµÄÆ«ÒÆ */
+	/** è·å–åœæ­¢æ—¶éœ€è¦è°ƒæ•´çš„åç§» */
 	private int getStopOffset(int offset) {
 		final int ITEM_OFFSET = (int) (mItemWidth + mItemPadding + (mMidScale - 1.0f)*mItemWidth/2);
 		
@@ -593,7 +592,7 @@ public class HorizontalList extends ViewGroup {
 	}
 	
 	/**
-	 * »ØÍËÈÎÎñ
+	 * å›é€€ä»»åŠ¡
 	 * @author YC
 	 * @time 2016-4-5  14:01:36
 	 */
@@ -601,7 +600,7 @@ public class HorizontalList extends ViewGroup {
 		private static final int SPEED_DIFF = 2;
 		private int mOffset;
 		
-		/** @param offset ĞèÒªÆ«ÒÆµÄÖµ */
+		/** @param offset éœ€è¦åç§»çš„å€¼ */
 		public MoveBackRunnable(int offset){
 			mOffset = offset;
 		}
@@ -626,12 +625,12 @@ public class HorizontalList extends ViewGroup {
 			}
 			postDelayed(this, 1);
 			checkOffset();
-			// ÖØĞÂ²¼¾Ö
+			// é‡æ–°å¸ƒå±€
 			requestLayout();
 		}
 	}
 
-	/**»Ö¸´µ½Õı³£ÏÔÊ¾×´Ì¬ */
+	/**æ¢å¤åˆ°æ­£å¸¸æ˜¾ç¤ºçŠ¶æ€ */
 	public void upsetToNormalItem() {
 		final int itemOffset = (int) (mItemWidth + (mMidScale - 1.0f)*mItemWidth/2 + mItemPadding);
 		final int DIFF = 10;

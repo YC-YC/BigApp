@@ -12,14 +12,13 @@ import android.widget.LinearLayout;
 
 /**
  * @author YC
- * @time 2016-3-30 上午11:50:56
+ * @time 2016-3-30 涓婂崍11:50:56
  */
 public class MyLinearLayout extends LinearLayout{
 
 	private static final String TAG = "MyLinearLayout";
 	private int selectPosition = 2;
 
-	
 	private int state = 0;
 
 	int mWidth = 100;
@@ -43,7 +42,7 @@ public class MyLinearLayout extends LinearLayout{
 	
 	public MyLinearLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		//无视xml中的padding的布局
+		//鏃犺xml涓殑padding鐨勫竷灞�
 		setPadding(0, 0, 0, 0);
 	}
 

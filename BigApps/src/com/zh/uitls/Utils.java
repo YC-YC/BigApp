@@ -28,7 +28,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * @author zhonghong.chenli date:2015-6-12ÉÏÎç10:07:45 <br/>
  */
 public class Utils {
 	private static final String tag = "Utils";
@@ -54,27 +53,27 @@ public class Utils {
 
 	public void endUseTime(String paramString) {
 		if ((this.timeRecord == null) || (!this.timeRecord.containsKey(paramString))) {
-			L.e("Utils", paramString + " ´íÎó £º Î´ÉèÖÃÆğÊ¼Ê±¼ä£¡");
+			L.e("Utils", paramString + " é”™è¯¯ ï¼š æœªè®¾ç½®èµ·å§‹æ—¶é—´ï¼");
 			return;
 		}
 		long l = SystemClock.uptimeMillis() - ((Long) this.timeRecord.get(paramString)).longValue();
 		this.timeRecord.remove(paramString);
-		L.i("Utils", paramString + " ÏûºÄÊ±¼ä £º " + l);
+		L.i("Utils", paramString + " æ¶ˆè€—æ—¶é—´ ï¼š " + l);
 	}
 	
 	
 	/***
-	 * ¸ñÊ½»¯Ê±¼ä
+	 * æ ¼å¼åŒ–æ—¶é—´
 	 */
 	@SuppressLint("SimpleDateFormat")
 	public String formatTime(long time){
-		 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//µÈ¼ÛÓÚ
+		 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//ç­‰ä»·äº
 		 return sdf.format(time);
 	}
 	
 	
 	/**
-	 * ¸ñÊ½»¯´óĞ¡
+	 * æ ¼å¼åŒ–å¤§å°
 	 * @param paramLong
 	 * @return
 	 */
@@ -92,21 +91,21 @@ public class Utils {
 	}
 	
 	/**
-	 * È¡ÎÄ¼şÂ·¾¶×îºóÒ»½Ø,²»º¬¡°/¡±
+	 * å–æ–‡ä»¶è·¯å¾„æœ€åä¸€æˆª,ä¸å«â€œ/â€
 	 */
 	public String getFilePathLastSub(String filePath){
 		return filePath.substring(filePath.lastIndexOf("/") + 1, filePath.length());
 	}
 	
 	/**
-	 * È¡ÎÄ¼şËùÔÚÎÄ¼ş¼Ğ
+	 * å–æ–‡ä»¶æ‰€åœ¨æ–‡ä»¶å¤¹
 	 */
 	public String getDirPathFromfile(String filePath){
 		return filePath.substring(0, filePath.lastIndexOf("/"));
 	}
 	
 	/** 
-	 * ºº×Ö·µ»ØÆ´Òô£¬×ÖÄ¸Ô­Ñù·µ»Ø£¬¶¼×ª»»ÎªĞ¡Ğ´Ê××ÖÄ¸
+	 * æ±‰å­—è¿”å›æ‹¼éŸ³ï¼Œå­—æ¯åŸæ ·è¿”å›ï¼Œéƒ½è½¬æ¢ä¸ºå°å†™é¦–å­—æ¯
 	 * @param input
 	 * @return
 	 */
@@ -125,10 +124,10 @@ public class Utils {
 	}*/
 	
 	/* *//** 
-     * »ñÈ¡ºº×Ö´®Æ´ÒôÊ××ÖÄ¸£¬Ó¢ÎÄ×Ö·û²»±ä 
+     * è·å–æ±‰å­—ä¸²æ‹¼éŸ³é¦–å­—æ¯ï¼Œè‹±æ–‡å­—ç¬¦ä¸å˜ 
      * 
-     * @param chinese ºº×Ö´® 
-     * @return ººÓïÆ´ÒôÊ××ÖÄ¸ 
+     * @param chinese æ±‰å­—ä¸² 
+     * @return æ±‰è¯­æ‹¼éŸ³é¦–å­—æ¯ 
      *//* 
     public static String cn2FirstSpell(String chinese) { 
             StringBuffer pybf = new StringBuffer(); 
@@ -154,10 +153,10 @@ public class Utils {
     } 
 */
     /** 
-     * »ñÈ¡ºº×Ö´®Æ´Òô£¬Ó¢ÎÄ×Ö·û²»±ä 
+     * è·å–æ±‰å­—ä¸²æ‹¼éŸ³ï¼Œè‹±æ–‡å­—ç¬¦ä¸å˜ 
      * 
-     * @param chinese ºº×Ö´® 
-     * @return ººÓïÆ´Òô 
+     * @param chinese æ±‰å­—ä¸² 
+     * @return æ±‰è¯­æ‹¼éŸ³ 
      */ 
  /*   public static String cn2Spell(String chinese) { 
             StringBuffer pybf = new StringBuffer(); 
@@ -181,7 +180,7 @@ public class Utils {
 
     
     /**
-	 * µÃµ½ È«Æ´
+	 * å¾—åˆ° å…¨æ‹¼
 	 * 
 	 * @param src
 	 * @return
@@ -198,7 +197,7 @@ public class Utils {
 		int t0 = t1.length;
 		try {
 			for (int i = 0; i < t0; i++) {
-				// ÅĞ¶ÏÊÇ·ñÎªºº×Ö×Ö·û
+				// åˆ¤æ–­æ˜¯å¦ä¸ºæ±‰å­—å­—ç¬¦
 				if (java.lang.Character.toString(t1[i]).matches(
 						"[\\u4E00-\\u9FA5]+")) {
 					t2 = PinyinHelper.toHanyuPinyinStringArray(t1[i], t3);
@@ -215,7 +214,7 @@ public class Utils {
 	}*/
 	
 	/**
-	 * ºÁÃë¸ñÊ½»¯Îª00:00
+	 * æ¯«ç§’æ ¼å¼åŒ–ä¸º00:00
 	 * @param l
 	 * @return
 	 */
@@ -246,7 +245,7 @@ public class Utils {
     } 
     
     /**
-     * ¸ù¾İ¸èÇúÂ·¾¶·µ»Ø¸è´ÊÂ·¾¶
+     * æ ¹æ®æ­Œæ›²è·¯å¾„è¿”å›æ­Œè¯è·¯å¾„
      */
     public String serchLrc(String songPath) { 
         String lrc = songPath;
@@ -255,7 +254,7 @@ public class Utils {
     
     
     /**
-	 * ÅĞ¶ÏÊÇ·ñÓĞ×ã¹»µÄ¿Õ¼ä¹©ÏÂÔØ
+	 * åˆ¤æ–­æ˜¯å¦æœ‰è¶³å¤Ÿçš„ç©ºé—´ä¾›ä¸‹è½½
 	 * 
 	 * @param downloadSize
 	 * @return
@@ -263,17 +262,17 @@ public class Utils {
 	@SuppressLint("NewApi")
 	public boolean isEnoughForDownload(String dirPath, long downloadSize) {
 		StatFs statFs = new StatFs(dirPath);
-		Log.e(tag, "¿ÉÓÃ£º" + (statFs.getFreeBytes() / 1024 / 1024) + "M");
-		// sd¿¨·ÖÇøÊı
+		Log.e(tag, "å¯ç”¨ï¼š" + (statFs.getFreeBytes() / 1024 / 1024) + "M");
+		// sdå¡åˆ†åŒºæ•°
 		int blockCounts = statFs.getBlockCount();
 		// Log.e("ray", "blockCounts" + blockCounts);
-		// sd¿¨¿ÉÓÃ·ÖÇøÊı
+		// sdå¡å¯ç”¨åˆ†åŒºæ•°
 		int avCounts = statFs.getAvailableBlocks();
 		// Log.e("ray", "avCounts" + avCounts);
-		// Ò»¸ö·ÖÇøÊıµÄ´óĞ¡
+		// ä¸€ä¸ªåˆ†åŒºæ•°çš„å¤§å°
 		long blockSize = statFs.getBlockSize();
 		// Log.e("ray", "blockSize" + blockSize);
-		// sd¿¨¿ÉÓÃ¿Õ¼ä
+		// sdå¡å¯ç”¨ç©ºé—´
 		long spaceLeft = avCounts * blockSize;
 		Log.e("ray", "spaceLeft" + spaceLeft);
 		Log.e("ray", "downloadSize" + downloadSize);
@@ -284,7 +283,7 @@ public class Utils {
 	}
 	
 	/**
-	 * È¥ÊÓÆµµÚtimeSÃëµÄÖ¡»­Ãæ
+	 * å»è§†é¢‘ç¬¬timeSç§’çš„å¸§ç”»é¢
 	 * @param videoPath
 	 * @param time
 	 */
@@ -294,13 +293,13 @@ public class Utils {
 		try{
 			MediaMetadataRetriever retriever = new MediaMetadataRetriever();
 			retriever.setDataSource(videoPath);
-			// È¡µÃÊÓÆµµÄ³¤¶È(µ¥Î»ÎªºÁÃë)
+			// å–å¾—è§†é¢‘çš„é•¿åº¦(å•ä½ä¸ºæ¯«ç§’)
 			String time = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
-			// È¡µÃÊÓÆµµÄ³¤¶È(µ¥Î»ÎªÃë)
+			// å–å¾—è§†é¢‘çš„é•¿åº¦(å•ä½ä¸ºç§’)
 			int seconds = Integer.valueOf(time) / 1000;
-			// µÃµ½Ã¿Ò»ÃëÊ±¿ÌµÄbitmap±ÈÈçµÚÒ»Ãë,µÚ¶şÃë
+			// å¾—åˆ°æ¯ä¸€ç§’æ—¶åˆ»çš„bitmapæ¯”å¦‚ç¬¬ä¸€ç§’,ç¬¬äºŒç§’
 			if(timeS > seconds){
-				L.w(tag, "ÏëÈ¡µÄÊ±¼ä´óÓÚÊÓÆµ×ÜÊ±¼ä");
+				L.w(tag, "æƒ³å–çš„æ—¶é—´å¤§äºè§†é¢‘æ€»æ—¶é—´");
 				return null;
 			}
 			result = retriever.getFrameAtTime(timeS * 1000 * 1000, MediaMetadataRetriever.OPTION_CLOSEST_SYNC);
@@ -312,17 +311,17 @@ public class Utils {
 	
 	
 	/**
-	 * @Description »ñÈ¡×¨¼­·âÃæ
-	 * Ê¹ÓÃ¿ªÔ´¿â±Èandroid Ìá¹©µÄÂı
-	 * android»¨20ms ¿ªÔ´¿â»¨70hs
-	 * @param filePath ÎÄ¼şÂ·¾¶£¬like XXX/XXX/XX.mp3
-	 * @return ×¨¼­·âÃæbitmap
+	 * @Description è·å–ä¸“è¾‘å°é¢
+	 * ä½¿ç”¨å¼€æºåº“æ¯”android æä¾›çš„æ…¢
+	 * androidèŠ±20ms å¼€æºåº“èŠ±70hs
+	 * @param filePath æ–‡ä»¶è·¯å¾„ï¼Œlike XXX/XXX/XX.mp3
+	 * @return ä¸“è¾‘å°é¢bitmap
 	 */
 	@SuppressLint("NewApi")
 	public Bitmap createAlbumArt(final String filePath) {
-		Utils.getInstance().startTime("»ñÈ¡×¨¼­·âÃæ");
-//		L.e(tag, "»ñÈ¡×¨¼­·âÃæ£º" + filePath);
-		//---- Ê¹ÓÃ¿ªÔ´¿âÈ¡
+		Utils.getInstance().startTime("è·å–ä¸“è¾‘å°é¢");
+//		L.e(tag, "è·å–ä¸“è¾‘å°é¢ï¼š" + filePath);
+		//---- ä½¿ç”¨å¼€æºåº“å–
 		/*Bitmap bitmap = null;
 		Mp3File mp3file;
 		try {
@@ -340,48 +339,48 @@ public class Utils {
 					// file.close();
 					bitmap = BitmapFactory.decodeByteArray(imageData, 0,
 							imageData.length);
-					L.e(tag, "½â³ö×¨¼­Í¼Æ¬");
+					L.e(tag, "è§£å‡ºä¸“è¾‘å›¾ç‰‡");
 				}
-				L.e(tag, "Ã»ÓĞ×¨¼­Í¼Æ¬");
+				L.e(tag, "æ²¡æœ‰ä¸“è¾‘å›¾ç‰‡");
 			} else {
-				L.e(tag, "²»´æÔÚId3v2Tag");
+				L.e(tag, "ä¸å­˜åœ¨Id3v2Tag");
 			}
 		
-		//Ê¹ÓÃandroid¿â½âÎö
+		//ä½¿ç”¨androidåº“è§£æ
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			L.e(tag, "½âÎö×¨¼­Í¼Æ¬Òì³£");
+			L.e(tag, "è§£æä¸“è¾‘å›¾ç‰‡å¼‚å¸¸");
 			e.printStackTrace();
 		}*/
 		//----
 		
 	    Bitmap bitmap = null;
-	    //ÄÜ¹»»ñÈ¡¶àÃ½ÌåÎÄ¼şÔªÊı¾İµÄÀà
+	    //èƒ½å¤Ÿè·å–å¤šåª’ä½“æ–‡ä»¶å…ƒæ•°æ®çš„ç±»
 	    MediaMetadataRetriever retriever = new MediaMetadataRetriever();
 	    try {
-	        retriever.setDataSource(filePath); //ÉèÖÃÊı¾İÔ´
-	        byte[] embedPic = retriever.getEmbeddedPicture(); //µÃµ½×Ö½ÚĞÍÊı¾İ
+	        retriever.setDataSource(filePath); //è®¾ç½®æ•°æ®æº
+	        byte[] embedPic = retriever.getEmbeddedPicture(); //å¾—åˆ°å­—èŠ‚å‹æ•°æ®
 	        if(embedPic == null){
 	        	return null;
 	        }
-	        bitmap = BitmapFactory.decodeByteArray(embedPic, 0, embedPic.length); //×ª»»ÎªÍ¼Æ¬
+	        bitmap = BitmapFactory.decodeByteArray(embedPic, 0, embedPic.length); //è½¬æ¢ä¸ºå›¾ç‰‡
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	    	L.e(tag, "ËõÂÔÍ¼½âÎöÒì³££º" + filePath);
+	    	L.e(tag, "ç¼©ç•¥å›¾è§£æå¼‚å¸¸ï¼š" + filePath);
 	    } finally {
 	        try {
 	            retriever.release();
 	        } catch (Exception e2) {
-	        	L.e(tag, "ËõÂÔÍ¼½âÎöÒì³£ ÊÍ·ÅÊ§°Ü£º" + filePath);
+	        	L.e(tag, "ç¼©ç•¥å›¾è§£æå¼‚å¸¸ é‡Šæ”¾å¤±è´¥ï¼š" + filePath);
 	            e2.printStackTrace();
 	        }
 	    }
-	    Utils.getInstance().endUseTime("»ñÈ¡×¨¼­·âÃæ");
+	    Utils.getInstance().endUseTime("è·å–ä¸“è¾‘å°é¢");
 	    return bitmap;
 	}
    
 	/**
-	 * Drawable ¡ú Bitmap
+	 * Drawable â†’ Bitmap
 	 * @param drawable
 	 * @return
 	 */
@@ -409,9 +408,9 @@ public class Utils {
 	}
 	
 	/**
-	 * »ñµÃ¸ßË¹´¦ÀíºóµÄbitmap£¬ÓÃÍêÇëÊÍ·Å,Ò»ÕÅÍ¼Æ¬Ö»ĞíÈ¡Ò»ÕÅ£¬Ğ§¹ûÇëÊ¹ÓÃalphaµ÷½Ú
-	 * @param photoScale	Í¼Æ¬ËõĞ¡±¶Êı			½¨Òé·¶Î§ 30 ~5
-	 * @param radius		Ô²°ë¾¶£¬Ä£ºı³Ì¶È		½¨Òé·¶Î§ 2 ~ 20
+	 * è·å¾—é«˜æ–¯å¤„ç†åçš„bitmapï¼Œç”¨å®Œè¯·é‡Šæ”¾,ä¸€å¼ å›¾ç‰‡åªè®¸å–ä¸€å¼ ï¼Œæ•ˆæœè¯·ä½¿ç”¨alphaè°ƒèŠ‚
+	 * @param photoScale	å›¾ç‰‡ç¼©å°å€æ•°			å»ºè®®èŒƒå›´ 30 ~5
+	 * @param radius		åœ†åŠå¾„ï¼Œæ¨¡ç³Šç¨‹åº¦		å»ºè®®èŒƒå›´ 2 ~ 20
 	 */
 	/*public Bitmap blurBitmap(Bitmap bit, int photoScale, int radius){
 		return BlurUtils.getInstance().getBlurPhoto(bit, radius, radius);
@@ -419,14 +418,14 @@ public class Utils {
 	
 	public Bitmap small(Bitmap bitmap, int blurScale) {
 		Matrix matrix = new Matrix();
-		matrix.postScale(1.0f / blurScale, 1.0f / blurScale); // ³¤ºÍ¿í·Å´óËõĞ¡µÄ±ÈÀı
+		matrix.postScale(1.0f / blurScale, 1.0f / blurScale); // é•¿å’Œå®½æ”¾å¤§ç¼©å°çš„æ¯”ä¾‹
 		Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(),
 				bitmap.getHeight(), matrix, true);
 		return resizeBmp;
 	}
 	
 	/**
-	 * Í¼Æ¬»ÒÉ«´¦Àí
+	 * å›¾ç‰‡ç°è‰²å¤„ç†
 	 */
 	public Bitmap getGrayBitmap(Bitmap mBitmap) {
 		Bitmap mGrayBitmap = Bitmap.createBitmap(mBitmap.getWidth(),
@@ -434,22 +433,22 @@ public class Utils {
 		Canvas mCanvas = new Canvas(mGrayBitmap);
 		Paint mPaint = new Paint();
 
-		// ´´½¨ÑÕÉ«±ä»»¾ØÕó
+		// åˆ›å»ºé¢œè‰²å˜æ¢çŸ©é˜µ
 		ColorMatrix mColorMatrix = new ColorMatrix();
-		// ÉèÖÃ»Ò¶ÈÓ°Ïì·¶Î§
+		// è®¾ç½®ç°åº¦å½±å“èŒƒå›´
 		mColorMatrix.setSaturation(0);
-		// ´´½¨ÑÕÉ«¹ıÂË¾ØÕó
+		// åˆ›å»ºé¢œè‰²è¿‡æ»¤çŸ©é˜µ
 		ColorMatrixColorFilter mColorFilter = new ColorMatrixColorFilter(
 				mColorMatrix);
-		// ÉèÖÃ»­±ÊµÄÑÕÉ«¹ıÂË¾ØÕó
+		// è®¾ç½®ç”»ç¬”çš„é¢œè‰²è¿‡æ»¤çŸ©é˜µ
 		mPaint.setColorFilter(mColorFilter);
-		// Ê¹ÓÃ´¦ÀíºóµÄ»­±Ê»æÖÆÍ¼Ïñ
+		// ä½¿ç”¨å¤„ç†åçš„ç”»ç¬”ç»˜åˆ¶å›¾åƒ
 		mCanvas.drawBitmap(mBitmap, 0, 0, mPaint);
 		return mGrayBitmap;
 	}
 	
 	/**
-	 * »ñÈ¡×´Ì¬À¸¸ß¶È
+	 * è·å–çŠ¶æ€æ é«˜åº¦
 	 * @return
 	 */
 	public int getStatusH(){
@@ -457,18 +456,18 @@ public class Utils {
 	}
 	
 	/**
-	 * ÉèÖÃ×é¼ş¸ß¶ÈÎª×´Ì¬À¸¸ß¶È
+	 * è®¾ç½®ç»„ä»¶é«˜åº¦ä¸ºçŠ¶æ€æ é«˜åº¦
 	 */
 	public void updateViewHToStatusH(View view){
 		
-		ViewGroup.LayoutParams linearParams = (ViewGroup.LayoutParams) view.getLayoutParams(); // È¡¿Ø¼şmGridµ±Ç°µÄ²¼¾Ö²ÎÊı
-		linearParams.height = Utils.getInstance().getStatusH();// µ±¿Ø¼şµÄ¸ßÇ¿ÖÆÉè³É75ÏóËØ
-		view.setLayoutParams(linearParams); // Ê¹ÉèÖÃºÃµÄ²¼¾Ö²ÎÊıÓ¦ÓÃµ½¿Ø¼şmGrid2
+		ViewGroup.LayoutParams linearParams = (ViewGroup.LayoutParams) view.getLayoutParams(); // å–æ§ä»¶mGridå½“å‰çš„å¸ƒå±€å‚æ•°
+		linearParams.height = Utils.getInstance().getStatusH();// å½“æ§ä»¶çš„é«˜å¼ºåˆ¶è®¾æˆ75è±¡ç´ 
+		view.setLayoutParams(linearParams); // ä½¿è®¾ç½®å¥½çš„å¸ƒå±€å‚æ•°åº”ç”¨åˆ°æ§ä»¶mGrid2
 	}
 	
 	/**
-	 * ·µ»Ø×Ö·û´óĞ¡single×Ö·û´®
-	 * ¼ÆËãÊ±¼äºöÂÔ²»¼Æ
+	 * è¿”å›å­—ç¬¦å¤§å°singleå­—ç¬¦ä¸²
+	 * è®¡ç®—æ—¶é—´å¿½ç•¥ä¸è®¡
 	 */
 	public String getSingleLineStr(TextView textView, String str){
     	if(str == null || str.length() == 0 || textView.getMeasuredWidth() == 0){
@@ -476,7 +475,7 @@ public class Utils {
     	}
     	int width = textView.getMeasuredWidth() - textView.getPaddingLeft() - textView.getPaddingRight();
     	float textSize = textView.getTextSize();
-    	width = (int) (width - textSize * 3);		//Ô¤ÁôÈıµã
+    	width = (int) (width - textSize * 3);		//é¢„ç•™ä¸‰ç‚¹
     	int tempW = 0;
     	int index = 0;
     	String result = str;
@@ -494,9 +493,9 @@ public class Utils {
 	Paint pFont;
 	Rect rect;
 	/**
-	 * ·µ»Ø¿í¸ß
-	 * @param text		ÎÄ±¾
-	 * @param textSize	ÎÄ×Ö´óĞ¡
+	 * è¿”å›å®½é«˜
+	 * @param text		æ–‡æœ¬
+	 * @param textSize	æ–‡å­—å¤§å°
 	 * @return
 	 */
 	public int[] getCharDarwSize(String text, float textSize){

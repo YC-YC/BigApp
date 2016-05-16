@@ -18,7 +18,7 @@ import com.example.bigapps.horizonlist.TestActivity.CityItem;
 
 /**
  * @author YC
- * @time 2016-3-29 …œŒÁ11:29:09
+ * @time 2016-3-29 ‰∏äÂçà11:29:09
  */
 public class HorizontalListAdapter extends BaseAdapter {
 
@@ -80,5 +80,4 @@ public class HorizontalListAdapter extends BaseAdapter {
 	        TextView mTvCity;  
 	        TextView mTvCode;
 	    }  
-
 }

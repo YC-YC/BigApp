@@ -11,22 +11,22 @@ import android.view.WindowManager;
 
 /**
  * @author YC
- * @time 2016-3-29 ÉÏÎç11:57:40
+ * @time 2016-3-29 ä¸Šåˆ11:57:40
  * 
- * »ñÈ¡³ß´çÏà¹Ø¹¤¾ßÀà
+ * è·å–å°ºå¯¸ç›¸å…³å·¥å…·ç±»
  * 
- * px (pixels)ÏñËØ ¨C ÊÇÏñËØ£¬¾ÍÊÇÆÁÄ»ÉÏÊµ¼ÊµÄÏñËØµãµ¥Î»
- * dip»òdp (device independent pixels)Éè±¸¶ÀÁ¢ÏñËØ£¬ ÓëÉè±¸ÆÁÄ»ÓĞ¹Ø
- * dpi(dot per inch):ÆÁÄ»ÏñËØÃÜ¶È£¬Ã¿Ó¢´ç¶àÉÙÏñËØ
+ * px (pixels)åƒç´  â€“ æ˜¯åƒç´ ï¼Œå°±æ˜¯å±å¹•ä¸Šå®é™…çš„åƒç´ ç‚¹å•ä½
+ * dipæˆ–dp (device independent pixels)è®¾å¤‡ç‹¬ç«‹åƒç´ ï¼Œ ä¸è®¾å¤‡å±å¹•æœ‰å…³
+ * dpi(dot per inch):å±å¹•åƒç´ å¯†åº¦ï¼Œæ¯è‹±å¯¸å¤šå°‘åƒç´ 
  * 
- * »»Ëã¹«Ê½£ºpx = dip * (dpi / 160)
- * DisplayMetricsÖĞµÄdensity = dpi / 160 
- * DisplayMetricsÖĞµÄdensityDpi¾ÍÊÇdpi
+ * æ¢ç®—å…¬å¼ï¼špx = dip * (dpi / 160)
+ * DisplayMetricsä¸­çš„density = dpi / 160 
+ * DisplayMetricsä¸­çš„densityDpiå°±æ˜¯dpi
  */
 public class SizeUtils {
 	private static final String TAG = "SizeUtils";
 	/**
-	 * »ñÈ¡ÆÁÄ»²ÎÊı
+	 * è·å–å±å¹•å‚æ•°
 	 * @param context
 	 * @return
 	 */
@@ -35,7 +35,7 @@ public class SizeUtils {
 		WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
 		DisplayMetrics outMetrics = new DisplayMetrics();
 		wm.getDefaultDisplay().getMetrics(outMetrics);
-		Log.i(TAG, "ÆÁÄ»³ß´ç " +outMetrics.toString());
+		Log.i(TAG, "å±å¹•å°ºå¯¸ " +outMetrics.toString());
 		return outMetrics;
 	}
 	
@@ -56,11 +56,10 @@ public class SizeUtils {
 	}
 	
 	/**
-	 * ×ª³É±ê×¼³ß´ç
+	 * è½¬æˆæ ‡å‡†å°ºå¯¸
 	 * @param context
-	 * @param unit {@code TypedValue.COMPLEX_UNIT_PX...}COMPLEX_UNIT_SPÊÇµ¥Î»£¬20ÊÇÊıÖµ£¬Ò²¾ÍÊÇ20sp¡£
+	 * @param unit {@code TypedValue.COMPLEX_UNIT_PX...}COMPLEX_UNIT_SPæ˜¯å•ä½ï¼Œ20æ˜¯æ•°å€¼ï¼Œä¹Ÿå°±æ˜¯20spã€‚
 	 * @param value
-	 * @return
 	 */
 	public static int getStandarSize(Context context, int unit, int value)
 	{

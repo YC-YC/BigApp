@@ -16,7 +16,7 @@ import android.widget.ImageView.ScaleType;
 
 /**
  *@Author Administrator
- *@Time 2016-3-19 ÏÂÎç10:31:48
+ *@Time 2016-3-19 ä¸‹åˆ10:31:48
  */
 public class MainViewPager2 extends Activity {
 
@@ -39,24 +39,23 @@ public class MainViewPager2 extends Activity {
 	}
 	private void initViews() {
 		mViewPager = (CustomViewPager) findViewById(R.id.viewpager_main);	
-		
-		//ÉèÖÃÇĞ»»¶¯»­
-		//ÉÏÏÂÇĞ»»
+		//è®¾ç½®åˆ‡æ¢åŠ¨ç”»
+		//ä¸Šä¸‹åˆ‡æ¢
 //		mViewPager.setPageTransformer(true, new DepthPageTransformer());
-		//ËõĞ¡ÇĞ»»
+		//ç¼©å°åˆ‡æ¢
 //		mViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
-		//×Ô¶¨Òå·ç³µ·­×ª
+		//è‡ªå®šä¹‰é£è½¦ç¿»è½¬
 //		mViewPager.setPageTransformer(true, new RotatePageTransformer());
 
 		mViewPager.setAdapter(new PagerAdapter() {
 			
-			//³õÊ¼»¯ÏÔÊ¾µÄView
+			//åˆå§‹åŒ–æ˜¾ç¤ºçš„View
 			@Override
 			public Object instantiateItem(ViewGroup container, int position) {
 				ImageView imageView = new ImageView(MainViewPager2.this);
 				imageView.setImageResource(mImgIds[position]);
-				imageView.setScaleType(ScaleType.CENTER_CROP);//ÉèÖÃÍ¼Æ¬ĞÎ×´×Ó·ÀÖ¹±äĞÎ
+				imageView.setScaleType(ScaleType.CENTER_CROP);//è®¾ç½®å›¾ç‰‡å½¢çŠ¶å­é˜²æ­¢å˜å½¢
 				container.addView(imageView);
 				mViews.add(imageView);
 				mViewPager.setViewForPosition(imageView, position);
@@ -73,7 +72,7 @@ public class MainViewPager2 extends Activity {
 
 			@Override
 			public boolean isViewFromObject(View arg0, Object arg1) {
-				//Ò»°ã¹Ì¶¨Ğ´·¨
+				//ä¸€èˆ¬å›ºå®šå†™æ³•
 				return arg0 == arg1;
 			}
 			

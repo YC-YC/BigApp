@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+
 @SuppressLint("NewApi")
 public class DepthPageTransformer implements ViewPager.PageTransformer {
     private static float MIN_SCALE = 0.75f;

@@ -18,7 +18,7 @@ import com.example.bigapps.horizonlist.HorizonListActivity3.CityItem;
 
 /**
  * @author YC
- * @time 2016-3-29 …œŒÁ11:29:09
+ * @time 2016-3-29 ‰∏äÂçà11:29:09
  */
 public class HorizontalScrollViewAdapter extends BaseAdapter {
 
@@ -47,6 +47,7 @@ public class HorizontalScrollViewAdapter extends BaseAdapter {
 		return position;
 	}
 
+	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 	

@@ -23,11 +23,10 @@ import android.view.View;
 
 /**
  * @author YC
- * @time 2016-5-3 ÏÂÎç9:09:41
- * MVPÖĞPµÄ¾ßÌåÊµÏÖ£¬Ö÷Òª×÷ÖĞ×ªµ½M¼°ĞŞÊÎMÖĞ·µ»ØµÄÊı¾İ£¬ÔÙ»Øµ÷µ½VÖĞ
+ * @time 2016-5-3 ä¸‹åˆ9:09:41
+ * MVPä¸­Pçš„å…·ä½“å®ç°ï¼Œä¸»è¦ä½œä¸­è½¬åˆ°MåŠä¿®é¥°Mä¸­è¿”å›çš„æ•°æ®ï¼Œå†å›è°ƒåˆ°Vä¸­
  */
 public class PresentImp implements IPresent {
-
 	private static final String TAG = "PresentImp";
 	private Context mContext;
 	private IView mView;
@@ -42,14 +41,14 @@ public class PresentImp implements IPresent {
 
 	@Override
 	public void onCreate() {
-		Log.i(TAG, "onCreate ¿ªÊ¼¸üĞÂÊı¾İ");
-		mView.setText("¿ªÊ¼¸üĞÂÊı¾İ");
+		Log.i(TAG, "onCreate å¼€å§‹æ›´æ–°æ•°æ®");
+		mView.setText("å¼€å§‹æ›´æ–°æ•°æ®");
 		mModle.setData(new ICallback() {
 			
 			@Override
 			public void onResult(String string) {
-				//TODO ´Ë´¦¶ÔModle·µ»ØµÄÊı¾İ½øĞĞ·â×°´¦Àí£¬·µ»Øµ½ViewÖĞ£¬¹©ViewÖ±½Ó´¦Àí
-				String result = "Present ´¦ÀíÁË ModelµÄÖµÎª£º" + string;
+				//TODO æ­¤å¤„å¯¹Modleè¿”å›çš„æ•°æ®è¿›è¡Œå°è£…å¤„ç†ï¼Œè¿”å›åˆ°Viewä¸­ï¼Œä¾›Viewç›´æ¥å¤„ç†
+				String result = "Present å¤„ç†äº† Modelçš„å€¼ä¸ºï¼š" + string;
 				mView.setText(result);
 			}
 		});
