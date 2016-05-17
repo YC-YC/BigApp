@@ -26,26 +26,25 @@ import com.zh.uitls.Utils;
 
 /**
  * @author YC
- * @time 2016-5-4 ÏÂÎç4:42:59
+ * @time 2016-5-17 ä¸‹åˆ4:03:32
  */
 public class WheelActivity extends Activity implements OnWheelChangedListener{
-
-	private JSONObject mJsonObj;
+private JSONObject mJsonObj;
 	
 	private WheelView mProvince, mCity, mArea;
 	
-	/** ËùÓĞÊ¡ */
+	/** ï¿½ï¿½ï¿½ï¿½Ê¡ */
 	private String[] mProvinceDatas;
-	/** key - Ê¡ value - ÊĞs */
+	/** key - Ê¡ value - ï¿½ï¿½s */
 	private Map<String, String[]> mCitisDatasMap = new HashMap<String, String[]>();
-	/** key - ÊĞ values - Çøs */
+	/** key - ï¿½ï¿½ values - ï¿½ï¿½s */
 	private Map<String, String[]> mAreaDatasMap = new HashMap<String, String[]>();
 	
-	/** µ±Ç°Ê¡µÄÃû³Æ */
+	/** ï¿½ï¿½Ç°Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	private String mCurrentProviceName;
-	/** µ±Ç°ÊĞµÄÃû³Æ */
+	/** ï¿½ï¿½Ç°ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ */
 	private String mCurrentCityName;
-	/** µ±Ç°ÇøµÄÃû³Æ */
+	/** ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	private String mCurrentAreaName ="";
 	
 	@Override
@@ -64,11 +63,11 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 		mArea = (WheelView) findViewById(R.id.id_area);
 		
 		mProvince.setViewAdapter(new ArrayWheelAdapter<String>(this, mProvinceDatas));  
-        // Ìí¼ÓchangeÊÂ¼ş  
+        // ï¿½ï¿½ï¿½changeï¿½Â¼ï¿½  
         mProvince.addChangingListener(this);  
-        // Ìí¼ÓchangeÊÂ¼ş  
+        // ï¿½ï¿½ï¿½changeï¿½Â¼ï¿½  
         mCity.addChangingListener(this);  
-        // Ìí¼ÓchangeÊÂ¼ş  
+        // ï¿½ï¿½ï¿½changeï¿½Â¼ï¿½  
         mArea.addChangingListener(this);  
   
         mProvince.setVisibleItems(5);  
@@ -80,7 +79,7 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 	}
 
 	/**
-	 * ¸ù¾İµ±Ç°µÄÊĞ£¬¸üĞÂÇøWheelViewµÄĞÅÏ¢
+	 * ï¿½ï¿½ï¿½İµï¿½Ç°ï¿½ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WheelViewï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	private void updateAreas()
 	{
@@ -101,7 +100,7 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 	}
 
 	/**
-	 * ¸ù¾İµ±Ç°µÄÊ¡£¬¸üĞÂÊĞWheelViewµÄĞÅÏ¢
+	 * ï¿½ï¿½ï¿½İµï¿½Ç°ï¿½ï¿½Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WheelViewï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	private void updateCities()
 	{
@@ -117,7 +116,7 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 		updateAreas();
 	}
 	
-	/** ´ÓassertÎÄ¼ş¼ĞÖĞ¶ÁÈ¡Ê¡ÊĞÇøµÄjsonÎÄ¼ş£¬È»ºó×ª»¯Îªjson¶ÔÏó */
+	/** ï¿½ï¿½assertï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½È¡Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jsonï¿½Ä¼ï¿½ï¿½ï¿½È»ï¿½ï¿½×ªï¿½ï¿½Îªjsonï¿½ï¿½ï¿½ï¿½ */
 	private void initJsonData()
 	{
 		try
@@ -141,7 +140,7 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 		}
 	}
 	
-	/** ½âÎöÕû¸öJson¶ÔÏó£¬Íê³ÉºóÊÍ·ÅJson¶ÔÏóµÄÄÚ´æ */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jsonï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½Í·ï¿½Jsonï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ */
 	private void initDatas()
 	{
 		try
@@ -150,8 +149,8 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 			mProvinceDatas = new String[jsonArray.length()];
 			for (int i = 0; i < jsonArray.length(); i++)
 			{
-				JSONObject jsonP = jsonArray.getJSONObject(i);// Ã¿¸öÊ¡µÄjson¶ÔÏó
-				String province = jsonP.getString("p");// Ê¡Ãû×Ö
+				JSONObject jsonP = jsonArray.getJSONObject(i);// Ã¿ï¿½ï¿½Ê¡ï¿½ï¿½jsonï¿½ï¿½ï¿½ï¿½
+				String province = jsonP.getString("p");// Ê¡ï¿½ï¿½ï¿½ï¿½
 
 				mProvinceDatas[i] = province;
 
@@ -171,7 +170,7 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 				for (int j = 0; j < jsonCs.length(); j++)
 				{
 					JSONObject jsonCity = jsonCs.getJSONObject(j);
-					String city = jsonCity.getString("n");// ÊĞÃû×Ö
+					String city = jsonCity.getString("n");// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					mCitiesDatas[j] = city;
 					JSONArray jsonAreas = null;
 					try
@@ -186,10 +185,10 @@ public class WheelActivity extends Activity implements OnWheelChangedListener{
 						continue;
 					}
 
-					String[] mAreasDatas = new String[jsonAreas.length()];// µ±Ç°ÊĞµÄËùÓĞÇø
+					String[] mAreasDatas = new String[jsonAreas.length()];// ï¿½ï¿½Ç°ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					for (int k = 0; k < jsonAreas.length(); k++)
 					{
-						String area = jsonAreas.getJSONObject(k).getString("s");// ÇøÓòµÄÃû³Æ
+						String area = jsonAreas.getJSONObject(k).getString("s");// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						mAreasDatas[k] = area;
 					}
 					mAreaDatasMap.put(city, mAreasDatas);

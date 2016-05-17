@@ -3,17 +3,16 @@
  */
 package com.example.bigapps.picasso;
 
-import com.example.bigapps.R;
-import com.squareup.picasso.Picasso;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.example.bigapps.R;
+import com.squareup.picasso.Picasso;
+
 /**
  * @author YC
- * @time 2016-5-4 œ¬ŒÁ6:17:27
- * ≤‚ ‘picasso
+ * @time 2016-5-17 ‰∏ãÂçà4:02:22
  */
 public class PicassoActivity extends Activity {
 

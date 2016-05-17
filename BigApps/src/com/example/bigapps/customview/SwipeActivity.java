@@ -12,10 +12,9 @@ import com.example.bigapps.R;
 
 /**
  * @author YC
- * @time 2016-5-4 ÉÏÎç10:41:03
+ * @time 2016-5-17 ä¸‹åˆ4:00:02
  */
 public class SwipeActivity extends Activity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

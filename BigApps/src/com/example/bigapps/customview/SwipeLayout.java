@@ -14,24 +14,22 @@ import android.widget.LinearLayout;
 
 /**
  * @author YC
- * @time 2016-5-4 ÉÏÎç9:21:06
- * ×Ô¶¨Òå»¬¶¯É¾³ıView
+ * @time 2016-5-17 ä¸‹åˆ4:05:19
  */
 public class SwipeLayout extends LinearLayout {
-
-	private static final String TAG = "SwipeLayout";
+private static final String TAG = "SwipeLayout";
 	
 	private final double AUTO_OPEN_SPEED_LIMIT = 800.0;
-	/**´¦Àí»¬¶¯ÊÂ¼ş*/
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½*/
 	private ViewDragHelper viewDragHelper;
 	
-	/**Á½¸ö²¼¾ÖView*/
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½View*/
 	private View contentView, actionView;
 	
-	/**ÒÆ¶¯Î»ÖÃ*/
+	/**ï¿½Æ¶ï¿½Î»ï¿½ï¿½*/
 	private int draggedX;
 	
-	/**ÒÆ¶¯×î´óÎ»ÖÃ£¬ÆäÊµÊÇactionViewµÄ¿í¶È*/
+	/**ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½Êµï¿½ï¿½actionViewï¿½Ä¿ï¿½ï¿½*/
 	private int dragDistance;
 	
 	public SwipeLayout(Context context) {
@@ -46,7 +44,7 @@ public class SwipeLayout extends LinearLayout {
 		
 	}
 
-	/**²¼¾Ö¼ÓÔØÍêµ÷ÓÃ*/
+	/**ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	@Override
 	protected void onFinishInflate() {
 		super.onFinishInflate();
@@ -89,20 +87,20 @@ public class SwipeLayout extends LinearLayout {
 		
 
 
-		/**ÓÃÀ´È·¶¨contentViewºÍactionViewÊÇ¿ÉÒÔÍÏ¶¯µÄ*/
+		/**ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½contentViewï¿½ï¿½actionViewï¿½Ç¿ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½*/
 		@Override
 		public boolean tryCaptureView(View view, int i) {
 			return view == contentView || view == actionView;
 		}
 		
-		/**ÏŞÖÆviewÔÚxÖáÉÏÍÏ¶¯
-		 * leftÎª¼´½«ÒÆ¶¯µ½µÄÎ»ÖÃ
-		 * ·µ»ØÖµÎª´¦ÀíºóÕæÕıÒÆ¶¯µ½µÄÎ»ÖÃ
-		 * PS:ÏÈµ÷ÓÃÕâ¸öº¯ÊıÔÙ¸ù¾İ·µ»ØÖµµ÷ÓÃ onViewPositionChanged*/
+		/**ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
+		 * leftÎªï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+		 * ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+		 * PS:ï¿½Èµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½İ·ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ onViewPositionChanged*/
 		@Override
 		public int clampViewPositionHorizontal(View child, int left, int dx) {
 			Log.i(TAG, "clampViewPositionHorizontal left = " + left + ",dx = " + dx);
-			/*//·µ»ØºáÏò×ø±ê×óÓÒ±ß½çÖµ
+			/*//ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ß½ï¿½Öµ
 			 * if (mainLeft + dx < 0) { 
                 return 0 ;//0
             } else if (mainLeft + dx > range) {
@@ -125,13 +123,13 @@ public class SwipeLayout extends LinearLayout {
 			}
 		}
 
-		/**±»ÍÏ¶¯µÄviewÎ»ÖÃ¸Ä±äµÄÊ±ºòµ÷ÓÃ*/
+		/**ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½viewÎ»ï¿½Ã¸Ä±ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½*/
 		@Override
 		public void onViewPositionChanged(View changedView, int left, int top,
 				int dx, int dy) {
 			Log.i(TAG, "onViewPositionChanged left = " + left + ",dx = " + dx);
 			draggedX = left;
-			/**contentViewÒÆ¶¯Ê±£¬actionView¸ú×ÅÒÆ¶¯*/
+			/**contentViewï¿½Æ¶ï¿½Ê±ï¿½ï¿½actionViewï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½*/
 			if (changedView == contentView){
 				actionView.offsetLeftAndRight(dx);
 				Log.i(TAG, "onViewPositionChanged contentView");
@@ -146,7 +144,7 @@ public class SwipeLayout extends LinearLayout {
 		}
 		
 		
-		/**ÏŞÖÆviewºáÏò¿ÉÒÔÍÏ¶¯µÄ·¶Î§*/
+		/**ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½Ä·ï¿½Î§*/
 		@Override
 		public int getViewHorizontalDragRange(View child) {
             Log.i(TAG, "getViewHorizontalDragRange dragDistance = " + dragDistance);
@@ -154,8 +152,8 @@ public class SwipeLayout extends LinearLayout {
 		}
 
 		
-		/**¸ù¾İ»¬¶¯ÊÖÊÆµÄËÙ¶ÈÒÔ¼°»¬¶¯µÄ¾àÀëÀ´È·¶¨ÊÇ·ñÏÔÊ¾actionView*/
-		/**smoothSlideViewTo·½·¨ÓÃÀ´ÔÚ»¬¶¯ÊÖÊÆÖ®ºóÊµÏÖ¹ßĞÔ»¬¶¯Ğ§¹û*/
+		/**ï¿½ï¿½ï¿½İ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ù¶ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾actionView*/
+		/**smoothSlideViewToï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Êµï¿½Ö¹ï¿½ï¿½Ô»ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½*/
 		@Override
 		public void onViewReleased(View releasedChild, float xvel, float yvel) {
 			super.onViewReleased(releasedChild, xvel, yvel);
@@ -172,14 +170,11 @@ public class SwipeLayout extends LinearLayout {
 			}
 			
 			final int settleX = open ? -dragDistance : 0;
-			/**¹ßĞÔ»¬¶¯µ½Ö¸¶¨Î»ÖÃ*/
+			/**ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Î»ï¿½ï¿½*/
 			viewDragHelper.smoothSlideViewTo(contentView, settleX, 0);
-			/**µ÷ÓÃviewµÄ computeScroll() ·½·¨*/
+			/**ï¿½ï¿½ï¿½ï¿½viewï¿½ï¿½ computeScroll() ï¿½ï¿½ï¿½ï¿½*/
 			ViewCompat.postInvalidateOnAnimation(SwipeLayout.this);
 		}
 		
 	}
-	
-
-	
 }
