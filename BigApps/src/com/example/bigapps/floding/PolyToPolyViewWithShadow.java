@@ -39,6 +39,7 @@ public class PolyToPolyViewWithShadow extends View {
 		mShadowPaint = new Paint();
 		mShadowPaint.setStyle(Style.FILL);
 		
+		//阴影
 		mShadowGradient = new LinearGradient(0.0f, 0.0f, 0.5f, 0.0f, 
 				Color.BLACK, Color.TRANSPARENT, TileMode.CLAMP);
 		

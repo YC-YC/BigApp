@@ -13,6 +13,7 @@ public class MainFlodingActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 //		setContentView(new PolyToPolyView(this));
-		setContentView(new PolyToPolyViewWithShadow(this));
+//		setContentView(new PolyToPolyViewWithShadow(this));
+		setContentView(new PolyToPolyViewWithFloding(this));
 	}
 }

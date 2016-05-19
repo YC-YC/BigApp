@@ -93,6 +93,7 @@ public class Modle implements IModle{
 			break;
 		case R.id.button11:
 			mContext.startActivity(new Intent(mContext, MainFlodingActivity.class));
+			break;
 		case R.id.btnswipe:
 			mContext.startActivity(new Intent(mContext, SwipeActivity.class));
 			break;
