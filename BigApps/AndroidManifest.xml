@@ -7,8 +7,9 @@
     <uses-sdk
         android:minSdkVersion="18"
         android:targetSdkVersion="18" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -31,22 +32,20 @@
         <activity android:name="com.example.bigapps.circlemenu.CircleActivity" />
         <activity android:name="com.example.bigapps.slidedel.SlideDelActivity" />
         <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity" />
-
         <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity2" />
         <activity android:name="com.example.bigapps.horizonlist.HorizonListActivity3" />
         <activity android:name="com.example.bigapps.customview.CustomImageViewActivity" />
         <activity android:name="com.example.bigapps.horizonlist.TestActivity" />
         <activity android:name="com.example.download.DownloadActivity" />
         <activity android:name="com.example.bigapps.floding.MainFlodingActivity" />
-        
-        <service android:name="com.example.download.services.DownloadService"/>
 
+        <service android:name="com.example.download.services.DownloadService" />
 
         <activity android:name="com.example.bigapps.customview.SwipeActivity" >
         </activity>
-        <activity android:name="com.example.bigapps.wheel.WheelActivity"/>
-   		<activity android:name="com.example.bigapps.picasso.PicassoActivity"/>
-    
+        <activity android:name="com.example.bigapps.wheel.WheelActivity" />
+        <activity android:name="com.example.bigapps.picasso.PicassoActivity" />
+        <activity android:name="com.example.bigapps.progressbar.MainTestProgressbar" />
     </application>
 
 </manifest>

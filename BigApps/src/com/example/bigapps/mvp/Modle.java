@@ -17,6 +17,7 @@ import com.example.bigapps.horizonlist.HorizonListActivity2;
 import com.example.bigapps.horizonlist.HorizonListActivity3;
 import com.example.bigapps.horizonlist.TestActivity;
 import com.example.bigapps.picasso.PicassoActivity;
+import com.example.bigapps.progressbar.MainTestProgressbar;
 import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
@@ -102,6 +103,9 @@ public class Modle implements IModle{
 			break;
 		case R.id.btnpicasso:
 			mContext.startActivity(new Intent(mContext, PicassoActivity.class));
+			break;
+		case R.id.btnprogressbar:
+			mContext.startActivity(new Intent(mContext, MainTestProgressbar.class));
 			break;
 		default:
 			break;

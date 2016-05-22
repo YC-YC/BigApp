@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="progress_unreach_color" format="color"/>
+    <attr name="progress_reach_color" format="color"/>
+    <attr name="progress_unreach_bar_height" format="dimension"/>
+    <attr name="progress_reach_bar_height" format="dimension"/>
+    <attr name="progress_text_color" format="color"/>
+    <attr name="progress_text_size" format="dimension"/>
+    <attr name="progress_text_offset" format="dimension"/>
+    <attr name="progress_text_visibility" format="enum">
+        <enum name="visible" value="0"/>
+        <enum name="invisible" value="1"/>
+    </attr>
+    <declare-styleable name="HorizontalProgressbarWithNum">
+         <attr name="progress_unreach_color"/>
+	    <attr name="progress_reach_color"/>
+	    <attr name="progress_unreach_bar_height"/>
+	    <attr name="progress_reach_bar_height"/>
+	    <attr name="progress_text_color"/>
+	    <attr name="progress_text_size"/>
+	    <attr name="progress_text_offset"/>
+	    <attr name="progress_text_visibility"/>
+    </declare-styleable>
+    
+    <declare-styleable name="RoundProgressbarWithNum">
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+</resources>
