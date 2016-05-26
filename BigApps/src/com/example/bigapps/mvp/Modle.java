@@ -26,6 +26,8 @@ import com.example.download.DownloadActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+
+import com.example.bigapps.verticalseekbar.VerticalSeekBarActivity;
 import com.example.bigapps.wheel.WheelActivity;
 
 /**
@@ -106,6 +108,9 @@ public class Modle implements IModle{
 			break;
 		case R.id.btnprogressbar:
 			mContext.startActivity(new Intent(mContext, MainTestProgressbar.class));
+			break;
+		case R.id.btnverticalseekbar:
+			mContext.startActivity(new Intent(mContext, VerticalSeekBarActivity.class));
 			break;
 		default:
 			break;
