@@ -33,7 +33,7 @@ public class PolyToPolyViewWithFloding extends View {
 	/**折叠块的个数*/
 	private int mNumOffFlod = 8;
 	/**折叠矩阵*/
-	private Matrix[] mMatrixs = new Matrix[mNumOffFlod];
+	private Matrix[] mMatrixs;
 	/**原图每块宽度*/
 	private int mPerFoldWith;
 	/**折叠时每块宽度*/

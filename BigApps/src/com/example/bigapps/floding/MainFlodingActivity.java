@@ -1,5 +1,7 @@
 package com.example.bigapps.floding;
 
+import com.example.bigapps.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -14,6 +16,7 @@ public class MainFlodingActivity extends Activity {
 		super.onCreate(savedInstanceState);
 //		setContentView(new PolyToPolyView(this));
 //		setContentView(new PolyToPolyViewWithShadow(this));
-		setContentView(new PolyToPolyViewWithFloding(this));
+//		setContentView(new PolyToPolyViewWithFloding(this));
+		setContentView(R.layout.activity_flod);
 	}
 }
