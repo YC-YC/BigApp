@@ -18,10 +18,14 @@ import com.example.bigapps.horizonlist.HorizonListActivity3;
 import com.example.bigapps.horizonlist.TestActivity;
 import com.example.bigapps.picasso.PicassoActivity;
 import com.example.bigapps.progressbar.MainTestProgressbar;
+import com.example.bigapps.recyclerview.RecyclerViewActivity;
 import com.example.bigapps.slidedel.SlideDelActivity;
 import com.example.bigapps.testviewpager.MainViewPager;
 import com.example.bigapps.testviewpager.MainViewPager2;
 import com.example.download.DownloadActivity;
+import com.example.drawer.DrawerLayoutActivity;
+import com.example.drawer.SlidingDrawerActivity;
+import com.example.floatview.WindowHelper;
 
 import android.content.Context;
 import android.content.Intent;
@@ -111,6 +115,24 @@ public class Modle implements IModle{
 			break;
 		case R.id.btnverticalseekbar:
 			mContext.startActivity(new Intent(mContext, VerticalSeekBarActivity.class));
+			break;
+		case R.id.btrecyclerview:
+			mContext.startActivity(new Intent(mContext, RecyclerViewActivity.class));
+			break;
+		case R.id.floatview_drawerlayout:
+//			WindowHelper.getInstaces().createSmallView(mContext);
+			WindowHelper.getInstaces().removeSmallView(mContext);
+			WindowHelper.getInstaces().createDrawerLayoutView(mContext);
+			break;
+		case R.id.floatview_slidingdrawer:
+			WindowHelper.getInstaces().removeDrawerLayoutView(mContext);
+			WindowHelper.getInstaces().createSmallView(mContext);
+			break;
+		case R.id.drawerlayout:
+			mContext.startActivity(new Intent(mContext, DrawerLayoutActivity.class));
+			break;
+		case R.id.slidingdrawlayout:
+			mContext.startActivity(new Intent(mContext, SlidingDrawerActivity.class));
 			break;
 		default:
 			break;
