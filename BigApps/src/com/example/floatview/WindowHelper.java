@@ -73,7 +73,8 @@ public class WindowHelper {
 				mSmallViewParams.format = PixelFormat.RGBA_8888;
 				//设置浮动窗口不可聚焦（实现操作除浮动窗口外的其他可见窗口的操作）  
 				mSmallViewParams.flags = LayoutParams.FLAG_NOT_FOCUSABLE
-						|LayoutParams.FLAG_TRANSLUCENT_STATUS;	//忽略状态栏
+						|LayoutParams.FLAG_TRANSLUCENT_STATUS
+						|LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;	//忽略状态栏
 				//调整悬浮窗显示的停靠位置为左侧置顶  
 				mSmallViewParams.gravity = Gravity.RIGHT; 
 				
@@ -207,9 +208,10 @@ public class WindowHelper {
 				mBigViewParams.format = PixelFormat.RGBA_8888;
 				//设置浮动窗口不可聚焦（实现操作除浮动窗口外的其他可见窗口的操作）  
 				mBigViewParams.flags = LayoutParams.FLAG_NOT_FOCUSABLE
-						|LayoutParams.FLAG_TRANSLUCENT_STATUS;	//忽略状态栏
+						|LayoutParams.FLAG_TRANSLUCENT_STATUS
+						|LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;	//忽略状态栏
 				//调整悬浮窗显示的停靠位置为左侧置顶  
-				mBigViewParams.gravity = Gravity.RIGHT; 
+				mBigViewParams.gravity = Gravity.CENTER; 
 				
 				// 以屏幕左上角为原点，设置x、y初始值，相对于gravity  
 				mBigViewParams.x = 0;  
@@ -311,6 +313,7 @@ public class WindowHelper {
 	private void makeDrawerLayoutVisible(){
 		Log.i(TAG, "makeDrawerLayoutVisible");
 		mBigViewParams.width = 300;
+		mBigViewParams.x = -150;
 		manager.updateViewLayout(mBigView, mBigViewParams);
 	}
 	
@@ -324,6 +327,7 @@ public class WindowHelper {
 	private void makeDrawerLayoutInVisible(){
 		Log.i(TAG, "makeDrawerLayoutInVisible");
 		mBigViewParams.width = 10;
+		mBigViewParams.x = 0;
 		manager.updateViewLayout(mBigView, mBigViewParams);
 	}
 	
