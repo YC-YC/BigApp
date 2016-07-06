@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/smallview"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:background="#FF0000" 
+            android:tag="CONTENT">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="内容" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#00FF00" 
+            android:tag="LEFT">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="左侧菜单" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#0000FF"
+            android:tag="RIGHT" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="右侧菜单" />
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+     <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#000000" 
+            android:orientation="horizontal">
+
+         <Button
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="openLeft"
+             android:text="打开左侧" />
+ 		<Button
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="openMid"
+             android:text="打开中间" />
+         <Button
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="openRight"
+             android:text="打开右侧" />
+
+        </LinearLayout>
+    
+</LinearLayout>

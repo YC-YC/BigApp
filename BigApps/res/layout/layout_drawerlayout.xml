@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/smallview"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="#FF0000" 
+            android:tag="CONTENT"
+             android:gravity="center"
+            android:orientation="vertical" >
+        </FrameLayout>
+
+        <!-- <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#00FF00" 
+            android:tag="LEFT"
+            android:gravity="right|center_horizontal"
+            android:orientation="vertical" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="左侧菜单" />
+        </LinearLayout> -->
+        
+         <LinearLayout
+             android:id="@+id/right"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#0000FF"
+            android:tag="RIGHT" 
+             android:gravity="center"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/lock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加锁" />
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+    
+</LinearLayout>
