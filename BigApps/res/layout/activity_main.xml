@@ -253,6 +253,13 @@
                     android:layout_weight="1"
                     android:onClick="doClick"
                     android:text="测试PreferenceActivity" />
+                <Button
+                    android:id="@+id/testfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="测试文件存储" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

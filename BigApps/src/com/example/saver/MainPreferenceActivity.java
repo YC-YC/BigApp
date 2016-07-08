@@ -1,4 +1,4 @@
-package com.example.preferences;
+package com.example.saver;
 
 import com.example.bigapps.R;
 

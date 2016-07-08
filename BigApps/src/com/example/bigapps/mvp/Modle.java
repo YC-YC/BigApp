@@ -26,7 +26,8 @@ import com.example.download.DownloadActivity;
 import com.example.drawer.DrawerLayoutActivity;
 import com.example.drawer.SlidingDrawerActivity;
 import com.example.floatview.WindowHelper;
-import com.example.preferences.MainPreferenceActivity;
+import com.example.saver.MainOpenFileActivity;
+import com.example.saver.MainPreferenceActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -137,6 +138,9 @@ public class Modle implements IModle{
 			break;
 		case R.id.testpreference:
 			mContext.startActivity(new Intent(mContext, MainPreferenceActivity.class));
+			break;
+		case R.id.testfile:
+			mContext.startActivity(new Intent(mContext, MainOpenFileActivity.class));
 			break;
 		default:
 			break;
