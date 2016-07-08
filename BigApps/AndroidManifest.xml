@@ -51,7 +51,8 @@
     	<activity android:name="com.example.bigapps.recyclerview.RecyclerViewActivity" />
     <activity android:name="com.example.drawer.DrawerLayoutActivity" />
     <activity android:name="com.example.drawer.SlidingDrawerActivity" />
-    
+      <activity android:name="com.example.preferences.MainPreferenceActivity" />
+   
     </application>
 
 </manifest>

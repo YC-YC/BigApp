@@ -26,6 +26,7 @@ import com.example.download.DownloadActivity;
 import com.example.drawer.DrawerLayoutActivity;
 import com.example.drawer.SlidingDrawerActivity;
 import com.example.floatview.WindowHelper;
+import com.example.preferences.MainPreferenceActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -133,6 +134,9 @@ public class Modle implements IModle{
 			break;
 		case R.id.slidingdrawlayout:
 			mContext.startActivity(new Intent(mContext, SlidingDrawerActivity.class));
+			break;
+		case R.id.testpreference:
+			mContext.startActivity(new Intent(mContext, MainPreferenceActivity.class));
 			break;
 		default:
 			break;

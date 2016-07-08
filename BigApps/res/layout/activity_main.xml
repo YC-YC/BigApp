@@ -118,6 +118,7 @@
                     android:layout_weight="1"
                     android:onClick="doClick"
                     android:text="圆形图片" />
+
                 <Button
                     android:id="@+id/btnpicasso"
                     android:layout_width="0dp"
@@ -126,6 +127,7 @@
                     android:onClick="doClick"
                     android:text="Picasso测试" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -138,96 +140,119 @@
                     android:onClick="doClick"
                     android:text="三级联动测试" />
             </LinearLayout>
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="断点下载" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="断点下载" />
             </LinearLayout>
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="折叠布局" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="折叠布局" />
             </LinearLayout>
-             <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                
-            <Button
-                android:id="@+id/btnprogressbar"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="自定义ProgressBar" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/btnprogressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="自定义ProgressBar" />
             </LinearLayout>
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnverticalseekbar"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="竖向SeekBar" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/btnverticalseekbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="竖向SeekBar" />
             </LinearLayout>
-            
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btrecyclerview"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="RecyclerView" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/btrecyclerview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="RecyclerView" />
             </LinearLayout>
-            <LinearLayout 
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/drawerlayout"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="测试DrawerLayout" />
-            <Button
-                android:id="@+id/slidingdrawlayout"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="测试SlidingDrawer" />
-            <Button
-                android:id="@+id/floatview_drawerlayout"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="添加DrawerLayout悬浮窗" />
-            <Button
-                android:id="@+id/floatview_slidingdrawer"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:onClick="doClick"
-                android:text="添加SlidingDrawer悬浮窗" />
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/drawerlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="测试DrawerLayout" />
+
+                <Button
+                    android:id="@+id/slidingdrawlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="测试SlidingDrawer" />
+
+                <Button
+                    android:id="@+id/floatview_drawerlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="添加DrawerLayout悬浮窗" />
+
+                <Button
+                    android:id="@+id/floatview_slidingdrawer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="添加SlidingDrawer悬浮窗" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/testpreference"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="doClick"
+                    android:text="测试PreferenceActivity" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
